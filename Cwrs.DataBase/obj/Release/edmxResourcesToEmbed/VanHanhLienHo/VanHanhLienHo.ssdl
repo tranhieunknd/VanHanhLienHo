@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="VanHanhLienHoModel.Store" Provider="Npgsql" ProviderManifestToken="9.4.1" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="danh_muc_tb">
+    <Key>
+      <PropertyRef Name="danh_muc_code" />
+    </Key>
+    <Property Name="danh_muc_code" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="danh_muc_name" Type="varchar" MaxLength="200" />
+    <Property Name="mo_ta" Type="varchar" MaxLength="1000" />
+    <Property Name="created_by" Type="varchar" MaxLength="50" />
+    <Property Name="created_at" Type="timestamp" />
+    <Property Name="last_modified_by" Type="varchar" MaxLength="50" />
+    <Property Name="last_modified_at" Type="timestamp" />
+    <Property Name="deleted_status" Type="int4" />
+    <Property Name="row_id" Type="varchar" MaxLength="50" />
+    <Property Name="loai_danh_muc_ref" Type="int4" />
+  </EntityType>
+  <EntityType Name="dien_bien_tb">
+    <Key>
+      <PropertyRef Name="dien_bien_code" />
+    </Key>
+    <Property Name="dien_bien_code" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="vi_tri_ref" Type="int4" Nullable="false" />
+    <Property Name="tu_van_ref" Type="int4" Nullable="false" />
+    <Property Name="loai_du_lieu_ref" Type="int4" Nullable="false" />
+    <Property Name="gia_tri" Type="float8" Nullable="false" />
+    <Property Name="thoi_gian" Type="timestamp" />
+    <Property Name="is_thuc_do" Type="int4" Nullable="false" />
+    <Property Name="created_by" Type="varchar" MaxLength="50" />
+    <Property Name="created_at" Type="timestamp" />
+    <Property Name="last_modified_by" Type="varchar" MaxLength="50" />
+    <Property Name="last_modified_at" Type="timestamp" />
+    <Property Name="deleted_status" Type="int4" />
+    <Property Name="row_id" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="don_vi_tb">
+    <Key>
+      <PropertyRef Name="don_vi_code" />
+    </Key>
+    <Property Name="don_vi_code" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ki_hieu" Type="varchar" MaxLength="200" />
+    <Property Name="mo_ta" Type="varchar" MaxLength="200" />
+    <Property Name="created_by" Type="varchar" MaxLength="50" />
+    <Property Name="created_at" Type="timestamp" />
+    <Property Name="last_modified_by" Type="varchar" MaxLength="50" />
+    <Property Name="last_modified_at" Type="timestamp" />
+    <Property Name="deleted_status" Type="int4" />
+    <Property Name="row_id" Type="varchar" MaxLength="50" />
+    <Property Name="don_vi_name" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="hien_trang_tb">
+    <Key>
+      <PropertyRef Name="hien_trang_code" />
+    </Key>
+    <Property Name="hien_trang_code" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="vi_tri_ref" Type="int4" Nullable="false" />
+    <Property Name="tu_van_ref" Type="int4" Nullable="false" />
+    <Property Name="loai_du_lieu_ref" Type="int4" Nullable="false" />
+    <Property Name="gia_tri" Type="float8" Nullable="false" />
+    <Property Name="mo_ta" Type="varchar" MaxLength="200" />
+    <Property Name="created_by" Type="varchar" MaxLength="50" />
+    <Property Name="created_at" Type="timestamp" />
+    <Property Name="last_modified_by" Type="varchar" MaxLength="50" />
+    <Property Name="last_modified_at" Type="timestamp" />
+    <Property Name="deleted_status" Type="int4" />
+    <Property Name="row_id" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="loai_danh_muc_tb">
+    <Key>
+      <PropertyRef Name="loai_danh_muc_code" />
+    </Key>
+    <Property Name="loai_danh_muc_code" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="loai_danh_muc_name" Type="varchar" MaxLength="200" />
+    <Property Name="mo_ta" Type="varchar" MaxLength="1000" />
+    <Property Name="created_by" Type="varchar" MaxLength="50" />
+    <Property Name="created_at" Type="timestamp" />
+    <Property Name="last_modified_by" Type="varchar" MaxLength="50" />
+    <Property Name="last_modified_at" Type="timestamp" />
+    <Property Name="deleted_status" Type="int4" />
+    <Property Name="row_id" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="loai_du_lieu_tb">
+    <Key>
+      <PropertyRef Name="loai_du_lieu_code" />
+    </Key>
+    <Property Name="loai_du_lieu_code" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="loai_du_lieu_name" Type="varchar" MaxLength="200" />
+    <Property Name="mo_ta" Type="varchar" MaxLength="500" />
+    <Property Name="created_by" Type="varchar" MaxLength="50" />
+    <Property Name="created_at" Type="timestamp" />
+    <Property Name="last_modified_by" Type="varchar" MaxLength="50" />
+    <Property Name="last_modified_at" Type="timestamp" />
+    <Property Name="deleted_status" Type="int4" />
+    <Property Name="row_id" Type="varchar" MaxLength="50" />
+    <Property Name="don_vi" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="phuong_an_detail_tb">
+    <Key>
+      <PropertyRef Name="phuong_an_detail_code" />
+    </Key>
+    <Property Name="phuong_an_detail_code" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="vi_tri_ref" Type="int4" Nullable="false" />
+    <Property Name="phuong_an_ref" Type="int4" />
+    <Property Name="loai_du_lieu_ref" Type="int4" Nullable="false" />
+    <Property Name="gia_tri" Type="float8" Nullable="false" />
+    <Property Name="thoi_gian" Type="timestamp" />
+    <Property Name="created_by" Type="varchar" MaxLength="50" />
+    <Property Name="created_at" Type="timestamp" />
+    <Property Name="last_modified_by" Type="varchar" MaxLength="50" />
+    <Property Name="last_modified_at" Type="timestamp" />
+    <Property Name="deleted_status" Type="int4" />
+    <Property Name="row_id" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="phuong_an_tb">
+    <Key>
+      <PropertyRef Name="phuong_an_code" />
+    </Key>
+    <Property Name="phuong_an_code" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tu_van_ref" Type="int4" Nullable="false" />
+    <Property Name="phan_tich" Type="varchar" MaxLength="5000" />
+    <Property Name="kien_nghi" Type="varchar" MaxLength="5000" />
+    <Property Name="created_by" Type="varchar" MaxLength="50" />
+    <Property Name="created_at" Type="timestamp" />
+    <Property Name="last_modified_by" Type="varchar" MaxLength="50" />
+    <Property Name="last_modified_at" Type="timestamp" />
+    <Property Name="deleted_status" Type="int4" />
+    <Property Name="row_id" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tu_van_tb">
+    <Key>
+      <PropertyRef Name="tu_van_code" />
+    </Key>
+    <Property Name="tu_van_code" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="don_vi_ref" Type="int4" Nullable="false" />
+    <Property Name="user_ref" Type="int4" Nullable="false" />
+    <Property Name="thoi_gian" Type="timestamp" />
+    <Property Name="nhan_xet_24h" Type="varchar" MaxLength="5000" />
+    <Property Name="du_bao_24h" Type="varchar" MaxLength="5000" />
+    <Property Name="phan_tich" Type="varchar" MaxLength="5000" />
+    <Property Name="kien_nghi" Type="varchar" MaxLength="5000" />
+    <Property Name="created_by" Type="varchar" MaxLength="50" />
+    <Property Name="created_at" Type="timestamp" />
+    <Property Name="last_modified_by" Type="varchar" MaxLength="50" />
+    <Property Name="last_modified_at" Type="timestamp" />
+    <Property Name="deleted_status" Type="int4" />
+    <Property Name="row_id" Type="varchar" MaxLength="50" />
+    <Property Name="link" Type="varchar" MaxLength="300" />
+  </EntityType>
+  <EntityType Name="upload_file_tb">
+    <Key>
+      <PropertyRef Name="upload_file_code" />
+    </Key>
+    <Property Name="upload_file_code" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="upload_file_name" Type="varchar" MaxLength="200" />
+    <Property Name="mo_ta" Type="varchar" MaxLength="1000" />
+    <Property Name="created_by" Type="varchar" MaxLength="50" />
+    <Property Name="created_at" Type="timestamp" />
+    <Property Name="last_modified_by" Type="varchar" MaxLength="50" />
+    <Property Name="last_modified_at" Type="timestamp" />
+    <Property Name="deleted_status" Type="int4" />
+    <Property Name="row_id" Type="varchar" MaxLength="50" />
+    <Property Name="link" Type="varchar" MaxLength="1000" />
+    <Property Name="user_ref" Type="varchar" MaxLength="300" />
+  </EntityType>
+  <EntityType Name="user_tb">
+    <Key>
+      <PropertyRef Name="user_code" />
+    </Key>
+    <Property Name="user_code" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="username" Type="varchar" MaxLength="200" />
+    <Property Name="password" Type="varchar" MaxLength="200" />
+    <Property Name="mo_ta" Type="varchar" MaxLength="200" />
+    <Property Name="created_by" Type="varchar" MaxLength="50" />
+    <Property Name="created_at" Type="timestamp" />
+    <Property Name="last_modified_by" Type="varchar" MaxLength="50" />
+    <Property Name="last_modified_at" Type="timestamp" />
+    <Property Name="deleted_status" Type="int4" />
+    <Property Name="row_id" Type="varchar" MaxLength="50" />
+    <Property Name="account_status" Type="int4" />
+    <Property Name="email" Type="varchar" MaxLength="100" />
+    <Property Name="dia_chi" Type="varchar" MaxLength="300" />
+    <Property Name="dien_thoai" Type="varchar" MaxLength="20" />
+    <Property Name="ghi_chu" Type="varchar" MaxLength="500" />
+    <Property Name="don_vi_ref" Type="int4" />
+    <Property Name="user_guid" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="vi_tri_tb">
+    <Key>
+      <PropertyRef Name="vi_tri_code" />
+    </Key>
+    <Property Name="vi_tri_code" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mo_ta" Type="varchar" MaxLength="200" />
+    <Property Name="created_by" Type="varchar" MaxLength="50" />
+    <Property Name="created_at" Type="timestamp" />
+    <Property Name="last_modified_by" Type="varchar" MaxLength="50" />
+    <Property Name="last_modified_at" Type="timestamp" />
+    <Property Name="deleted_status" Type="int4" />
+    <Property Name="row_id" Type="varchar" MaxLength="50" />
+    <Property Name="vi_tri_name" Type="varchar" MaxLength="200" />
+    <Property Name="vi_tri_type" Type="int4" />
+  </EntityType>
+  <EntityContainer Name="VanHanhLienHoModelStoreContainer">
+    <EntitySet Name="danh_muc_tb" EntityType="Self.danh_muc_tb" Schema="public" store:Type="Tables" />
+    <EntitySet Name="dien_bien_tb" EntityType="Self.dien_bien_tb" Schema="public" store:Type="Tables" />
+    <EntitySet Name="don_vi_tb" EntityType="Self.don_vi_tb" Schema="public" store:Type="Tables" />
+    <EntitySet Name="hien_trang_tb" EntityType="Self.hien_trang_tb" Schema="public" store:Type="Tables" />
+    <EntitySet Name="loai_danh_muc_tb" EntityType="Self.loai_danh_muc_tb" Schema="public" store:Type="Tables" />
+    <EntitySet Name="loai_du_lieu_tb" EntityType="Self.loai_du_lieu_tb" Schema="public" store:Type="Tables" />
+    <EntitySet Name="phuong_an_detail_tb" EntityType="Self.phuong_an_detail_tb" Schema="public" store:Type="Tables" />
+    <EntitySet Name="phuong_an_tb" EntityType="Self.phuong_an_tb" Schema="public" store:Type="Tables" />
+    <EntitySet Name="tu_van_tb" EntityType="Self.tu_van_tb" Schema="public" store:Type="Tables" />
+    <EntitySet Name="upload_file_tb" EntityType="Self.upload_file_tb" Schema="public" store:Type="Tables" />
+    <EntitySet Name="user_tb" EntityType="Self.user_tb" Schema="public" store:Type="Tables" />
+    <EntitySet Name="vi_tri_tb" EntityType="Self.vi_tri_tb" Schema="public" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

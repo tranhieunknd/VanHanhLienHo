@@ -1,0 +1,155 @@
+﻿@using Cwrs.DataBase.Models;
+@model KichBanXa
+<script>
+    var KichBanXa_Stt = 0;
+</script>
+<script src="~/Scripts/moment.js"></script>
+<script src="~/Scripts/TinhMucNuocHo/TinhMucNuocHo.js"></script>
+
+<script>
+
+    function gridKichBanXaChiTietStt() {
+        if (TinhToanXa.ResetSTT) {
+            KichBanXa_Stt = 1;
+            TinhToanXa.ResetSTT = false;
+        } else {
+            KichBanXa_Stt += 1;
+        }
+
+        return KichBanXa_Stt;
+    }
+</script>
+<script>
+    $(document).ready(function () {
+        $(".js-example-basic-single").select2();
+        // setTimeout(TinhToanXa.TaoDienBienMucNuoc, 2000);
+        // TinhToanXa.TaoDienBienMucNuoc();
+    });
+</script>
+<section class="col-xs-12">
+    <section class="row">
+        <center>
+            <p style="font-family: Arial; font-size: 20px; color: #000000; padding-top: 10px"><b>THIẾT LẬP KỊCH BẢN </b></p>
+        </center>
+    </section>
+    <section class="row">
+        <!--Chọn có xem kịch bản cũ không-->
+        <div class="btn btn-wide btn-o btn-primary" onclick="TinhToanXa.ChangeXemLichSu();">
+            <a>
+                Xem kich bản đã thiết lập <i id="XemKichBan-icon" class="glyphicon glyphicon-chevron-down"></i>
+            </a>
+        </div>
+    </section>
+    <section class="row form-horizontal">
+        <!--Chọn Kịch bản cũ-->
+        <div class="form-group">
+            <div id="XemKichBanThietLap" style="display: none; padding-top: 5px;">
+                <div class="form-group" style="margin-left: 0;">
+                    <label class="col-sm-4 control-label">Kịch bản đã thiết lập: </label>
+                    <div class="col-sm-8">
+                        @Html.DropDownList("KichBanXa", (SelectList)ViewBag.ListThietLap,
+                                              new { onchange = "TinhToanXa.ChangeKichBanXa()", id = "KichBanXa", @class = "js-example-basic-single", style = "-webkit-text-decoration-color: red;-moz-text-decoration-color: red;-ms-text-decoration-color: red;-o-text-decoration-color: red;text-decoration-color: red; width: 100%" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Chọn Hồ Chứa-->
+        <div class="form-group">
+            <label class="col-sm-4 control-label">Hồ chứa: </label>
+            <div class="col-sm-8">
+                <select id="viTriCode" onchange="TinhToanXa.ChangeViTri()" class="js-example-basic-single" style="-webkit-text-decoration-color: red; -moz-text-decoration-color: red; -ms-text-decoration-color: red; -o-text-decoration-color: red; text-decoration-color: red; width: 100%">
+                    <option selected value="1">Hồ Sơn La</option>
+                    <option value="2">Hồ Hòa Bình</option>
+                    <option value="3">Hồ Tuyên Quang</option>
+                </select>
+            </div>
+        </div>
+        <!--Chọn thời gian-->
+        <div class="form-group">
+            <label class="col-sm-4 control-label">Thời gian: </label>
+            <div class="col-sm-8">
+                @(Html.Kendo().DateTimePicker().Name("DateSelect").Value(DateTime.Now)
+                    .HtmlAttributes(new { style = "width: 100%" })
+                    .Events(x => x.Change("TinhToanXa.ChangeGrid"))
+                    .Format("dd/MM/yyyy HH:mm")
+                //.Culture("vi-VN")
+                )
+            </div>
+        </div>
+        <!--Thông tin mực nước-->
+        <div class="form-group">
+            <label class="col-sm-4 control-label">Mực nước hồ (m): </label>
+            <div class="col-sm-8">
+                <input onchange="TinhToanXa.ChangeMucNuoc()" class="form-control" value="@Math.Round(ViewBag.MucNuoc,2)" id="mucNuoc" placeholder="Mực nước hồ">
+            </div>
+        </div>
+        <!--Thông tin lưu lương-->
+        <div class="form-group">
+            <label class="col-sm-4 control-label">Lưu lượng về hồ (m<sup>3</sup>/s): </label>
+            <div class="col-sm-8">
+                <input onchange="TinhToanXa.ChangeLuuLuong()" class="form-control" value="@Math.Round(ViewBag.LuuLuong, 2)" id="luuLuong" placeholder="Lưu lượng tới hồ">
+            </div>
+        </div>
+    </section>
+</section>
+
+<!-- Bang du lieu -->
+<section class="col-xs-12" style="padding-left: 0; margin-bottom: 10px">
+    @(Html.Kendo().Grid(Model.KichBanChiTiet)
+          .Name("GridXa")
+          .Columns(columns =>
+          {
+              columns.Template(p => { }).ClientTemplate("#:gridKichBanXaChiTietStt()#").HtmlAttributes(new { style = "text-align: center; " }).Title("STT").Width("50px");
+              columns.Bound(p => p.thiet_lap_kich_ban_detail_code).Visible(false);
+              columns.Bound(p => p.thoi_gian).Title("Thời gian").Width("100px").ClientTemplate("#= kendo.toString(kendo.parseDate(thoi_gian), 'dd/MM/yyyy HH:00') #"); //
+              columns.Bound(p => p.muc_nuoc_ho).Title("Mực nước hồ (m)").Width("100px");
+              columns.Bound(p => p.dung_tich_ho).Title("Dung tích hồ (10^6 m3)").Width("100px");
+              columns.Bound(p => p.luu_luong_du_bao).Title("Q dự báo (m3/s)").Width("100px");
+              columns.Bound(p => p.luu_luong_phat_dien).Title("Q phát điện (m3/s)").Width("100px");
+              columns.Bound(p => p.luu_luong_xa).Title("Q xả (m3/s)").Width("100px");
+              columns.Bound(p => p.tong_tran).Title("Tổng tràn").Width("100px");
+          })
+          .ToolBar(toolbar =>
+          {
+              toolbar.Template(@<text>
+        <div class="toolbar">
+            <label class="category-label" for="category">Chọn số giờ: </label>
+            @(Html.Kendo().NumericTextBox<int>()
+                        .Name("NumRow")
+                        .Value(5)
+                        .Placeholder("Chọn số thời gian thiết lập")
+                        .Min(1)
+                        .Decimals(0)
+                        .Events(e => e.Change("TinhToanXa.ChangeGrid"))
+            )
+        </div>
+            </text>);
+          })
+          .HtmlAttributes(new { @class = "col-xs-12", style = "height: 400px;" })
+          .Editable(editable => editable.Mode(GridEditMode.InCell))
+          .Sortable()
+          .Scrollable(scr => scr.Height(430))
+          .Filterable()
+          .DataSource(dataSource => dataSource
+              .Ajax()
+              .Model(model =>
+              {
+                  model.Id(p => p.thiet_lap_kich_ban_detail_code);
+                  model.Field(p => p.muc_nuoc_ho).DefaultValue(0).Editable(false);
+                  model.Field(p => p.dung_tich_ho).Editable(false);
+                  model.Field(p => p.thoi_gian).Editable(false);
+              }
+              )
+              .Read(read => read.Action("ChangeGridRead", "ThietLapXa").Data("TinhToanXa.GetParamDataTable"))
+              .PageSize(20)
+              .ServerOperation(false)
+          )
+    )
+</section>
+
+@*Nút điều khiển*@
+<section>
+    <button class="btn" onclick="TinhToanXa.LuuKichBan()"><i class="glyphicon glyphicon-ok-sign"></i> Lưu</button>
+    @*<button class="btn"><i class="glyphicon glyphicon-plus-sign"></i> Thêm mới</button>*@
+    <button class="btn" onclick="TinhToanXa.TaoDienBienMucNuoc()" style="position: absolute; right: 5px;"><i class="glyphicon glyphicon-play"></i> Tạo diễn biến mực nước hồ</button>
+</section>

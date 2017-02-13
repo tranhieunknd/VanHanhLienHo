@@ -1,0 +1,111 @@
+﻿@using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder
+@using Cwrs.DataBase.Models;
+@model List<LichSuCapNhat>
+
+<style>
+    table, th, td {
+        border: 1px solid #0094ff;
+        border-collapse: collapse;
+        padding: 10px;
+    }
+
+    th {
+        text-align: center;
+        color: #ffffff;
+        background: #0000ff;
+    }
+
+    td {
+        text-align: center;
+    }
+
+    .FixMinWidth {
+        min-width: 65px;
+    }
+
+    a {
+        color: #0094ff;
+    }
+
+        a:hover {
+            color: #b6ff00;
+        }
+
+    #data_table {
+        overflow: auto;
+    }
+
+    .tableFloatingHeaderOriginal {
+        background: #FFF;
+    }
+</style>
+
+@{
+    DateTime? tg = null;
+    int dem = 0;
+    int stt = 1;
+
+    Layout = IsAjax ? null : "~/Views/Shared/_LayoutClipTwo.cshtml";
+    if (Model == null)
+    {
+        <h2 style="margin-left: 10px; font-family: Arial"> @ViewBag.ThongBao</h2>
+    }
+    else
+    {
+        <div class="col-sm-12" style="padding-top: 10px">
+            <table>
+                <tr>
+                    <th style="width: 10%; font-weight: bold">
+                        STT
+                    </th>
+                    <th style="width: 15%; font-weight: bold">
+                        Đơn vị tư vấn
+                    </th>
+                    <th style="width: 50%; font-weight: bold">
+                        Phương án vận hành kiến nghị
+                    </th>
+                    <th style="width: 15%; font-weight: bold">
+                        Thời điểm cập nhật
+                    </th>
+                    <th style="width: 10%; font-weight: bold">
+                        Tùy chọn
+                    </th>
+                </tr>
+                @foreach (LichSuCapNhat item in Model)
+                {
+                    if (item.rowThoiGian != 0)
+                    {
+                        <tr>
+                            <td colspan="5">
+                                <p style="float: left; font-weight: bold; margin: 0"> @item.thoi_gian.ToString("dd-MM-yyyy")</p>
+                            </td>
+                        </tr>
+                        stt = 1;
+                    }
+                    <tr>
+                        @if (item.rowDonVi != 0)
+                        {
+                            <td rowspan="@item.rowDonVi">@stt</td>
+                            <td rowspan="@item.rowDonVi">@item.ki_hieu</td>
+                            stt++;
+                        }
+                        <td>@item.kien_nghi</td>
+                        @if (item.rowTuVan != 0)
+                        {
+                            <td rowspan="@item.rowTuVan">@item.created_at</td>
+                            <td rowspan="@item.rowTuVan">
+                                @*<a class="btn btn-small btn-dark-green glyphicon glyphicon-list-alt" data-ajax="true"
+                                   data-ajax-method="Get" data-ajax-mode="replace" data-ajax-update="#container"
+                                   href="/TuVan/GetInfoTuVan/@item.guid"
+                                   onclick="htm.SetUrlDynamicFull({}, '', '/TuVan/GetInfoTuVan/@item.guid', 'container');"></a>*@
+                                <a class="btn btn-small btn-dark-green glyphicon glyphicon-list-alt" 
+                                   onclick="htm.SetUrlDynamicFull({}, '', 'TuVan/GetInfoTuVan/@item.guid', 'container');"></a>  
+                                <a href="@item.link" class="btn btn-small btn btn-default glyphicon"><i class="glyphicon glyphicon-download-alt"></i></a>
+                            </td>
+                        }
+                    </tr>
+                }
+            </table>
+        </div>
+    }
+}

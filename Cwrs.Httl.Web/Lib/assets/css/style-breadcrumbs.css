@@ -1,0 +1,145 @@
+#page-breadcrumb {
+    height: 30px;
+    border-bottom: 1px solid #ddd;
+}
+
+.page-breadcrumb {
+    list-style: none;
+    overflow: hidden;
+    padding: 5px 0px 0px 10px;
+}
+
+    .page-breadcrumb li {
+        float: left;
+    }
+
+        .page-breadcrumb li a {
+            color: #00f;
+            text-decoration: none;
+            position: relative;
+            display: block;
+            float: left;
+            margin: 0 10px;
+            font-size: 16px;
+        }
+
+            .page-breadcrumb li a:hover {
+                font-weight: bold;
+            }
+
+        .page-breadcrumb li label {
+            color: #00f;
+            text-decoration: none;
+            position: relative;
+            display: block;
+            float: left;
+            font-size: 16px;
+        }
+
+            .page-breadcrumb li label:hover {
+                font-weight: bold;
+            }
+
+.ibreadcrumb {
+    height: 25px;
+    width: 25px;
+    color: black;
+    font-size: 15px;
+    float: left;
+    top: 3px;
+    position: relative;
+}
+
+
+
+.container-4 {
+    overflow: hidden;
+    max-width: 500px;
+    min-width: 300px;
+    width: 100%;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+    .container-4 input#SearchNameCTTL {
+        width: 100%;
+        height: 35px;
+        background: #fafafa;
+        font-size: 10pt;
+        float: left;
+        color: #000;
+        padding-left: 15px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px !important;
+        border: 1px solid #ddd;
+    }
+
+        .container-4 input#SearchNameCTTL:focus {
+            border: none;
+        }
+
+        .container-4 input#SearchNameCTTL::-webkit-input-placeholder {
+            color: #65737e;
+        }
+
+        .container-4 input#SearchNameCTTL:-moz-placeholder { /* Firefox 18- */
+            color: #65737e;
+        }
+
+        .container-4 input#SearchNameCTTL::-moz-placeholder { /* Firefox 19+ */
+            color: #65737e;
+        }
+
+        .container-4 input#SearchNameCTTL:-ms-input-placeholder {
+            color: #65737e;
+        }
+
+    .container-4 button.icon {
+        -webkit-border-top-right-radius: 5px;
+        -webkit-border-bottom-right-radius: 5px;
+        -moz-border-radius-topright: 5px;
+        -moz-border-radius-bottomright: 5px;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        border: none;
+        background: #01A8FE;
+        height: 35px;
+        width: 50px;
+        color: #fff;
+        opacity: 0;
+        font-size: 10pt;
+        -webkit-transition: all .55s ease;
+        -moz-transition: all .55s ease;
+        -ms-transition: all .55s ease;
+        -o-transition: all .55s ease;
+        transition: all .55s ease;
+        outline: none;
+        opacity: 1;
+        margin-left: -50px;
+    }
+
+    .container-4 button.icon1 {
+        outline: none;
+        opacity: 1;
+        margin-left: -104px;
+        background-color: transparent;
+        border: none;
+        width: 50px;
+        height: 35px;
+    }
+
+#page-search {
+    position: absolute;
+    z-index: 9;
+    left: 50%;
+    margin-top: 2px;
+}
+
+#HienTrangSearch {
+    width: 100%;
+    height: 195px;
+    display: block;
+    background-color: #fff;
+    margin-top: 2px;
+}

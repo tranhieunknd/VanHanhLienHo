@@ -1,0 +1,90 @@
+﻿@using System.Web.Script.Serialization
+@using Cwrs.DataBase.Models;
+@model List<LuuLuongDenHo>
+@{
+    ViewBag.Title = "Biểu đồ lưu lượng đến hồ";
+    if (IsAjax)
+    {
+        Layout = null;
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_LayoutClipTwo.cshtml";
+    }
+}
+<link href="~/Content/BieuDo/BieuDo.css?v=201611071025" rel="stylesheet" />
+
+
+<div class="form-horizontal  col-sm-12" style="margin: 10px auto;padding-top: 3px;">
+    <div class="col-sm-3 col-xs-6" style="">
+        <b class="">Chọn Hồ:</b>
+        <select id="tenHo" name="tenHo" class="js-example-basic-single" style="text-decoration-color:red;height:2%;">
+            <option selected value="1">Hồ Sơn La</option>
+            <option value="2">Hồ Hòa Bình</option>
+            <option selected value="3">Hồ Tuyên Quang</option>
+        </select>
+    </div>
+    <div class="col-sm-5 col-xs-6" style="margin-left:-1%">
+        <b>Thời gian phát dự báo:</b>
+        @(Html.Kendo().DatePicker()
+                            .Name("thoiGianBatDau")
+                            .Value(DateTime.Now)
+                            .HtmlAttributes(new { style = "width:150px" }))
+
+
+    </div>
+    <div class="col-sm-3 col-xs-6" style="margin-left:-8%">
+
+        <b>Thời gian dự báo:</b>
+        <select id="khoangTG" name="khoangTG" class="js-example-basic-single" style="text-decoration-color:red;min-width:30%;float:left">
+            <option selected value="24">24h</option>
+            <option value="36">36h</option>
+            <option value="48">48h</option>
+        </select>
+    </div>
+    <div class="col-sm-1 col-xs-6">
+        <button type="button" style="height:30px" onclick="BieuDo.LuuLuong(); LayGio()" class="btn btn-primary">Xem</button>
+    </div>
+</div>
+
+
+<div class="col-sm-12 col-xs-12">
+
+    <center><h2 style="font-family: Arial;"><b> BIỂU ĐỒ DIỄN BIẾN LƯU LƯỢNG ĐẾN HỒ <span id="gio"></span> GIỜ TỚI</b> </h2></center>
+    <div>
+        <div id="chartdiv" style="width: 95%;margin-left: 1.5%; height: 300px;"></div>
+        <div id="legenddiv" style="margin: 5px 0 20px 0;position: relative;"></div>
+
+    </div>
+    <center>
+        <div style="margin-left: -1.6%; width: 100.4%" id="tableLuuLuongDenHo">
+        </div>
+    </center>
+</div>
+<script>
+    //if ($("#chartdiv").text() == '') {
+    //    $("#chartdiv").empty();
+    //    $("#chartdiv").html("<br /><br /><center><h1 style='color:lightgray;'><b> Biểu Đồ <br /> Không Có Dữ Liệu</b></h1></center>");
+    //}
+    //document.getElementById('gio').innerHTML = document.getElementById('khoangTG').value;
+
+    function LayGio() {
+        document.getElementById('gio').innerHTML = document.getElementById('khoangTG').value;
+    }
+</script>
+@section scriptsTop{
+
+}
+<script src="~/Scripts/moment.js"></script>
+<script src="~/Scripts/amcharts/amcharts.js"></script>
+<script src="~/Scripts/amcharts/serial.js"></script>
+<script src="~/Scripts/amcharts/light.js"></script>
+<script src="~/Scripts/BieuDo/bieudo.js"></script>
+
+<script>
+     $(document).ready(function () {
+        home.DanhDauMenu('BieuDoLuuLuong', 2);
+        AddBreadCrumb(1, 'Biểu đồ', ''); AddBreadCrumb(2, 'Biểu đồ lưu lượng', '');
+
+        $(".js-example-basic-single").select2();         BieuDo.LuuLuong(); LayGio();
+    }); </script>

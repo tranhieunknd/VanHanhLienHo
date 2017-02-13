@@ -1,0 +1,21 @@
+﻿@using Cwrs.DataBase.Models
+@model BanTinTuVan
+@{
+    ViewBag.Title = "GetInfoTuVan";
+    if (IsAjax)
+    {
+        Layout = null;
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_LayoutClipTwo.cshtml";
+    }
+}
+<div style="margin:10px auto 0px 15px;">
+    <a class="btn btn-small btn-primary" data-ajax="true" data-ajax-method="GET"
+       data-ajax-mode="replace" data-ajax-update="#container"
+       href="~/LichSuCapNhat/Index" style="color: #FFFFFF" onclick="AddBreadCrumb(1, 'Nhập dữ liệu tính toán', '');">
+        <i class="glyphicon glyphicon-arrow-left"></i> Quay lại
+    </a>
+</div>
+ @{ Html.RenderPartial("TuVan_All_Par", Model);}

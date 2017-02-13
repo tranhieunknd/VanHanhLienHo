@@ -1,0 +1,252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F727FC15-9E41-4BB8-861F-9D78C01C51F8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Cwrs.DataBase</RootNamespace>
+    <AssemblyName>Cwrs.DataBase</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Cwrs.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Cwrs.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Cwrs.Data, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Cwrs.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Insight.Database">
+      <HintPath>Lib\Insight.Database.dll</HintPath>
+    </Reference>
+    <Reference Include="Insight.Database.Providers.PostgreSQL">
+      <HintPath>Lib\Insight.Database.Providers.PostgreSQL.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Npgsql, Version=2.2.4.3, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Npgsql.dll</HintPath>
+    </Reference>
+    <Reference Include="Npgsql.EntityFramework, Version=2.2.4.3, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Npgsql.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseController.cs" />
+    <Compile Include="Code\Common.cs" />
+    <Compile Include="Code\DanhMucCtrl.cs" />
+    <Compile Include="Code\DienBienCtrl.cs" />
+    <Compile Include="Code\DonViCtrl.cs" />
+    <Compile Include="Code\HienTrangCtrl.cs" />
+    <Compile Include="Code\LichSuCapNhatCtrl.cs" />
+    <Compile Include="Code\LoaiDanhMucCtrl.cs" />
+    <Compile Include="Code\LoaiDuLieuCtrl.cs" />
+    <Compile Include="Code\PhuongAnCtrl.cs" />
+    <Compile Include="Code\PhuongAnDetailCtrl.cs" />
+    <Compile Include="Code\ThietLapXaCtrl.cs" />
+    <Compile Include="Code\TongHopCtrl.cs" />
+    <Compile Include="Code\TuVanCtrl.cs" />
+    <Compile Include="Code\UploadFileCtrl.cs" />
+    <Compile Include="Code\UserCtrl.cs" />
+    <Compile Include="Code\ViTriCtrl.cs" />
+    <Compile Include="Models\BanTinTuVan.cs" />
+    <Compile Include="Models\DienBien_Models.cs" />
+    <Compile Include="Models\GetList_Images.cs" />
+    <Compile Include="Models\GetList_KTXH.cs" />
+    <Compile Include="Models\GetList_RDS.cs" />
+    <Compile Include="Models\GetList_TPNN.cs" />
+    <Compile Include="Models\Hientrang_Model.cs" />
+    <Compile Include="Models\Item.cs" />
+    <Compile Include="Models\KichBanXa.cs" />
+    <Compile Include="Models\LichSuCapNhat.cs" />
+    <Compile Include="Models\LuuLuongDenHo.cs" />
+    <Compile Include="Models\MucNuoc.cs" />
+    <Compile Include="Models\MucNuocHaLuu.cs" />
+    <Compile Include="Models\PhuongAn.cs" />
+    <Compile Include="Models\PhuongAnChuyenDoi.cs" />
+    <Compile Include="Models\PhuongAnDetail.cs" />
+    <Compile Include="Models\PhuongAnDetail_Model.cs" />
+    <Compile Include="Models\PhuongAnExcel.cs" />
+    <Compile Include="Models\UserDetail.cs" />
+    <Compile Include="Models\UserTLVN.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VanHanhLienHo\danh_muc_tb.cs">
+      <DependentUpon>VanHanhLienHo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VanHanhLienHo\dien_bien_tb.cs">
+      <DependentUpon>VanHanhLienHo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VanHanhLienHo\don_vi_tb.cs">
+      <DependentUpon>VanHanhLienHo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VanHanhLienHo\hien_trang_tb.cs">
+      <DependentUpon>VanHanhLienHo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VanHanhLienHo\loai_danh_muc_tb.cs">
+      <DependentUpon>VanHanhLienHo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VanHanhLienHo\loai_du_lieu_tb.cs">
+      <DependentUpon>VanHanhLienHo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VanHanhLienHo\phuong_an_detail_tb.cs">
+      <DependentUpon>VanHanhLienHo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VanHanhLienHo\phuong_an_tb.cs">
+      <DependentUpon>VanHanhLienHo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VanHanhLienHo\thiet_lap_kich_ban_detail_tb.cs">
+      <DependentUpon>VanHanhLienHo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VanHanhLienHo\thiet_lap_kich_ban_tb.cs">
+      <DependentUpon>VanHanhLienHo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VanHanhLienHo\tong_hop_tb.cs">
+      <DependentUpon>VanHanhLienHo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VanHanhLienHo\tu_van_tb.cs">
+      <DependentUpon>VanHanhLienHo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VanHanhLienHo\upload_file_tb.cs">
+      <DependentUpon>VanHanhLienHo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VanHanhLienHo\user_tb.cs">
+      <DependentUpon>VanHanhLienHo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VanHanhLienHo\VanHanhLienHo.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VanHanhLienHo.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VanHanhLienHo\VanHanhLienHo.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VanHanhLienHo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VanHanhLienHo\VanHanhLienHo.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VanHanhLienHo.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="VanHanhLienHo\VanHanhLienHoDb.cs" />
+    <Compile Include="VanHanhLienHo\vi_tri_tb.cs">
+      <DependentUpon>VanHanhLienHo.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <EntityDeploy Include="VanHanhLienHo\VanHanhLienHo.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>VanHanhLienHo.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="VanHanhLienHo\VanHanhLienHo.edmx.diagram">
+      <DependentUpon>VanHanhLienHo.edmx</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="VanHanhLienHo\VanHanhLienHo.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>VanHanhLienHo.edmx</DependentUpon>
+      <LastGenOutput>VanHanhLienHo.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="VanHanhLienHo\VanHanhLienHo.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>VanHanhLienHo.edmx</DependentUpon>
+      <LastGenOutput>VanHanhLienHo.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Cwrs.Lib\Cwrs.Lib.csproj">
+      <Project>{64debd26-0bc5-4b25-8760-509eee9afb8d}</Project>
+      <Name>Cwrs.Lib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Cwrs.LogDB\Cwrs.LogDB.csproj">
+      <Project>{0a856677-6937-4bc7-a352-b5a1c7cd5220}</Project>
+      <Name>Cwrs.LogDB</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

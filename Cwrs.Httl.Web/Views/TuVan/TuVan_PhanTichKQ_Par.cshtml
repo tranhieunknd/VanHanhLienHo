@@ -1,0 +1,26 @@
+﻿@using Cwrs.DataBase.Models
+@model BanTinTuVan
+@{
+    System.Text.StringBuilder strhtml = new System.Text.StringBuilder();
+    int index = (int)ViewBag.IndexPhuongAn;
+}
+<div class="col-sm-12" style="padding-bottom:20px">
+    <div class="panel panel-white collapses" id="panel5">
+        <div class="panel-heading">
+            <h4 class="panel-title text-primary">Phương án: @(index + 1)</h4>
+            <div class="panel-tools">
+                <a data-original-title="Collapse" data-toggle="tooltip" data-placement="top" class="btn btn-transparent btn-sm panel-collapse" href="#"><i class="ti-minus collapse-off"></i><i class="ti-plus collapse-on"></i></a>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="formfield ">
+                <h5><p>Phân tích nhận xét về xu thế lũ:</p></h5>
+                @Html.TextAreaFor(model => Model.PhuongAnExcel[index].PhanTichNhanXet, new { @class = "ckeditor col-sm-12", @cols = "12", rows = "6", @readonly = "readonly" })
+            </div>
+            <div class="formfield" style="margin-top:150px">
+                <h5><p>Kiến nghị phương án điều hành cụ thể:</p></h5>
+                @Html.TextAreaFor(model => Model.PhuongAnExcel[index].KienNghiPA, new { @class = "ckeditor col-sm-12", @cols = "12", rows = "6", @readonly = "readonly" })
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,84 @@
+﻿@using Cwrs.DataBase.Models;
+@model IList<MucNuoc_SoSanh>
+<table id="BangSoLieuSoSanh" class="tableBieuDo" style="width:95%;border:1px solid black">
+    <thead>
+        <tr colspan="10" style="background:#00e8ff;text-align:center">
+            <th rowspan="2" style="width: 8%;text-align:center;color:black"><b>STT</b> </th>
+            <th rowspan="1" colspan="2" style="width: 22%;text-align:center;color:black"><b>Thời gian</b></th>
+            <th rowspan="2" style="width: 10%;text-align:center;color:black"><b>Thực đo</b></th>
+            <th rowspan="2" style="width: 10%;text-align:center;color:black"><b>Viện Khoa học Thủy lợi</b></th>
+            <th rowspan="2" style="width: 10%;text-align:center;color:black"><b>Đại học Thủy Lợi<br /></b></th>
+            <th rowspan="2" style="width: 10%;text-align:center;color:black"><b>Viện Khí tượng thủy văn<br /></b></th>
+            <th rowspan="2" style="width: 10%;text-align:center;color:black"><b>Trung tâm KTTV Trung Ương</b></th>
+            <th rowspan="2" style="width: 10%;text-align:center;color:black"><b>Viện Quy hoạch Thủy lợi<br /></b></th>
+            <th rowspan="2" style="width: 10%;text-align:center;color:black"><b>Viện Cơ học<br /></b></th>
+        </tr>
+        <tr style="background:#00e8ff;text-align:center">
+            <th style="width: 14%;text-align:center;color:black">Ngày</th>
+            <th style="width: 8%;text-align:center;color:black">Giờ</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            int count = Model.Count();
+            double dcx_sum1 = 0;
+            double dcx_sum2 = 0;
+            double dcx_sum3 = 0;
+            double dcx_sum4 = 0;
+            double dcx_sum5 = 0;
+            double dcx_sum6 = 0;
+            var stt = 0;
+        }
+        @for (int i = 0; i < Model.Count(); i++)
+        {
+            if (Model[i].MucNuocThucDo != 0 && Model[i].MucNuocThucDo != -1)
+            {
+                dcx_sum1 += Math.Abs((Model[i].mucnuoc_KHTL - Model[i].MucNuocThucDo)) / Model[i].MucNuocThucDo;
+                dcx_sum2 += Math.Abs((Model[i].mucnuoc_DHTL - Model[i].MucNuocThucDo)) / Model[i].MucNuocThucDo;
+                dcx_sum3 += Math.Abs((Model[i].mucnuoc_KTTV - Model[i].MucNuocThucDo)) / Model[i].MucNuocThucDo;
+                dcx_sum4 += Math.Abs((Model[i].mucnuoc_KTTVTW - Model[i].MucNuocThucDo)) / Model[i].MucNuocThucDo;
+                dcx_sum5 += Math.Abs((Model[i].mucnuoc_VQHTL - Model[i].MucNuocThucDo)) / Model[i].MucNuocThucDo;
+                dcx_sum6 += Math.Abs((Model[i].mucnuoc_VCH - Model[i].MucNuocThucDo)) / Model[i].MucNuocThucDo;
+            }
+            else { count--; }
+            <tr colspan="10" style="text-align:center">
+                
+                @if (i == 0 || Model[i].thoi_gian.ToString("dd/MM/yyyy") != Model[i - 1].thoi_gian.ToString("dd/MM/yyyy"))
+                {
+                    int dem = 1;
+                    stt++;
+                    for (int j = i + 1; j < Model.Count(); j++)
+                    {
+                        if (Model[i].thoi_gian.ToString("dd/MM/yyyy") == Model[j].thoi_gian.ToString("dd/MM/yyyy"))
+                        {
+                            dem++;
+                        }
+                    }
+                    <th rowspan="@dem" style="width: 8%;text-align:center;color:black;font-weight:normal"> @stt</th>
+                    <th rowspan="@dem" style="width: 14%;text-align:center;color:black;font-weight:normal">@Model[i].thoi_gian.ToString("dd/MM/yyyy")</th>
+                }
+                <th style="width: 8%;text-align:center;color:black;font-weight:normal">@Model[i].thoi_gian.Hour</th>
+                <th style="width: 10%;text-align:center;color:black;font-weight:normal">
+                    @if (Model[i].MucNuocThucDo != -1)
+                {@Model[i].MucNuocThucDo;
+                }
+                </th>
+                <th style="width: 10%;text-align:center;color:black;font-weight:normal">@Model[i].mucnuoc_KHTL</th>
+                <th style="width: 10%;text-align:center;color:black;font-weight:normal">@Model[i].mucnuoc_DHTL</th>
+                <th style="width: 10%;text-align:center;color:black;font-weight:normal">@Model[i].mucnuoc_KTTV</th>
+                <th style="width: 10%;text-align:center;color:black;font-weight:normal">@Model[i].mucnuoc_KTTVTW</th>
+                <th style="width: 10%;text-align:center;color:black;font-weight:normal">@Model[i].mucnuoc_VQHTL</th>
+                <th style="width: 10%;text-align:center;color:black;font-weight:normal">@Model[i].mucnuoc_VCH</th>
+            </tr>
+        }
+        <tr colspan="10" style="text-align:center">
+            <th colspan="4" style="width: 8%;text-align:center;color:black"><b>Độ chính xác (%)</b></th>
+            <th style="width: 10%;text-align:center;color:black;font-weight:normal">@(Math.Round((100 - 100 * dcx_sum1 / count), 2)) %</th>
+            <th style="width: 10%;text-align:center;color:black;font-weight:normal">@(Math.Round((100 - 100 * dcx_sum2 / count), 2)) %</th>
+            <th style="width: 10%;text-align:center;color:black;font-weight:normal">@(Math.Round((100 - 100 * dcx_sum3 / count), 2)) %</th>
+            <th style="width: 10%;text-align:center;color:black;font-weight:normal">@(Math.Round((100 - 100 * dcx_sum4 / count), 2)) %</th>
+            <th style="width: 10%;text-align:center;color:black;font-weight:normal">@(Math.Round((100 - 100 * dcx_sum5 / count), 2)) %</th>
+            <th style="width: 10%;text-align:center;color:black;font-weight:normal">@(Math.Round((100 - 100 * dcx_sum6 / count), 2)) %</th>
+        </tr>
+    </tbody>
+</table>

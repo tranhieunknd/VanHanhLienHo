@@ -1,0 +1,165 @@
+﻿@using Cwrs.Lib
+<script src="~/Scripts/home/home-min.js"></script>
+<div class="sidebar app-aside" id="sidebar">
+    <div class="sidebar-container perfect-scrollbar">
+        <nav>
+            <div class="navbar-title">
+                <span>Danh sách chức năng</span>
+            </div>
+            <!-- start: MAIN NAVIGATION MENU -->
+            <ul class="main-navigation-menu">
+                @if (!String.IsNullOrEmpty(Security.CurrentGroup) & Security.CurrentGroup == "b9bacf66-2439-454d-868c-23d3b04c420e")
+                {
+                    <li id="PhuongAn" class="active open" onclick="htm.SetUrlDynamic('', 'GET', {}, 'container');">
+                        <a>
+                            <div class="item-content">
+                                <div class="item-media">
+                                    <i class="ti-home"></i>
+                                </div>
+                                <div class="item-inner">
+                                    <span class="title"> PHƯƠNG ÁN VẬN HÀNH </span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>                    
+                    @*<li id="PhuongAn" class="active open" onclick="home.RefreshDelay(); home.DanhDauMenu('PhuongAn', 0);">
+                        <a data-ajax="true" data-ajax-method="GET"
+                           data-ajax-mode="replace" data-ajax-update="#container" data-ajax-success="home.CloseRefreshDelay"
+                           href="/Home/Index" onclick="AddBreadCrumb(1, 'Phương án vận hành', '');">
+                            <div class="item-content">
+                                <div class="item-media">
+                                    <i class="ti-home"></i>
+                                </div>
+                                <div class="item-inner">
+                                    <span class="title"> PHƯƠNG ÁN VẬN HÀNH </span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>*@
+                    <li id="BieuDo">
+                        <a href="javascript:void(0)" onclick="">
+                            <div class="item-content">
+                                <div class="item-media">
+                                    <i class="ti-bookmark-alt"></i>
+                                </div>
+                                <div class="item-inner">
+                                    <span class="title"> BIỂU ĐỒ </span><i class="icon-arrow"></i>
+                                </div>
+                            </div>
+                        </a>
+                        <ul class="sub-menu">
+
+                            <li id="BieuDoMucNuoc" onclick="htm.SetUrlDynamic('BieuDo/BieuDoMucNuoc', 'Get', {}); home.DanhDauMenu('BieuDoMucNuoc', 2); home.RefreshDelay(); AddBreadCrumb(1, 'Biểu đồ', ''); AddBreadCrumb(2, 'Biểu đồ mực nước', '');">
+                                @*<a onclick="Fill_Data_To_Chart.call_method_to_fill();">*@
+                                <span class="title">
+                                    @Ajax.ActionLink("Biểu đồ mực nước", "BieuDoMucNuoc", "BieuDo", new AjaxOptions
+                                   {
+                                       HttpMethod = "Get",
+                                       InsertionMode = InsertionMode.Replace,
+                                       OnSuccess = "home.CloseRefreshDelay",
+                                       UpdateTargetId = "container"
+                                   })
+                                </span>
+                                @*</a>*@
+                            </li>
+
+                            <li id="BieuDoLuuLuong" onclick="htm.SetUrlDynamic('BieuDo/BieuDoLuuLuong', 'GET', {}, 'container');">
+                                <span class="title">
+                                    @*@Ajax.ActionLink("Biểu đồ lưu lượng", "BieuDoLuuLuong", "BieuDo", new AjaxOptions
+                                        {
+                                            HttpMethod = "Get",
+                                            InsertionMode = InsertionMode.Replace,
+                                            OnSuccess = "home.CloseRefreshDelay",
+                                            UpdateTargetId = "container"
+                                        })*@
+                                    <a>Biểu đồ lưu lượng</a>
+                                </span>
+                            </li>
+
+                            <li id="BieuDoHaLuu" onclick="htm.SetUrlDynamic('BieuDo/BieuDoMucNuocHaLuu', 'GET', {}, 'container'); ">
+                                <span class="title">
+                                    <a>Biểu đồ mực nước hạ lưu</a>
+                                    @*@Ajax.ActionLink("Biểu đồ mực nước hạ lưu", "BieuDoMucNuocHaLuu", "BieuDo", new AjaxOptions
+                                        {
+                                            HttpMethod = "Get",
+                                            InsertionMode = InsertionMode.Replace,
+                                            OnSuccess = "home.CloseRefreshDelay",
+                                            UpdateTargetId = "container"
+                                        })*@
+                                </span>
+                            </li>
+
+                            <li id="BieuDoSoSanh" onclick="htm.SetUrlDynamic('BieuDo/BieuDoSoSanh', 'Get', {}); home.DanhDauMenu('BieuDoSoSanh', 2); home.RefreshDelay(); AddBreadCrumb(1, 'BIỂU ĐỒ', ''); AddBreadCrumb(2, 'BIỂU ĐỒ SO SÁNH', '');">
+                                <span class="title">
+                                    @Ajax.ActionLink("Biểu đồ so sánh", "BieuDoSoSanh", "BieuDo", new AjaxOptions
+                                    {
+                                        HttpMethod = "Get",
+                                        InsertionMode = InsertionMode.Replace,
+                                        UpdateTargetId = "container",
+                                        OnSuccess = "home.CloseRefreshDelay"
+                                    })
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                }
+
+                <li id="DuLieuTinhToan" onclick="htm.SetUrlDynamic('LichSuCapNhat/Index', 'Get', {}); home.DanhDauMenu('DuLieuTinhToan', 0); AddBreadCrumb(1, 'Dữ liệu tính toán', '');">
+                    <a data-ajax="true" data-ajax-method="GET"
+                       data-ajax-mode="replace" data-ajax-update="#container"
+                       href="/LichSuCapNhat/Index">
+                        <div class="item-content">
+                            <div class="item-media">
+                                <i class="ti-pencil-alt"></i>
+                            </div>
+                            <div class="item-inner">
+                                <span class="title"> DỮ LIỆU TÍNH TOÁN </span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                @if (!String.IsNullOrEmpty(Security.CurrentGroup) & Security.CurrentGroup == "b9bacf66-2439-454d-868c-23d3b04c420e")
+                {
+
+                    <li id="TinhToanMucNuoc" onclick="htm.SetUrlDynamicFull({}, '', 'ThietLapXa/Index', 'container'); AddBreadCrumb(0, 'Tính toán mực nước hồ', ''); home.DanhDauMenu('TinhToanMucNuoc', 0);">
+                        @*home.RefreshDelay();*@
+                        <a @*data-ajax="true" data-ajax-method="GET"
+
+                           data-ajax-mode="replace" data-ajax-update="#container" data-ajax-success="home.CloseRefreshDelay"
+                           href="ThietLapXa/Index"*@>
+                            <div class="item-content">
+                                <div class="item-media">
+                                    <i class="ti-image"></i>
+                                </div>
+                                <div class="item-inner">
+                                    <span class="title"> TÍNH TOÁN MỰC NƯỚC HỒ </span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">
+                            <div class="item-content">
+                                <div class="item-media">
+                                    <i class="ti-list"></i>
+                                </div>
+                                <div class="item-inner">
+                                    <span class="title"> PHÂN QUYỀN </span><i class="icon-arrow"></i>
+                                </div>
+                            </div>
+                        </a>
+                        <ul class="sub-menu">
+                            <li id="QuanLyTaiKhoan" onclick="home.DanhDauMenu('QuanLyTaiKhoan', 2); home.RefreshDelay(); AddBreadCrumb(1, 'Phân quyền', ''); AddBreadCrumb(2, 'Quản lý tài khoản', '');">
+                                <a data-ajax="true" data-ajax-method="GET"
+                                   data-ajax-mode="replace" data-ajax-update="#container" data-ajax-success="home.CloseRefreshDelay"
+                                   href="User/SelectAllUser">
+                                    <span class="title">Quản lý tài khoản</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                }
+            </ul>
+        </nav>
+    </div>
+</div>

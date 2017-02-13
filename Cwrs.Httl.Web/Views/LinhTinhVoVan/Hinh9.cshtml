@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "Hinh9";
+    Layout = "~/Views/Shared/_LayoutClipTwo.cshtml";
+}
+<head>
+    <STYLE>
+        .button {
+            width: 100px;
+            font-weight: bold;
+            background-color: white;
+        }
+
+            .button:hover {
+                background-color: darkgray;
+            }
+            table, th, td {
+                  width: 100%;
+                  border: 1px solid #0094ff;
+                  border-collapse: collapse;
+                  padding: 15px;
+                   
+            }
+    </STYLE>
+</head>
+<h2></h2>
+@using (Html.BeginForm())
+{
+
+    @Html.AntiForgeryToken()
+
+    <div style="float:left">
+        <button type="button" class="btn button btn-default" onclick="location.href='@Url.Action("Index", "TuVan")'" style="border:1px solid black;margin-top: -153px;width:85px;height:30px;padding:1px 1px 1px 1px;margin-left: 22px;">Thêm mới</button>
+        <button type="button" class="btn button btn-default" onclick="location.href='@Url.Action("Index", "TuVan")'" style="border:1px solid black;margin-top: -153px;width:65px;height:30px;padding:1px 1px 1px 1px;margin-left: 10px">Sửa</button>
+        <button type="button" class="btn button btn-default" style="border:1px solid black;margin-top: -153px;width:65px;height:30px;padding:1px 1px 1px 1px;margin-left: 10px">Xóa</button>
+        <button type="button" class="btn button btn-default" style="border:1px solid black;margin-top: -153px;width:85px;height:30px;padding:1px 1px 1px 1px;margin-left: 10px">Xem tất cả</button>
+        <button type="button" class="btn button btn-default" style="border:1px solid black;margin-top: -153px;width:65px;height:30px;padding:1px 1px 1px 1px;margin-left: 10px">In</button>
+    </div>
+    <center>
+        <table style="width:95%;border:1px solid black;margin-left: -22px;">
+            <tr colspan="18" style="background:#99ccff;text-align:center">             <th style="width: 2%;text-align:center;color:#ffffff"><center><b><input type="checkbox" class="checkbox" /></b></center> </th>             <th style="width: 5%;text-align:center;color:#ffffff"><b>STT</b></th>             <th style="width: 40%;text-align:center;color:#ffffff"><b>Phương án vận hành kiến nghị</b></th>             <th style="width: 40%;text-align:center;color:#ffffff"><b>Thời điểm<br /></b></th>             <th style="width: 8%;text-align:center;color:#ffffff"><b></b></th>         </tr>
+        </table>
+    </center>
+
+
+}

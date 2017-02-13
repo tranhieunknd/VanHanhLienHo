@@ -1,0 +1,17 @@
+﻿@using Cwrs.DataBase.Models;
+@model List<LichSuCapNhat>
+@{
+    ViewBag.Title = "Index";
+    string partialName = ViewBag.PartialName as string;
+    // Layout = null;
+    if (IsAjax)
+    {
+        Layout = null;
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_LayoutClipTwo.cshtml";
+    }
+}
+
+@{Html.RenderPartial(partialName, Model);}

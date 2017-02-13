@@ -1,0 +1,45 @@
+﻿@using Cwrs.DataBase.VanHanhLienHo
+@using PagedList.Mvc
+@model PagedList.IPagedList<upload_file_tb>
+@{
+    ViewBag.Title = "Index";
+    if (IsPost)
+    {
+        Layout = null;
+    }
+    else
+    {
+        Layout = "~/views/shared/_LayoutClipTwoUpload.cshtml";
+    }
+}
+
+<h2><br /></h2>
+
+<style>
+    table, th, td {
+        width: 100%;
+        border: 1px solid #0094ff;
+        border-collapse: collapse;
+        padding: 15px;
+    }
+</style>
+<head>
+
+</head>
+<body>
+    <div>
+        <center> <h3 style="text-align:center;color:#000000;margin:20px auto;"><b>CẬP NHẬT TỆP TIN TƯ VẤN </b></h3></center>
+    </div>
+    <div class="table-responsive" id="movie_grid">
+        @Html.Partial("Page_Ajax", Model)
+    </div>
+    <div>
+
+
+    </div>
+
+    <script>
+        console.log("@ViewBag.Write");
+        console.log("@ViewBag.Link");
+    </script>
+</body>

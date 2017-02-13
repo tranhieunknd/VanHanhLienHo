@@ -1,0 +1,849 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="VanHanhLienHoModel.Store" Provider="Npgsql" ProviderManifestToken="9.4.1" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="danh_muc_tb">
+          <Key>
+            <PropertyRef Name="danh_muc_code" />
+          </Key>
+          <Property Name="danh_muc_code" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="danh_muc_name" Type="varchar" MaxLength="200" />
+          <Property Name="mo_ta" Type="varchar" MaxLength="1000" />
+          <Property Name="created_by" Type="varchar" MaxLength="50" />
+          <Property Name="created_at" Type="timestamp" />
+          <Property Name="last_modified_by" Type="varchar" MaxLength="50" />
+          <Property Name="last_modified_at" Type="timestamp" />
+          <Property Name="deleted_status" Type="int4" />
+          <Property Name="row_id" Type="varchar" MaxLength="50" />
+          <Property Name="loai_danh_muc_ref" Type="int4" />
+        </EntityType>
+        <EntityType Name="dien_bien_tb">
+          <Key>
+            <PropertyRef Name="dien_bien_code" />
+          </Key>
+          <Property Name="dien_bien_code" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vi_tri_ref" Type="int4" Nullable="false" />
+          <Property Name="tu_van_ref" Type="int4" Nullable="false" />
+          <Property Name="loai_du_lieu_ref" Type="int4" Nullable="false" />
+          <Property Name="gia_tri" Type="float8" Nullable="false" />
+          <Property Name="thoi_gian" Type="timestamp" />
+          <Property Name="is_thuc_do" Type="int4" Nullable="false" />
+          <Property Name="created_by" Type="varchar" MaxLength="50" />
+          <Property Name="created_at" Type="timestamp" />
+          <Property Name="last_modified_by" Type="varchar" MaxLength="50" />
+          <Property Name="last_modified_at" Type="timestamp" />
+          <Property Name="deleted_status" Type="int4" />
+          <Property Name="row_id" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="don_vi_tb">
+          <Key>
+            <PropertyRef Name="don_vi_code" />
+          </Key>
+          <Property Name="don_vi_code" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ki_hieu" Type="varchar" MaxLength="200" />
+          <Property Name="mo_ta" Type="varchar" MaxLength="200" />
+          <Property Name="created_by" Type="varchar" MaxLength="50" />
+          <Property Name="created_at" Type="timestamp" />
+          <Property Name="last_modified_by" Type="varchar" MaxLength="50" />
+          <Property Name="last_modified_at" Type="timestamp" />
+          <Property Name="deleted_status" Type="int4" />
+          <Property Name="row_id" Type="varchar" MaxLength="50" />
+          <Property Name="don_vi_name" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="hien_trang_tb">
+          <Key>
+            <PropertyRef Name="hien_trang_code" />
+          </Key>
+          <Property Name="hien_trang_code" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vi_tri_ref" Type="int4" Nullable="false" />
+          <Property Name="tu_van_ref" Type="int4" Nullable="false" />
+          <Property Name="loai_du_lieu_ref" Type="int4" Nullable="false" />
+          <Property Name="gia_tri" Type="float8" Nullable="false" />
+          <Property Name="mo_ta" Type="varchar" MaxLength="200" />
+          <Property Name="created_by" Type="varchar" MaxLength="50" />
+          <Property Name="created_at" Type="timestamp" />
+          <Property Name="last_modified_by" Type="varchar" MaxLength="50" />
+          <Property Name="last_modified_at" Type="timestamp" />
+          <Property Name="deleted_status" Type="int4" />
+          <Property Name="row_id" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="loai_danh_muc_tb">
+          <Key>
+            <PropertyRef Name="loai_danh_muc_code" />
+          </Key>
+          <Property Name="loai_danh_muc_code" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="loai_danh_muc_name" Type="varchar" MaxLength="200" />
+          <Property Name="mo_ta" Type="varchar" MaxLength="1000" />
+          <Property Name="created_by" Type="varchar" MaxLength="50" />
+          <Property Name="created_at" Type="timestamp" />
+          <Property Name="last_modified_by" Type="varchar" MaxLength="50" />
+          <Property Name="last_modified_at" Type="timestamp" />
+          <Property Name="deleted_status" Type="int4" />
+          <Property Name="row_id" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="loai_du_lieu_tb">
+          <Key>
+            <PropertyRef Name="loai_du_lieu_code" />
+          </Key>
+          <Property Name="loai_du_lieu_code" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="loai_du_lieu_name" Type="varchar" MaxLength="200" />
+          <Property Name="mo_ta" Type="varchar" MaxLength="500" />
+          <Property Name="created_by" Type="varchar" MaxLength="50" />
+          <Property Name="created_at" Type="timestamp" />
+          <Property Name="last_modified_by" Type="varchar" MaxLength="50" />
+          <Property Name="last_modified_at" Type="timestamp" />
+          <Property Name="deleted_status" Type="int4" />
+          <Property Name="row_id" Type="varchar" MaxLength="50" />
+          <Property Name="don_vi" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="phuong_an_detail_tb">
+          <Key>
+            <PropertyRef Name="phuong_an_detail_code" />
+          </Key>
+          <Property Name="phuong_an_detail_code" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vi_tri_ref" Type="int4" Nullable="false" />
+          <Property Name="phuong_an_ref" Type="int4" />
+          <Property Name="loai_du_lieu_ref" Type="int4" Nullable="false" />
+          <Property Name="gia_tri" Type="float8" Nullable="false" />
+          <Property Name="thoi_gian" Type="timestamp" />
+          <Property Name="created_by" Type="varchar" MaxLength="50" />
+          <Property Name="created_at" Type="timestamp" />
+          <Property Name="last_modified_by" Type="varchar" MaxLength="50" />
+          <Property Name="last_modified_at" Type="timestamp" />
+          <Property Name="deleted_status" Type="int4" />
+          <Property Name="row_id" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="phuong_an_tb">
+          <Key>
+            <PropertyRef Name="phuong_an_code" />
+          </Key>
+          <Property Name="phuong_an_code" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tu_van_ref" Type="int4" Nullable="false" />
+          <Property Name="phan_tich" Type="varchar" MaxLength="5000" />
+          <Property Name="kien_nghi" Type="varchar" MaxLength="5000" />
+          <Property Name="created_by" Type="varchar" MaxLength="50" />
+          <Property Name="created_at" Type="timestamp" />
+          <Property Name="last_modified_by" Type="varchar" MaxLength="50" />
+          <Property Name="last_modified_at" Type="timestamp" />
+          <Property Name="deleted_status" Type="int4" />
+          <Property Name="row_id" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="thiet_lap_kich_ban_detail_tb">
+          <Key>
+            <PropertyRef Name="thiet_lap_kich_ban_detail_code" />
+          </Key>
+          <Property Name="thiet_lap_kich_ban_detail_code" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="thiet_lap_kich_ban_ref" Type="int4" />
+          <Property Name="muc_nuoc_ho" Type="float8" Nullable="false" />
+          <Property Name="dung_tich_ho" Type="float8" Nullable="false" />
+          <Property Name="luu_luong_du_bao" Type="float8" Nullable="false" />
+          <Property Name="luu_luong_phat_dien" Type="float8" Nullable="false" />
+          <Property Name="luu_luong_xa" Type="float8" Nullable="false" />
+          <Property Name="tong_tran" Type="float8" Nullable="false" />
+          <Property Name="thoi_gian" Type="timestamp" />
+          <Property Name="created_by" Type="varchar" MaxLength="50" />
+          <Property Name="created_at" Type="timestamp" />
+          <Property Name="last_modified_by" Type="varchar" MaxLength="50" />
+          <Property Name="last_modified_at" Type="timestamp" />
+          <Property Name="deleted_status" Type="int4" />
+          <Property Name="row_id" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="thiet_lap_kich_ban_tb">
+          <Key>
+            <PropertyRef Name="thiet_lap_kich_ban_code" />
+          </Key>
+          <Property Name="thiet_lap_kich_ban_code" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="thiet_lap_kich_ban_name" Type="varchar" MaxLength="5000" />
+          <Property Name="vi_tri_ref" Type="int4" Nullable="false" />
+          <Property Name="muc_nuoc_ho" Type="float8" Nullable="false" />
+          <Property Name="luu_luong_ve_ho" Type="float8" Nullable="false" />
+          <Property Name="created_by" Type="varchar" MaxLength="50" />
+          <Property Name="created_at" Type="timestamp" />
+          <Property Name="last_modified_by" Type="varchar" MaxLength="50" />
+          <Property Name="last_modified_at" Type="timestamp" />
+          <Property Name="user_ref" Type="int4" Nullable="false" />
+          <Property Name="deleted_status" Type="int4" />
+          <Property Name="row_id" Type="varchar" MaxLength="100" />
+          <Property Name="thoi_gian" Type="timestamp" />
+        </EntityType>
+        <EntityType Name="tong_hop_tb">
+          <Key>
+            <PropertyRef Name="tong_hop_code" />
+          </Key>
+          <Property Name="tong_hop_code" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="phan_tich_nhan_xet" Type="varchar" MaxLength="500" />
+          <Property Name="tong_hop_tinh_toan" Type="varchar" MaxLength="500" />
+          <Property Name="kien_nghi_dieu_hanh" Type="varchar" MaxLength="500" />
+          <Property Name="thoi_gian" Type="timestamp" />
+          <Property Name="created_by" Type="varchar" MaxLength="50" />
+          <Property Name="created_at" Type="timestamp" />
+          <Property Name="last_modified_by" Type="varchar" MaxLength="50" />
+          <Property Name="last_modified_at" Type="timestamp" />
+          <Property Name="deleted_status" Type="int4" />
+          <Property Name="row_id" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tu_van_tb">
+          <Key>
+            <PropertyRef Name="tu_van_code" />
+          </Key>
+          <Property Name="tu_van_code" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="don_vi_ref" Type="int4" Nullable="false" />
+          <Property Name="user_ref" Type="int4" Nullable="false" />
+          <Property Name="thoi_gian" Type="timestamp" />
+          <Property Name="nhan_xet_24h" Type="varchar" MaxLength="5000" />
+          <Property Name="du_bao_24h" Type="varchar" MaxLength="5000" />
+          <Property Name="phan_tich" Type="varchar" MaxLength="5000" />
+          <Property Name="kien_nghi" Type="varchar" MaxLength="5000" />
+          <Property Name="created_by" Type="varchar" MaxLength="50" />
+          <Property Name="created_at" Type="timestamp" />
+          <Property Name="last_modified_by" Type="varchar" MaxLength="50" />
+          <Property Name="last_modified_at" Type="timestamp" />
+          <Property Name="deleted_status" Type="int4" />
+          <Property Name="row_id" Type="varchar" MaxLength="50" />
+          <Property Name="link" Type="varchar" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="upload_file_tb">
+          <Key>
+            <PropertyRef Name="upload_file_code" />
+          </Key>
+          <Property Name="upload_file_code" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="upload_file_name" Type="varchar" MaxLength="200" />
+          <Property Name="mo_ta" Type="varchar" MaxLength="1000" />
+          <Property Name="created_by" Type="varchar" MaxLength="50" />
+          <Property Name="created_at" Type="timestamp" />
+          <Property Name="last_modified_by" Type="varchar" MaxLength="50" />
+          <Property Name="last_modified_at" Type="timestamp" />
+          <Property Name="deleted_status" Type="int4" />
+          <Property Name="row_id" Type="varchar" MaxLength="50" />
+          <Property Name="link" Type="varchar" MaxLength="1000" />
+          <Property Name="user_ref" Type="varchar" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="user_tb">
+          <Key>
+            <PropertyRef Name="user_code" />
+          </Key>
+          <Property Name="user_code" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="200" />
+          <Property Name="password" Type="varchar" MaxLength="200" />
+          <Property Name="mo_ta" Type="varchar" MaxLength="200" />
+          <Property Name="created_by" Type="varchar" MaxLength="50" />
+          <Property Name="created_at" Type="timestamp" />
+          <Property Name="last_modified_by" Type="varchar" MaxLength="50" />
+          <Property Name="last_modified_at" Type="timestamp" />
+          <Property Name="deleted_status" Type="int4" />
+          <Property Name="row_id" Type="varchar" MaxLength="50" />
+          <Property Name="account_status" Type="int4" />
+          <Property Name="email" Type="varchar" MaxLength="100" />
+          <Property Name="dia_chi" Type="varchar" MaxLength="300" />
+          <Property Name="dien_thoai" Type="varchar" MaxLength="20" />
+          <Property Name="ghi_chu" Type="varchar" MaxLength="500" />
+          <Property Name="don_vi_ref" Type="int4" />
+          <Property Name="user_guid" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="vi_tri_tb">
+          <Key>
+            <PropertyRef Name="vi_tri_code" />
+          </Key>
+          <Property Name="vi_tri_code" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="mo_ta" Type="varchar" MaxLength="200" />
+          <Property Name="created_by" Type="varchar" MaxLength="50" />
+          <Property Name="created_at" Type="timestamp" />
+          <Property Name="last_modified_by" Type="varchar" MaxLength="50" />
+          <Property Name="last_modified_at" Type="timestamp" />
+          <Property Name="deleted_status" Type="int4" />
+          <Property Name="row_id" Type="varchar" MaxLength="50" />
+          <Property Name="vi_tri_name" Type="varchar" MaxLength="200" />
+          <Property Name="vi_tri_type" Type="int4" />
+        </EntityType>
+        <EntityContainer Name="VanHanhLienHoModelStoreContainer">
+          <EntitySet Name="danh_muc_tb" EntityType="Self.danh_muc_tb" Schema="public" store:Type="Tables" />
+          <EntitySet Name="dien_bien_tb" EntityType="Self.dien_bien_tb" Schema="public" store:Type="Tables" />
+          <EntitySet Name="don_vi_tb" EntityType="Self.don_vi_tb" Schema="public" store:Type="Tables" />
+          <EntitySet Name="hien_trang_tb" EntityType="Self.hien_trang_tb" Schema="public" store:Type="Tables" />
+          <EntitySet Name="loai_danh_muc_tb" EntityType="Self.loai_danh_muc_tb" Schema="public" store:Type="Tables" />
+          <EntitySet Name="loai_du_lieu_tb" EntityType="Self.loai_du_lieu_tb" Schema="public" store:Type="Tables" />
+          <EntitySet Name="phuong_an_detail_tb" EntityType="Self.phuong_an_detail_tb" Schema="public" store:Type="Tables" />
+          <EntitySet Name="phuong_an_tb" EntityType="Self.phuong_an_tb" Schema="public" store:Type="Tables" />
+          <EntitySet Name="thiet_lap_kich_ban_detail_tb" EntityType="Self.thiet_lap_kich_ban_detail_tb" Schema="public" store:Type="Tables" />
+          <EntitySet Name="thiet_lap_kich_ban_tb" EntityType="Self.thiet_lap_kich_ban_tb" Schema="public" store:Type="Tables" />
+          <EntitySet Name="tong_hop_tb" EntityType="Self.tong_hop_tb" Schema="public" store:Type="Tables" />
+          <EntitySet Name="tu_van_tb" EntityType="Self.tu_van_tb" Schema="public" store:Type="Tables" />
+          <EntitySet Name="upload_file_tb" EntityType="Self.upload_file_tb" Schema="public" store:Type="Tables" />
+          <EntitySet Name="user_tb" EntityType="Self.user_tb" Schema="public" store:Type="Tables" />
+          <EntitySet Name="vi_tri_tb" EntityType="Self.vi_tri_tb" Schema="public" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="VanHanhLienHoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="VanHanhLienHoEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="danh_muc_tb" EntityType="VanHanhLienHoModel.danh_muc_tb" />
+          <EntitySet Name="dien_bien_tb" EntityType="VanHanhLienHoModel.dien_bien_tb" />
+          <EntitySet Name="don_vi_tb" EntityType="VanHanhLienHoModel.don_vi_tb" />
+          <EntitySet Name="hien_trang_tb" EntityType="VanHanhLienHoModel.hien_trang_tb" />
+          <EntitySet Name="loai_danh_muc_tb" EntityType="VanHanhLienHoModel.loai_danh_muc_tb" />
+          <EntitySet Name="loai_du_lieu_tb" EntityType="VanHanhLienHoModel.loai_du_lieu_tb" />
+          <EntitySet Name="phuong_an_detail_tb" EntityType="VanHanhLienHoModel.phuong_an_detail_tb" />
+          <EntitySet Name="phuong_an_tb" EntityType="VanHanhLienHoModel.phuong_an_tb" />
+          <EntitySet Name="thiet_lap_kich_ban_detail_tb" EntityType="VanHanhLienHoModel.thiet_lap_kich_ban_detail_tb" />
+          <EntitySet Name="thiet_lap_kich_ban_tb" EntityType="VanHanhLienHoModel.thiet_lap_kich_ban_tb" />
+          <EntitySet Name="tu_van_tb" EntityType="VanHanhLienHoModel.tu_van_tb" />
+          <EntitySet Name="upload_file_tb" EntityType="VanHanhLienHoModel.upload_file_tb" />
+          <EntitySet Name="user_tb" EntityType="VanHanhLienHoModel.user_tb" />
+          <EntitySet Name="vi_tri_tb" EntityType="VanHanhLienHoModel.vi_tri_tb" />
+          <EntitySet Name="tong_hop_tb" EntityType="VanHanhLienHoModel.tong_hop_tb" />
+        </EntityContainer>
+        <EntityType Name="danh_muc_tb">
+          <Key>
+            <PropertyRef Name="danh_muc_code" />
+          </Key>
+          <Property Name="danh_muc_code" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="danh_muc_name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="mo_ta" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="created_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="created_at" Type="DateTime" Precision="6" />
+          <Property Name="last_modified_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="last_modified_at" Type="DateTime" Precision="6" />
+          <Property Name="deleted_status" Type="Int32" />
+          <Property Name="row_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="loai_danh_muc_ref" Type="Int32" />
+        </EntityType>
+        <EntityType Name="dien_bien_tb">
+          <Key>
+            <PropertyRef Name="dien_bien_code" />
+          </Key>
+          <Property Name="dien_bien_code" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vi_tri_ref" Type="Int32" Nullable="false" />
+          <Property Name="tu_van_ref" Type="Int32" Nullable="false" />
+          <Property Name="loai_du_lieu_ref" Type="Int32" Nullable="false" />
+          <Property Name="gia_tri" Type="Double" Nullable="false" />
+          <Property Name="thoi_gian" Type="DateTime" Precision="6" />
+          <Property Name="is_thuc_do" Type="Int32" Nullable="false" />
+          <Property Name="created_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="created_at" Type="DateTime" Precision="6" />
+          <Property Name="last_modified_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="last_modified_at" Type="DateTime" Precision="6" />
+          <Property Name="deleted_status" Type="Int32" />
+          <Property Name="row_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="don_vi_tb">
+          <Key>
+            <PropertyRef Name="don_vi_code" />
+          </Key>
+          <Property Name="don_vi_code" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ki_hieu" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="mo_ta" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="created_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="created_at" Type="DateTime" Precision="6" />
+          <Property Name="last_modified_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="last_modified_at" Type="DateTime" Precision="6" />
+          <Property Name="deleted_status" Type="Int32" />
+          <Property Name="row_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="don_vi_name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="hien_trang_tb">
+          <Key>
+            <PropertyRef Name="hien_trang_code" />
+          </Key>
+          <Property Name="hien_trang_code" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vi_tri_ref" Type="Int32" Nullable="false" />
+          <Property Name="tu_van_ref" Type="Int32" Nullable="false" />
+          <Property Name="loai_du_lieu_ref" Type="Int32" Nullable="false" />
+          <Property Name="gia_tri" Type="Double" Nullable="false" />
+          <Property Name="mo_ta" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="created_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="created_at" Type="DateTime" Precision="6" />
+          <Property Name="last_modified_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="last_modified_at" Type="DateTime" Precision="6" />
+          <Property Name="deleted_status" Type="Int32" />
+          <Property Name="row_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="loai_danh_muc_tb">
+          <Key>
+            <PropertyRef Name="loai_danh_muc_code" />
+          </Key>
+          <Property Name="loai_danh_muc_code" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="loai_danh_muc_name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="mo_ta" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="created_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="created_at" Type="DateTime" Precision="6" />
+          <Property Name="last_modified_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="last_modified_at" Type="DateTime" Precision="6" />
+          <Property Name="deleted_status" Type="Int32" />
+          <Property Name="row_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="loai_du_lieu_tb">
+          <Key>
+            <PropertyRef Name="loai_du_lieu_code" />
+          </Key>
+          <Property Name="loai_du_lieu_code" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="loai_du_lieu_name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="mo_ta" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="created_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="created_at" Type="DateTime" Precision="6" />
+          <Property Name="last_modified_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="last_modified_at" Type="DateTime" Precision="6" />
+          <Property Name="deleted_status" Type="Int32" />
+          <Property Name="row_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="don_vi" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="phuong_an_detail_tb">
+          <Key>
+            <PropertyRef Name="phuong_an_detail_code" />
+          </Key>
+          <Property Name="phuong_an_detail_code" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vi_tri_ref" Type="Int32" Nullable="false" />
+          <Property Name="phuong_an_ref" Type="Int32" />
+          <Property Name="loai_du_lieu_ref" Type="Int32" Nullable="false" />
+          <Property Name="gia_tri" Type="Double" Nullable="false" />
+          <Property Name="thoi_gian" Type="DateTime" Precision="6" />
+          <Property Name="created_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="created_at" Type="DateTime" Precision="6" />
+          <Property Name="last_modified_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="last_modified_at" Type="DateTime" Precision="6" />
+          <Property Name="deleted_status" Type="Int32" />
+          <Property Name="row_id" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="phuong_an_tb">
+          <Key>
+            <PropertyRef Name="phuong_an_code" />
+          </Key>
+          <Property Name="phuong_an_code" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tu_van_ref" Type="Int32" Nullable="false" />
+          <Property Name="phan_tich" Type="String" MaxLength="5000" FixedLength="false" Unicode="true" />
+          <Property Name="kien_nghi" Type="String" MaxLength="5000" FixedLength="false" Unicode="true" />
+          <Property Name="created_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="created_at" Type="DateTime" Precision="6" />
+          <Property Name="last_modified_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="last_modified_at" Type="DateTime" Precision="6" />
+          <Property Name="deleted_status" Type="Int32" />
+          <Property Name="row_id" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="thiet_lap_kich_ban_detail_tb">
+          <Key>
+            <PropertyRef Name="thiet_lap_kich_ban_detail_code" />
+          </Key>
+          <Property Name="thiet_lap_kich_ban_detail_code" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="thiet_lap_kich_ban_ref" Type="Int32" />
+          <Property Name="muc_nuoc_ho" Type="Double" Nullable="false" />
+          <Property Name="dung_tich_ho" Type="Double" Nullable="false" />
+          <Property Name="luu_luong_du_bao" Type="Double" Nullable="false" />
+          <Property Name="luu_luong_phat_dien" Type="Double" Nullable="false" />
+          <Property Name="luu_luong_xa" Type="Double" Nullable="false" />
+          <Property Name="tong_tran" Type="Double" Nullable="false" />
+          <Property Name="thoi_gian" Type="DateTime" Precision="6" />
+          <Property Name="created_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="created_at" Type="DateTime" Precision="6" />
+          <Property Name="last_modified_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="last_modified_at" Type="DateTime" Precision="6" />
+          <Property Name="deleted_status" Type="Int32" />
+          <Property Name="row_id" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="thiet_lap_kich_ban_tb">
+          <Key>
+            <PropertyRef Name="thiet_lap_kich_ban_code" />
+          </Key>
+          <Property Name="thiet_lap_kich_ban_code" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="thiet_lap_kich_ban_name" Type="String" MaxLength="5000" FixedLength="false" Unicode="true" />
+          <Property Name="vi_tri_ref" Type="Int32" Nullable="false" />
+          <Property Name="muc_nuoc_ho" Type="Double" Nullable="false" />
+          <Property Name="luu_luong_ve_ho" Type="Double" Nullable="false" />
+          <Property Name="created_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="created_at" Type="DateTime" Precision="6" />
+          <Property Name="last_modified_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="last_modified_at" Type="DateTime" Precision="6" />
+          <Property Name="user_ref" Type="Int32" Nullable="false" />
+          <Property Name="deleted_status" Type="Int32" />
+          <Property Name="row_id" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="thoi_gian" Type="DateTime" Precision="6" />
+        </EntityType>
+        <EntityType Name="tu_van_tb">
+          <Key>
+            <PropertyRef Name="tu_van_code" />
+          </Key>
+          <Property Name="tu_van_code" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="don_vi_ref" Type="Int32" Nullable="false" />
+          <Property Name="user_ref" Type="Int32" Nullable="false" />
+          <Property Name="thoi_gian" Type="DateTime" Precision="6" />
+          <Property Name="nhan_xet_24h" Type="String" MaxLength="5000" FixedLength="false" Unicode="true" />
+          <Property Name="du_bao_24h" Type="String" MaxLength="5000" FixedLength="false" Unicode="true" />
+          <Property Name="phan_tich" Type="String" MaxLength="5000" FixedLength="false" Unicode="true" />
+          <Property Name="kien_nghi" Type="String" MaxLength="5000" FixedLength="false" Unicode="true" />
+          <Property Name="created_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="created_at" Type="DateTime" Precision="6" />
+          <Property Name="last_modified_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="last_modified_at" Type="DateTime" Precision="6" />
+          <Property Name="deleted_status" Type="Int32" />
+          <Property Name="row_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="link" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="upload_file_tb">
+          <Key>
+            <PropertyRef Name="upload_file_code" />
+          </Key>
+          <Property Name="upload_file_code" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="upload_file_name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="mo_ta" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="created_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="created_at" Type="DateTime" Precision="6" />
+          <Property Name="last_modified_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="last_modified_at" Type="DateTime" Precision="6" />
+          <Property Name="deleted_status" Type="Int32" />
+          <Property Name="row_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="link" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="user_ref" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="user_tb">
+          <Key>
+            <PropertyRef Name="user_code" />
+          </Key>
+          <Property Name="user_code" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="mo_ta" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="created_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="created_at" Type="DateTime" Precision="6" />
+          <Property Name="last_modified_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="last_modified_at" Type="DateTime" Precision="6" />
+          <Property Name="deleted_status" Type="Int32" />
+          <Property Name="row_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="account_status" Type="Int32" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="dia_chi" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="dien_thoai" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ghi_chu" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="don_vi_ref" Type="Int32" />
+          <Property Name="user_guid" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="vi_tri_tb">
+          <Key>
+            <PropertyRef Name="vi_tri_code" />
+          </Key>
+          <Property Name="vi_tri_code" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="mo_ta" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="created_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="created_at" Type="DateTime" Precision="6" />
+          <Property Name="last_modified_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="last_modified_at" Type="DateTime" Precision="6" />
+          <Property Name="deleted_status" Type="Int32" />
+          <Property Name="row_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="vi_tri_name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="vi_tri_type" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tong_hop_tb">
+          <Key>
+            <PropertyRef Name="tong_hop_code" />
+          </Key>
+          <Property Name="tong_hop_code" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="phan_tich_nhan_xet" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="tong_hop_tinh_toan" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="kien_nghi_dieu_hanh" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="thoi_gian" Type="DateTime" Precision="6" />
+          <Property Name="created_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="created_at" Type="DateTime" Precision="6" />
+          <Property Name="last_modified_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="last_modified_at" Type="DateTime" Precision="6" />
+          <Property Name="deleted_status" Type="Int32" />
+          <Property Name="row_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="VanHanhLienHoModelStoreContainer" CdmEntityContainer="VanHanhLienHoEntities1">
+          <EntitySetMapping Name="danh_muc_tb">
+            <EntityTypeMapping TypeName="VanHanhLienHoModel.danh_muc_tb">
+              <MappingFragment StoreEntitySet="danh_muc_tb">
+                <ScalarProperty Name="loai_danh_muc_ref" ColumnName="loai_danh_muc_ref" />
+                <ScalarProperty Name="row_id" ColumnName="row_id" />
+                <ScalarProperty Name="deleted_status" ColumnName="deleted_status" />
+                <ScalarProperty Name="last_modified_at" ColumnName="last_modified_at" />
+                <ScalarProperty Name="last_modified_by" ColumnName="last_modified_by" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="mo_ta" ColumnName="mo_ta" />
+                <ScalarProperty Name="danh_muc_name" ColumnName="danh_muc_name" />
+                <ScalarProperty Name="danh_muc_code" ColumnName="danh_muc_code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dien_bien_tb">
+            <EntityTypeMapping TypeName="VanHanhLienHoModel.dien_bien_tb">
+              <MappingFragment StoreEntitySet="dien_bien_tb">
+                <ScalarProperty Name="row_id" ColumnName="row_id" />
+                <ScalarProperty Name="deleted_status" ColumnName="deleted_status" />
+                <ScalarProperty Name="last_modified_at" ColumnName="last_modified_at" />
+                <ScalarProperty Name="last_modified_by" ColumnName="last_modified_by" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="is_thuc_do" ColumnName="is_thuc_do" />
+                <ScalarProperty Name="thoi_gian" ColumnName="thoi_gian" />
+                <ScalarProperty Name="gia_tri" ColumnName="gia_tri" />
+                <ScalarProperty Name="loai_du_lieu_ref" ColumnName="loai_du_lieu_ref" />
+                <ScalarProperty Name="tu_van_ref" ColumnName="tu_van_ref" />
+                <ScalarProperty Name="vi_tri_ref" ColumnName="vi_tri_ref" />
+                <ScalarProperty Name="dien_bien_code" ColumnName="dien_bien_code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="don_vi_tb">
+            <EntityTypeMapping TypeName="VanHanhLienHoModel.don_vi_tb">
+              <MappingFragment StoreEntitySet="don_vi_tb">
+                <ScalarProperty Name="don_vi_name" ColumnName="don_vi_name" />
+                <ScalarProperty Name="row_id" ColumnName="row_id" />
+                <ScalarProperty Name="deleted_status" ColumnName="deleted_status" />
+                <ScalarProperty Name="last_modified_at" ColumnName="last_modified_at" />
+                <ScalarProperty Name="last_modified_by" ColumnName="last_modified_by" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="mo_ta" ColumnName="mo_ta" />
+                <ScalarProperty Name="ki_hieu" ColumnName="ki_hieu" />
+                <ScalarProperty Name="don_vi_code" ColumnName="don_vi_code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="hien_trang_tb">
+            <EntityTypeMapping TypeName="VanHanhLienHoModel.hien_trang_tb">
+              <MappingFragment StoreEntitySet="hien_trang_tb">
+                <ScalarProperty Name="row_id" ColumnName="row_id" />
+                <ScalarProperty Name="deleted_status" ColumnName="deleted_status" />
+                <ScalarProperty Name="last_modified_at" ColumnName="last_modified_at" />
+                <ScalarProperty Name="last_modified_by" ColumnName="last_modified_by" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="mo_ta" ColumnName="mo_ta" />
+                <ScalarProperty Name="gia_tri" ColumnName="gia_tri" />
+                <ScalarProperty Name="loai_du_lieu_ref" ColumnName="loai_du_lieu_ref" />
+                <ScalarProperty Name="tu_van_ref" ColumnName="tu_van_ref" />
+                <ScalarProperty Name="vi_tri_ref" ColumnName="vi_tri_ref" />
+                <ScalarProperty Name="hien_trang_code" ColumnName="hien_trang_code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="loai_danh_muc_tb">
+            <EntityTypeMapping TypeName="VanHanhLienHoModel.loai_danh_muc_tb">
+              <MappingFragment StoreEntitySet="loai_danh_muc_tb">
+                <ScalarProperty Name="row_id" ColumnName="row_id" />
+                <ScalarProperty Name="deleted_status" ColumnName="deleted_status" />
+                <ScalarProperty Name="last_modified_at" ColumnName="last_modified_at" />
+                <ScalarProperty Name="last_modified_by" ColumnName="last_modified_by" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="mo_ta" ColumnName="mo_ta" />
+                <ScalarProperty Name="loai_danh_muc_name" ColumnName="loai_danh_muc_name" />
+                <ScalarProperty Name="loai_danh_muc_code" ColumnName="loai_danh_muc_code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="loai_du_lieu_tb">
+            <EntityTypeMapping TypeName="VanHanhLienHoModel.loai_du_lieu_tb">
+              <MappingFragment StoreEntitySet="loai_du_lieu_tb">
+                <ScalarProperty Name="don_vi" ColumnName="don_vi" />
+                <ScalarProperty Name="row_id" ColumnName="row_id" />
+                <ScalarProperty Name="deleted_status" ColumnName="deleted_status" />
+                <ScalarProperty Name="last_modified_at" ColumnName="last_modified_at" />
+                <ScalarProperty Name="last_modified_by" ColumnName="last_modified_by" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="mo_ta" ColumnName="mo_ta" />
+                <ScalarProperty Name="loai_du_lieu_name" ColumnName="loai_du_lieu_name" />
+                <ScalarProperty Name="loai_du_lieu_code" ColumnName="loai_du_lieu_code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="phuong_an_detail_tb">
+            <EntityTypeMapping TypeName="VanHanhLienHoModel.phuong_an_detail_tb">
+              <MappingFragment StoreEntitySet="phuong_an_detail_tb">
+                <ScalarProperty Name="row_id" ColumnName="row_id" />
+                <ScalarProperty Name="deleted_status" ColumnName="deleted_status" />
+                <ScalarProperty Name="last_modified_at" ColumnName="last_modified_at" />
+                <ScalarProperty Name="last_modified_by" ColumnName="last_modified_by" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="thoi_gian" ColumnName="thoi_gian" />
+                <ScalarProperty Name="gia_tri" ColumnName="gia_tri" />
+                <ScalarProperty Name="loai_du_lieu_ref" ColumnName="loai_du_lieu_ref" />
+                <ScalarProperty Name="phuong_an_ref" ColumnName="phuong_an_ref" />
+                <ScalarProperty Name="vi_tri_ref" ColumnName="vi_tri_ref" />
+                <ScalarProperty Name="phuong_an_detail_code" ColumnName="phuong_an_detail_code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="phuong_an_tb">
+            <EntityTypeMapping TypeName="VanHanhLienHoModel.phuong_an_tb">
+              <MappingFragment StoreEntitySet="phuong_an_tb">
+                <ScalarProperty Name="row_id" ColumnName="row_id" />
+                <ScalarProperty Name="deleted_status" ColumnName="deleted_status" />
+                <ScalarProperty Name="last_modified_at" ColumnName="last_modified_at" />
+                <ScalarProperty Name="last_modified_by" ColumnName="last_modified_by" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="kien_nghi" ColumnName="kien_nghi" />
+                <ScalarProperty Name="phan_tich" ColumnName="phan_tich" />
+                <ScalarProperty Name="tu_van_ref" ColumnName="tu_van_ref" />
+                <ScalarProperty Name="phuong_an_code" ColumnName="phuong_an_code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="thiet_lap_kich_ban_detail_tb">
+            <EntityTypeMapping TypeName="VanHanhLienHoModel.thiet_lap_kich_ban_detail_tb">
+              <MappingFragment StoreEntitySet="thiet_lap_kich_ban_detail_tb">
+                <ScalarProperty Name="row_id" ColumnName="row_id" />
+                <ScalarProperty Name="deleted_status" ColumnName="deleted_status" />
+                <ScalarProperty Name="last_modified_at" ColumnName="last_modified_at" />
+                <ScalarProperty Name="last_modified_by" ColumnName="last_modified_by" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="thoi_gian" ColumnName="thoi_gian" />
+                <ScalarProperty Name="tong_tran" ColumnName="tong_tran" />
+                <ScalarProperty Name="luu_luong_xa" ColumnName="luu_luong_xa" />
+                <ScalarProperty Name="luu_luong_phat_dien" ColumnName="luu_luong_phat_dien" />
+                <ScalarProperty Name="luu_luong_du_bao" ColumnName="luu_luong_du_bao" />
+                <ScalarProperty Name="dung_tich_ho" ColumnName="dung_tich_ho" />
+                <ScalarProperty Name="muc_nuoc_ho" ColumnName="muc_nuoc_ho" />
+                <ScalarProperty Name="thiet_lap_kich_ban_ref" ColumnName="thiet_lap_kich_ban_ref" />
+                <ScalarProperty Name="thiet_lap_kich_ban_detail_code" ColumnName="thiet_lap_kich_ban_detail_code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="thiet_lap_kich_ban_tb">
+            <EntityTypeMapping TypeName="VanHanhLienHoModel.thiet_lap_kich_ban_tb">
+              <MappingFragment StoreEntitySet="thiet_lap_kich_ban_tb">
+                <ScalarProperty Name="thoi_gian" ColumnName="thoi_gian" />
+                <ScalarProperty Name="row_id" ColumnName="row_id" />
+                <ScalarProperty Name="deleted_status" ColumnName="deleted_status" />
+                <ScalarProperty Name="user_ref" ColumnName="user_ref" />
+                <ScalarProperty Name="last_modified_at" ColumnName="last_modified_at" />
+                <ScalarProperty Name="last_modified_by" ColumnName="last_modified_by" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="luu_luong_ve_ho" ColumnName="luu_luong_ve_ho" />
+                <ScalarProperty Name="muc_nuoc_ho" ColumnName="muc_nuoc_ho" />
+                <ScalarProperty Name="vi_tri_ref" ColumnName="vi_tri_ref" />
+                <ScalarProperty Name="thiet_lap_kich_ban_name" ColumnName="thiet_lap_kich_ban_name" />
+                <ScalarProperty Name="thiet_lap_kich_ban_code" ColumnName="thiet_lap_kich_ban_code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tu_van_tb">
+            <EntityTypeMapping TypeName="VanHanhLienHoModel.tu_van_tb">
+              <MappingFragment StoreEntitySet="tu_van_tb">
+                <ScalarProperty Name="link" ColumnName="link" />
+                <ScalarProperty Name="row_id" ColumnName="row_id" />
+                <ScalarProperty Name="deleted_status" ColumnName="deleted_status" />
+                <ScalarProperty Name="last_modified_at" ColumnName="last_modified_at" />
+                <ScalarProperty Name="last_modified_by" ColumnName="last_modified_by" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="kien_nghi" ColumnName="kien_nghi" />
+                <ScalarProperty Name="phan_tich" ColumnName="phan_tich" />
+                <ScalarProperty Name="du_bao_24h" ColumnName="du_bao_24h" />
+                <ScalarProperty Name="nhan_xet_24h" ColumnName="nhan_xet_24h" />
+                <ScalarProperty Name="thoi_gian" ColumnName="thoi_gian" />
+                <ScalarProperty Name="user_ref" ColumnName="user_ref" />
+                <ScalarProperty Name="don_vi_ref" ColumnName="don_vi_ref" />
+                <ScalarProperty Name="tu_van_code" ColumnName="tu_van_code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="upload_file_tb">
+            <EntityTypeMapping TypeName="VanHanhLienHoModel.upload_file_tb">
+              <MappingFragment StoreEntitySet="upload_file_tb">
+                <ScalarProperty Name="user_ref" ColumnName="user_ref" />
+                <ScalarProperty Name="link" ColumnName="link" />
+                <ScalarProperty Name="row_id" ColumnName="row_id" />
+                <ScalarProperty Name="deleted_status" ColumnName="deleted_status" />
+                <ScalarProperty Name="last_modified_at" ColumnName="last_modified_at" />
+                <ScalarProperty Name="last_modified_by" ColumnName="last_modified_by" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="mo_ta" ColumnName="mo_ta" />
+                <ScalarProperty Name="upload_file_name" ColumnName="upload_file_name" />
+                <ScalarProperty Name="upload_file_code" ColumnName="upload_file_code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="user_tb">
+            <EntityTypeMapping TypeName="VanHanhLienHoModel.user_tb">
+              <MappingFragment StoreEntitySet="user_tb">
+                <ScalarProperty Name="user_guid" ColumnName="user_guid" />
+                <ScalarProperty Name="don_vi_ref" ColumnName="don_vi_ref" />
+                <ScalarProperty Name="ghi_chu" ColumnName="ghi_chu" />
+                <ScalarProperty Name="dien_thoai" ColumnName="dien_thoai" />
+                <ScalarProperty Name="dia_chi" ColumnName="dia_chi" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="account_status" ColumnName="account_status" />
+                <ScalarProperty Name="row_id" ColumnName="row_id" />
+                <ScalarProperty Name="deleted_status" ColumnName="deleted_status" />
+                <ScalarProperty Name="last_modified_at" ColumnName="last_modified_at" />
+                <ScalarProperty Name="last_modified_by" ColumnName="last_modified_by" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="mo_ta" ColumnName="mo_ta" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="user_code" ColumnName="user_code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vi_tri_tb">
+            <EntityTypeMapping TypeName="VanHanhLienHoModel.vi_tri_tb">
+              <MappingFragment StoreEntitySet="vi_tri_tb">
+                <ScalarProperty Name="vi_tri_type" ColumnName="vi_tri_type" />
+                <ScalarProperty Name="vi_tri_name" ColumnName="vi_tri_name" />
+                <ScalarProperty Name="row_id" ColumnName="row_id" />
+                <ScalarProperty Name="deleted_status" ColumnName="deleted_status" />
+                <ScalarProperty Name="last_modified_at" ColumnName="last_modified_at" />
+                <ScalarProperty Name="last_modified_by" ColumnName="last_modified_by" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="mo_ta" ColumnName="mo_ta" />
+                <ScalarProperty Name="vi_tri_code" ColumnName="vi_tri_code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tong_hop_tb">
+            <EntityTypeMapping TypeName="VanHanhLienHoModel.tong_hop_tb">
+              <MappingFragment StoreEntitySet="tong_hop_tb">
+                <ScalarProperty Name="row_id" ColumnName="row_id" />
+                <ScalarProperty Name="deleted_status" ColumnName="deleted_status" />
+                <ScalarProperty Name="last_modified_at" ColumnName="last_modified_at" />
+                <ScalarProperty Name="last_modified_by" ColumnName="last_modified_by" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="thoi_gian" ColumnName="thoi_gian" />
+                <ScalarProperty Name="kien_nghi_dieu_hanh" ColumnName="kien_nghi_dieu_hanh" />
+                <ScalarProperty Name="tong_hop_tinh_toan" ColumnName="tong_hop_tinh_toan" />
+                <ScalarProperty Name="phan_tich_nhan_xet" ColumnName="phan_tich_nhan_xet" />
+                <ScalarProperty Name="tong_hop_code" ColumnName="tong_hop_code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

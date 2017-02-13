@@ -1,0 +1,84 @@
+﻿@using Cwrs.DataBase.Models;
+@model UserDetail
+@{
+    Layout = null;
+    //"~/Views/Shared/_LayoutClipTwo.cshtml"
+}
+
+
+@using (Ajax.BeginForm("createUser", "User", new AjaxOptions { OnSuccess = "ThongBaoThanhCong", OnFailure = "ThongBaoThatBai"}))
+{
+    @Html.AntiForgeryToken()
+    <div class="container-fluid container-fullw">
+        <div class="col-md-12">
+            <div class="col-md-12">
+                <center>
+                    <h3> <span class="text-bold">Thêm mới tài khoản</span></h3>
+                </center>
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-12">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div class="form-group">
+                            Đơn vị
+                            @Html.DropDownListFor(model => model.don_vi_ref, (SelectList)ViewBag.lstDonVi, new { @class = "form-control js-example-basic-single" })
+                            @Html.ValidationMessageFor(model => model.don_vi_ref, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            Tên tài khoản:
+                            @Html.EditorFor(model => model.username, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.username, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            Email:
+                            @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control"} })
+                            @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            Mật khẩu:
+                            @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control", type = "password" } })
+                            @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            Xác nhận mật khẩu:
+                            @Html.EditorFor(model => model.confirmPW, new { htmlAttributes = new { @class = "form-control",type = "password"  } })
+                            @Html.ValidationMessageFor(model => model.confirmPW, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            Địa chỉ:
+                            @Html.EditorFor(model => model.dia_chi, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.dia_chi, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            Số điện thoại:
+                            @Html.EditorFor(model => model.dien_thoai, new { htmlAttributes = new { @class = "form-control", type="number"} })
+                            @Html.ValidationMessageFor(model => model.dien_thoai, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            Ghi chú:
+                            @Html.TextAreaFor(model => model.ghi_chu, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.ghi_chu, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-danger" id="SaveBottom">
+                                <i class="ti-save"></i>
+                                <span> Lưu</span>
+                            </button>
+                            <a class="btn btn-primary" data-ajax="true"
+                               data-ajax-method="Get" data-ajax-mode="replace" data-ajax-update="#container"
+                               href="/User/SelectAllUser" onclick="RemoveBreadCrumb(3);"><i class="glyphicon glyphicon-arrow-left"></i> Quay lại</a>
+                        </div>
+                    </div>
+                    <div class="col-md-3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script>     $(document).ready(function () {
+        $(".js-example-basic-single").select2();
+    }); </script>

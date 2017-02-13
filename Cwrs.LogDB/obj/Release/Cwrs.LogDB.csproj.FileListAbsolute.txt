@@ -1,0 +1,6 @@
+E:\OneDrive\CWRS\4.QuyTrinhVanHanhLienHoChua\CodeWeb\Cwrs.LogDB\bin\Release\Cwrs.LogDB.dll.config
+E:\OneDrive\CWRS\4.QuyTrinhVanHanhLienHoChua\CodeWeb\Cwrs.LogDB\bin\Release\Cwrs.LogDB.dll
+E:\OneDrive\CWRS\4.QuyTrinhVanHanhLienHoChua\CodeWeb\Cwrs.LogDB\bin\Release\Cwrs.LogDB.pdb
+E:\OneDrive\CWRS\4.QuyTrinhVanHanhLienHoChua\CodeWeb\Cwrs.LogDB\bin\Release\EntityFramework.dll
+E:\OneDrive\CWRS\4.QuyTrinhVanHanhLienHoChua\CodeWeb\Cwrs.LogDB\obj\Release\Cwrs.LogDB.dll
+E:\OneDrive\CWRS\4.QuyTrinhVanHanhLienHoChua\CodeWeb\Cwrs.LogDB\obj\Release\Cwrs.LogDB.pdb

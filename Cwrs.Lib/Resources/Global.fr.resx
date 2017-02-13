@@ -1,0 +1,375 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="BangThoiGianThuc_QuanTracHoChua" xml:space="preserve">
+    <value>Reservoir monitoring</value>
+  </data>
+  <data name="BangThoiGianThuc_Title" xml:space="preserve">
+    <value>Total Information of database for measurement at real-time</value>
+  </data>
+  <data name="Common_BaoDong" xml:space="preserve">
+    <value>Warning</value>
+  </data>
+  <data name="Common_ChiTiet" xml:space="preserve">
+    <value>Detail</value>
+  </data>
+  <data name="Common_InBaoCao" xml:space="preserve">
+    <value>Print</value>
+  </data>
+  <data name="Common_MucNuoc" xml:space="preserve">
+    <value>Water&lt;/br&gt;level(m)</value>
+  </data>
+  <data name="Common_NhapTuKhoa" xml:space="preserve">
+    <value>Enter keywords</value>
+  </data>
+  <data name="Common_QDen" xml:space="preserve">
+    <value>Q in&lt;/br&gt;(m&lt;sup&gt;3&lt;/sup&gt;/s)</value>
+  </data>
+  <data name="Common_QXa" xml:space="preserve">
+    <value>Q out&lt;/br&gt;(m&lt;sup&gt;3&lt;/sup&gt;/s)</value>
+  </data>
+  <data name="Common_Report" xml:space="preserve">
+    <value>Report</value>
+  </data>
+  <data name="Common_SoSanh" xml:space="preserve">
+    <value>Compare</value>
+  </data>
+  <data name="Common_STT" xml:space="preserve">
+    <value>Order</value>
+  </data>
+  <data name="Common_TenHo" xml:space="preserve">
+    <value>Reservoir name</value>
+  </data>
+  <data name="Common_ThoiGian" xml:space="preserve">
+    <value>Time</value>
+  </data>
+  <data name="Common_TimKiem" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="Home_DangKy" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="Home_DangNhap" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="Home_HeThongThongTin" xml:space="preserve">
+    <value>INFORMATION MANAGEMENT</value>
+  </data>
+  <data name="Home_HeThongThongTinQuanLyCongTrinhThuyLoiVietNam" xml:space="preserve">
+    <value>INFORMATION MANAGEMENT SYSTEM OF VIETNAM IRRIGATION WORKS</value>
+  </data>
+  <data name="Home_NhapTenHoCanTim" xml:space="preserve">
+    <value>Enter the name of the Reservoir to look for ...</value>
+  </data>
+  <data name="Home_PhongChongLutBaoTrungUong" xml:space="preserve">
+    <value>FOR FLOOD AND STORM CENTRAL</value>
+  </data>
+  <data name="Home_QuanLyCongTrinhThuyLoiVietNam" xml:space="preserve">
+    <value>SYSTEM OF VIETNAM IRRIGATION WORKS</value>
+  </data>
+  <data name="Home_TheoHeThongThuyNong" xml:space="preserve">
+    <value>Irrigation</value>
+  </data>
+  <data name="Home_TheoLuuVuc" xml:space="preserve">
+    <value>Basin</value>
+  </data>
+  <data name="Home_TheoTinh" xml:space="preserve">
+    <value>Province</value>
+  </data>
+  <data name="Home_VanPhongThuongTrucBanChiHuy" xml:space="preserve">
+    <value>THE STANDING OFFICE OF THE STEERING COMMITTEE</value>
+  </data>
+  <data name="Home_VanPhongThuongTrucBanChiHuyPhongChongLutBaoTrungUong" xml:space="preserve">
+    <value>THE STANDING OFFICE OF THE STEERING COMMITTEE FOR FLOOD AND STORM CENTRAL</value>
+  </data>
+  <data name="Menu_BaoCao" xml:space="preserve">
+    <value>Report</value>
+  </data>
+  <data name="Menu_BaoCao_BaoCaoChung" xml:space="preserve">
+    <value>Common report</value>
+  </data>
+  <data name="Menu_BaoCao_BaoCaoMuaGio" xml:space="preserve">
+    <value>Hour rainfall report</value>
+  </data>
+  <data name="Menu_BaoCao_BaoCaoMuaNgay" xml:space="preserve">
+    <value>Day rainfall report</value>
+  </data>
+  <data name="Menu_BaoCao_BaoCaoMuaTran" xml:space="preserve">
+    <value>Batch rainfall report</value>
+  </data>
+  <data name="Menu_DanhMuc" xml:space="preserve">
+    <value>List</value>
+  </data>
+  <data name="Menu_HoChua" xml:space="preserve">
+    <value>Reservoir</value>
+  </data>
+  <data name="Menu_HoChua_CongTrinhDap" xml:space="preserve">
+    <value>Dam</value>
+  </data>
+  <data name="Menu_HoChua_CongTrinhLu" xml:space="preserve">
+    <value>Flood discharge works</value>
+  </data>
+  <data name="Menu_HoChua_ThongTinChung" xml:space="preserve">
+    <value>General information</value>
+  </data>
+  <data name="Menu_HoSoCongTrinh" xml:space="preserve">
+    <value>Work profile</value>
+  </data>
+  <data name="Menu_NhapLieu" xml:space="preserve">
+    <value>Import Database</value>
+  </data>
+  <data name="Menu_NhapLieu_DuLieuDoThuCong" xml:space="preserve">
+    <value>Data in measurement manual</value>
+  </data>
+  <data name="Menu_NhapLieu_QuanLyTinNhanSMS" xml:space="preserve">
+    <value>SMS management</value>
+  </data>
+  <data name="Menu_NhapLieu_ThongTinTinhHinhSanXuat" xml:space="preserve">
+    <value>The information of the production status</value>
+  </data>
+  <data name="Menu_QuanTri" xml:space="preserve">
+    <value>Administrator</value>
+  </data>
+  <data name="Menu_QuanTri_NguoiDung" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="Menu_QuanTri_NhomNguoiDung" xml:space="preserve">
+    <value>User groups</value>
+  </data>
+  <data name="Menu_ThongTinDuBao" xml:space="preserve">
+    <value>Forecasters Information</value>
+  </data>
+  <data name="Menu_ThongTinQuanTracTongHop" xml:space="preserve">
+    <value>Total Information of database for measurement</value>
+  </data>
+  <data name="Menu_TroGiupSuDung" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="Menu_TroGiupSuDung_ChuGiaiBanDo" xml:space="preserve">
+    <value>Map annotation</value>
+  </data>
+  <data name="Menu_TroGiupSuDung_XemCamera" xml:space="preserve">
+    <value>View Camera</value>
+  </data>
+  <data name="_LakeGeneral_SoLieuQuanTracTucThoi" xml:space="preserve">
+    <value>Real-time measurement data</value>
+  </data>
+  <data name="BangThoiGianThuc_QuanTracChatLuongNuoc" xml:space="preserve">
+    <value>Water quality monitoring</value>
+  </data>
+  <data name="BangThoiGianThuc_QuanTracLuongMua" xml:space="preserve">
+    <value>Rainfall monitoring</value>
+  </data>
+  <data name="BangThoiGianThuc_QuanTracMucNuoc" xml:space="preserve">
+    <value>River water level monitoring</value>
+  </data>
+  <data name="Common_CanhBao" xml:space="preserve">
+    <value>Warning</value>
+  </data>
+  <data name="Common_DoMan" xml:space="preserve">
+    <value>Value&lt;/br&gt;(‰)</value>
+  </data>
+  <data name="Common_DoManSoSanh" xml:space="preserve">
+    <value>Compared with 0.8 ‰&lt;/br&gt;(Saline threshold of rice plant )</value>
+  </data>
+  <data name="Common_TatCa" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="Common_TenTram" xml:space="preserve">
+    <value>Station Name</value>
+  </data>
+  <data name="Common_XuThe" xml:space="preserve">
+    <value>Trends</value>
+  </data>
+  <data name="CustomAsmLake_SoLieuQuanTracHo" xml:space="preserve">
+    <value>Measurement data of reservoid</value>
+  </data>
+  <data name="Home_TheoSong" xml:space="preserve">
+    <value>River</value>
+  </data>
+  <data name="CustomAsmLake_Ho_DoMoCong" xml:space="preserve">
+    <value>Sluice aperture</value>
+  </data>
+  <data name="CustomAsmLake_Ho_DoMoCuaTranSo" xml:space="preserve">
+    <value>Gate no.</value>
+  </data>
+  <data name="CustomAsmLake_Ho_DungTichHo" xml:space="preserve">
+    <value>Storage volume</value>
+  </data>
+  <data name="CustomAsmLake_Ho_GhiChuMua7h" xml:space="preserve">
+    <value>Note: rainfall monitoring data from 7h a.m to the current</value>
+  </data>
+  <data name="CustomAsmLake_Ho_LuuLuong" xml:space="preserve">
+    <value>Discharge Volume of sluice</value>
+  </data>
+  <data name="CustomAsmLake_Ho_LuuLuongDenHo" xml:space="preserve">
+    <value>Flow to lake</value>
+  </data>
+  <data name="CustomAsmLake_Ho_LuuLuongXaSo" xml:space="preserve">
+    <value>Discharge volume</value>
+  </data>
+  <data name="CustomAsmLake_Ho_MucNuocHo" xml:space="preserve">
+    <value>Measurement data of reservoid</value>
+  </data>
+  <data name="CustomAsmLake_Ho_MucNuocKenh" xml:space="preserve">
+    <value>Discharge Volume of spillway</value>
+  </data>
+  <data name="CustomAsmLake_Ho_SoLieuQuanTracCongLayNuoc" xml:space="preserve">
+    <value>Measurement data of sluice</value>
+  </data>
+  <data name="CustomAsmLake_Ho_SoLieuQuanTracMua" xml:space="preserve">
+    <value>Rainfall monitoring data</value>
+  </data>
+  <data name="CustomAsmLake_Ho_SoLieuQuanTracTran" xml:space="preserve">
+    <value>Monitoring data at spillway- aperture of gate</value>
+  </data>
+  <data name="CustomAsmLake_Ho_TongLuuLuongXa" xml:space="preserve">
+    <value>The total discharge volume</value>
+  </data>
+  <data name="CustomAsmLake_Ho_TramDauMoi" xml:space="preserve">
+    <value>Headwork station</value>
+  </data>
+  <data name="CustomAsmLake_Ho_TramDoMuaSo" xml:space="preserve">
+    <value>Station no.</value>
+  </data>
+  <data name="VucMau_TramDoMuaDauMoi" xml:space="preserve">
+    <value>Trạm mưa Vực Mấu</value>
+  </data>
+  <data name="VucMau_TramDoMuaSo1" xml:space="preserve">
+    <value>Trạm mưa Quỳnh Châu</value>
+  </data>
+  <data name="VucMau_TramDoMuaSo2" xml:space="preserve">
+    <value>Trạm mưa Nghĩa Hội</value>
+  </data>
+  <data name="VucMau_TramDoMuaSo3" xml:space="preserve">
+    <value>Trạm mưa Tân Thắng</value>
+  </data>
+  <data name="Menu_AnhHuongBoiNgapLut" xml:space="preserve">
+    <value>Đối phó với Bão và nước dâng</value>
+  </data>
+  <data name="Menu_BaoCao_TongHopDuLieuCongTrinh" xml:space="preserve">
+    <value>Báo cáo dữ liệu tổng hợp</value>
+  </data>
+  <data name="Menu_TinhHinhTieu" xml:space="preserve">
+    <value>Tình hình tiêu</value>
+  </data>
+  <data name="Menu_TinhHinhTuoi" xml:space="preserve">
+    <value>Tình hình tưới</value>
+  </data>
+</root>

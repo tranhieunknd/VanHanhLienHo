@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="VanHanhLienHoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="danh_muc_tb">
+    <Key>
+      <PropertyRef Name="danh_muc_code" />
+    </Key>
+    <Property Name="danh_muc_code" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="danh_muc_name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="mo_ta" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="created_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="created_at" Type="DateTime" Precision="6" />
+    <Property Name="last_modified_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="last_modified_at" Type="DateTime" Precision="6" />
+    <Property Name="deleted_status" Type="Int32" />
+    <Property Name="row_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="loai_danh_muc_ref" Type="Int32" />
+  </EntityType>
+  <EntityType Name="dien_bien_tb">
+    <Key>
+      <PropertyRef Name="dien_bien_code" />
+    </Key>
+    <Property Name="dien_bien_code" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="vi_tri_ref" Type="Int32" Nullable="false" />
+    <Property Name="tu_van_ref" Type="Int32" Nullable="false" />
+    <Property Name="loai_du_lieu_ref" Type="Int32" Nullable="false" />
+    <Property Name="gia_tri" Type="Double" Nullable="false" />
+    <Property Name="thoi_gian" Type="DateTime" Precision="6" />
+    <Property Name="is_thuc_do" Type="Int32" Nullable="false" />
+    <Property Name="created_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="created_at" Type="DateTime" Precision="6" />
+    <Property Name="last_modified_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="last_modified_at" Type="DateTime" Precision="6" />
+    <Property Name="deleted_status" Type="Int32" />
+    <Property Name="row_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="don_vi_tb">
+    <Key>
+      <PropertyRef Name="don_vi_code" />
+    </Key>
+    <Property Name="don_vi_code" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ki_hieu" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="mo_ta" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="created_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="created_at" Type="DateTime" Precision="6" />
+    <Property Name="last_modified_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="last_modified_at" Type="DateTime" Precision="6" />
+    <Property Name="deleted_status" Type="Int32" />
+    <Property Name="row_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="don_vi_name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="hien_trang_tb">
+    <Key>
+      <PropertyRef Name="hien_trang_code" />
+    </Key>
+    <Property Name="hien_trang_code" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="vi_tri_ref" Type="Int32" Nullable="false" />
+    <Property Name="tu_van_ref" Type="Int32" Nullable="false" />
+    <Property Name="loai_du_lieu_ref" Type="Int32" Nullable="false" />
+    <Property Name="gia_tri" Type="Double" Nullable="false" />
+    <Property Name="mo_ta" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="created_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="created_at" Type="DateTime" Precision="6" />
+    <Property Name="last_modified_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="last_modified_at" Type="DateTime" Precision="6" />
+    <Property Name="deleted_status" Type="Int32" />
+    <Property Name="row_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="loai_danh_muc_tb">
+    <Key>
+      <PropertyRef Name="loai_danh_muc_code" />
+    </Key>
+    <Property Name="loai_danh_muc_code" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="loai_danh_muc_name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="mo_ta" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="created_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="created_at" Type="DateTime" Precision="6" />
+    <Property Name="last_modified_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="last_modified_at" Type="DateTime" Precision="6" />
+    <Property Name="deleted_status" Type="Int32" />
+    <Property Name="row_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="loai_du_lieu_tb">
+    <Key>
+      <PropertyRef Name="loai_du_lieu_code" />
+    </Key>
+    <Property Name="loai_du_lieu_code" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="loai_du_lieu_name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="mo_ta" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="created_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="created_at" Type="DateTime" Precision="6" />
+    <Property Name="last_modified_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="last_modified_at" Type="DateTime" Precision="6" />
+    <Property Name="deleted_status" Type="Int32" />
+    <Property Name="row_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="don_vi" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="phuong_an_detail_tb">
+    <Key>
+      <PropertyRef Name="phuong_an_detail_code" />
+    </Key>
+    <Property Name="phuong_an_detail_code" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="vi_tri_ref" Type="Int32" Nullable="false" />
+    <Property Name="phuong_an_ref" Type="Int32" />
+    <Property Name="loai_du_lieu_ref" Type="Int32" Nullable="false" />
+    <Property Name="gia_tri" Type="Double" Nullable="false" />
+    <Property Name="thoi_gian" Type="DateTime" Precision="6" />
+    <Property Name="created_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="created_at" Type="DateTime" Precision="6" />
+    <Property Name="last_modified_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="last_modified_at" Type="DateTime" Precision="6" />
+    <Property Name="deleted_status" Type="Int32" />
+    <Property Name="row_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="phuong_an_tb">
+    <Key>
+      <PropertyRef Name="phuong_an_code" />
+    </Key>
+    <Property Name="phuong_an_code" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tu_van_ref" Type="Int32" Nullable="false" />
+    <Property Name="phan_tich" Type="String" MaxLength="5000" FixedLength="false" Unicode="true" />
+    <Property Name="kien_nghi" Type="String" MaxLength="5000" FixedLength="false" Unicode="true" />
+    <Property Name="created_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="created_at" Type="DateTime" Precision="6" />
+    <Property Name="last_modified_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="last_modified_at" Type="DateTime" Precision="6" />
+    <Property Name="deleted_status" Type="Int32" />
+    <Property Name="row_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tu_van_tb">
+    <Key>
+      <PropertyRef Name="tu_van_code" />
+    </Key>
+    <Property Name="tu_van_code" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="don_vi_ref" Type="Int32" Nullable="false" />
+    <Property Name="user_ref" Type="Int32" Nullable="false" />
+    <Property Name="thoi_gian" Type="DateTime" Precision="6" />
+    <Property Name="nhan_xet_24h" Type="String" MaxLength="5000" FixedLength="false" Unicode="true" />
+    <Property Name="du_bao_24h" Type="String" MaxLength="5000" FixedLength="false" Unicode="true" />
+    <Property Name="phan_tich" Type="String" MaxLength="5000" FixedLength="false" Unicode="true" />
+    <Property Name="kien_nghi" Type="String" MaxLength="5000" FixedLength="false" Unicode="true" />
+    <Property Name="created_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="created_at" Type="DateTime" Precision="6" />
+    <Property Name="last_modified_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="last_modified_at" Type="DateTime" Precision="6" />
+    <Property Name="deleted_status" Type="Int32" />
+    <Property Name="row_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="link" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="upload_file_tb">
+    <Key>
+      <PropertyRef Name="upload_file_code" />
+    </Key>
+    <Property Name="upload_file_code" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="upload_file_name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="mo_ta" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="created_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="created_at" Type="DateTime" Precision="6" />
+    <Property Name="last_modified_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="last_modified_at" Type="DateTime" Precision="6" />
+    <Property Name="deleted_status" Type="Int32" />
+    <Property Name="row_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="link" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="user_ref" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="user_tb">
+    <Key>
+      <PropertyRef Name="user_code" />
+    </Key>
+    <Property Name="user_code" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="password" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="mo_ta" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="created_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="created_at" Type="DateTime" Precision="6" />
+    <Property Name="last_modified_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="last_modified_at" Type="DateTime" Precision="6" />
+    <Property Name="deleted_status" Type="Int32" />
+    <Property Name="row_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="account_status" Type="Int32" />
+    <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="dia_chi" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="dien_thoai" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ghi_chu" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="don_vi_ref" Type="Int32" />
+    <Property Name="user_guid" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="vi_tri_tb">
+    <Key>
+      <PropertyRef Name="vi_tri_code" />
+    </Key>
+    <Property Name="vi_tri_code" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="mo_ta" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="created_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="created_at" Type="DateTime" Precision="6" />
+    <Property Name="last_modified_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="last_modified_at" Type="DateTime" Precision="6" />
+    <Property Name="deleted_status" Type="Int32" />
+    <Property Name="row_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="vi_tri_name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="vi_tri_type" Type="Int32" />
+  </EntityType>
+  <EntityContainer Name="VanHanhLienHoEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="danh_muc_tb" EntityType="Self.danh_muc_tb" />
+    <EntitySet Name="dien_bien_tb" EntityType="Self.dien_bien_tb" />
+    <EntitySet Name="don_vi_tb" EntityType="Self.don_vi_tb" />
+    <EntitySet Name="hien_trang_tb" EntityType="Self.hien_trang_tb" />
+    <EntitySet Name="loai_danh_muc_tb" EntityType="Self.loai_danh_muc_tb" />
+    <EntitySet Name="loai_du_lieu_tb" EntityType="Self.loai_du_lieu_tb" />
+    <EntitySet Name="phuong_an_detail_tb" EntityType="Self.phuong_an_detail_tb" />
+    <EntitySet Name="phuong_an_tb" EntityType="Self.phuong_an_tb" />
+    <EntitySet Name="tu_van_tb" EntityType="Self.tu_van_tb" />
+    <EntitySet Name="upload_file_tb" EntityType="Self.upload_file_tb" />
+    <EntitySet Name="user_tb" EntityType="Self.user_tb" />
+    <EntitySet Name="vi_tri_tb" EntityType="Self.vi_tri_tb" />
+  </EntityContainer>
+</Schema>

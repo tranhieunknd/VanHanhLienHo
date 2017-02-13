@@ -1,0 +1,150 @@
+﻿@using Cwrs.DataBase.Models
+@model BanTinTuVan
+@{
+    ViewBag.Title = "Index";
+    string callToController = ViewBag.CallToController as string;
+    //if (IsAjax || callToController == "true")
+    //{
+    Layout = null;
+    //}
+    //else
+    //{
+    //    Layout = "~/Views/Shared/_LayoutClipTwo.cshtml";
+    //}
+}
+<div style="margin:10px auto 0px 10px;">
+    <a class="btn btn-small btn-primary" data-ajax="true" data-ajax-method="GET"
+       data-ajax-mode="replace" data-ajax-update="#container"
+       href="~/LichSuCapNhat/Index" style="color: #FFFFFF" onclick="AddBreadCrumb(1, 'Nhập liệu tính toán', '');">
+        <i class="glyphicon glyphicon-arrow-left"></i> Quay lại
+    </a>
+</div>
+<div class="col-sm-12  container">
+    @using (Ajax.BeginForm("InsertTuVan", "TuVan", new AjaxOptions
+    {
+        HttpMethod = "POST",
+        UpdateTargetId = "abc",
+        OnSuccess = "UploadTuVan"
+    }))
+    {
+        @Html.AntiForgeryToken()
+        <div><h2 style="text-align: center; color:#007aff"><b>BẢN TIN TƯ VẤN</b></h2></div>
+        <div id="content" class="col-md-12" style="margin-bottom: 5px; margin-top:10px">
+            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" style="margin-left:20px">
+                <div class="col-sm-7" style="padding-bottom: 10px;">
+                    <button type="submit" class="btn btn-primary btn-danger" id="SaveTop">
+                        <i class="ti-save"></i>
+                        <span>Lưu</span>
+                    </button>
+                    <button type="reset" class="btn btn-warning cancel " id="ResetTop" value="ResetTop" onclick="Remove()">
+                        <i class="glyphicon glyphicon-ban-circle"></i>
+                        <span>Hủy</span>
+                    </button>
+                </div>
+                <div class="col-lg-7">
+                    <span class="btn btn-success fileinput-button">
+                        <span>Chọn tệp excel</span>
+                        <input class="btn" type="file" value="Chọn file excel" id="fileexcel" name="fileexcel"
+                               multiple accept="application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" />
+                    </span>
+                    <button class="btn btn-primary" type="button" id="btnLoadDulieu" onclick=""> Load dữ liệu </button>
+                    @*<a class="btn btn-primary" id="btnTaiFileMau" href="~/Files/somefiles/MauNhapLieu.v3_DL.xls"> Tải file mẫu nhập liệu </a>*@
+                </div>
+            </div>
+            <div id="formchinh">
+            </div>
+        </div>
+        <div class="col-sm-7" style="padding-top: 0px; padding-left: 50px;">
+            <button type="submit" class="btn btn-primary btn-danger" id="SaveBottom">
+                <i class="ti-save"></i>
+                <span>Lưu</span>
+            </button>
+            <button type="reset" class="btn btn-warning cancel" id="ResetBottom" value="Reset" onclick="Remove()">
+                <i class="glyphicon glyphicon-ban-circle"></i>
+                <span>Hủy</span>
+            </button>
+        </div>
+    }
+</div>
+<script>
+    function UploadTuVan(respon) {
+        console.log(respon);
+        if (respon.status) {
+            toastr.success("Cập nhật dữ liệu thành công!", "THÔNG BÁO");
+        } else {
+            toastr.error("Cập nhật dữ liệu thất bại!", "THÔNG BÁO");
+        }
+    }
+
+    document.getElementById('SaveTop').disabled = true;
+    document.getElementById('ResetTop').disabled = true;
+    document.getElementById('ResetBottom').disabled = true;
+    document.getElementById('SaveBottom').disabled = true;
+    document.getElementById('btnLoadDulieu').disabled = true;
+    document.getElementById('fileexcel').disabled = false;
+    $("#fileexcel").click(function () {
+        document.getElementById('btnLoadDulieu').disabled = false;
+    });
+    $("#btnLoadDulieu").click(function () {
+        var formData = new FormData();
+        var totalFiles = document.getElementById("fileexcel").files.length;
+        for (var i = 0; i < totalFiles; i++) {
+            var file = document.getElementById("fileexcel").files[i];
+            formData.append("fileexcel", file);
+
+        }
+        $.ajax({
+            url: 'TuVan/UploadExcel',  //Server script to process data
+            type: 'POST',
+            //Ajax events
+            //beforeSend: beforeSendHandler,
+            success: function (dt) {
+                // console.log(dt);
+                if (dt == "") {
+                    $('#formchinh').html(dt);
+                    toastr.error("Tệp tin đầu vào không đúng định dạng !", "THÔNG BÁO");
+                    document.getElementById('SaveTop').disabled = true;
+                    document.getElementById('ResetTop').disabled = true;
+                    document.getElementById('ResetBottom').disabled = true;
+                    document.getElementById('SaveBottom').disabled = true;
+                }
+                else if (dt.toString() == "   ") {
+                    $('#formchinh').html(dt);
+                    toastr.warning("Không có dữ liệu trong tệp tin đã chọn !", "THÔNG BÁO");
+                    document.getElementById('SaveTop').disabled = true;
+                    document.getElementById('ResetTop').disabled = true;
+                    document.getElementById('ResetBottom').disabled = true;
+                    document.getElementById('SaveBottom').disabled = true;
+                }
+                else {
+                    $('#formchinh').html(dt);
+                    toastr.success("Tải dữ liệu lên thành công !", "THÔNG BÁO");
+                    document.getElementById('SaveTop').disabled = false;
+                    document.getElementById('ResetTop').disabled = false;
+                    document.getElementById('ResetBottom').disabled = false;
+                    document.getElementById('SaveBottom').disabled = false;
+                }
+            },
+            error: function () {
+                toastr.error("Tải dữ dữ liệu lên thất bại !", "THÔNG BÁO");
+            },
+            // Form data
+            data: formData,
+            //Options to tell jQuery not to process data or worry about content-type.
+            cache: false,
+            contentType: false,
+            processData: false
+        });
+
+    });
+    function Remove() {
+
+        document.getElementById("formchinh").innerHTML = "";
+        document.getElementById('fileexcel').value = "";
+        document.getElementById('SaveTop').disabled = true;
+        document.getElementById('ResetTop').disabled = true;
+        document.getElementById('ResetBottom').disabled = true;
+        document.getElementById('SaveBottom').disabled = true;
+        document.getElementById('btnLoadDulieu').disabled = true;
+    }
+</script>

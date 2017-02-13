@@ -1,0 +1,7 @@
+E:\OneDrive\CWRS\4.QuyTrinhVanHanhLienHoChua\CodeWeb\Cwrs.LogDB\bin\Debug\Cwrs.LogDB.dll.config
+E:\OneDrive\CWRS\4.QuyTrinhVanHanhLienHoChua\CodeWeb\Cwrs.LogDB\bin\Debug\Cwrs.LogDB.dll
+E:\OneDrive\CWRS\4.QuyTrinhVanHanhLienHoChua\CodeWeb\Cwrs.LogDB\bin\Debug\Cwrs.LogDB.pdb
+E:\OneDrive\CWRS\4.QuyTrinhVanHanhLienHoChua\CodeWeb\Cwrs.LogDB\bin\Debug\EntityFramework.dll
+E:\OneDrive\CWRS\4.QuyTrinhVanHanhLienHoChua\CodeWeb\Cwrs.LogDB\obj\Debug\Cwrs.LogDB.dll
+E:\OneDrive\CWRS\4.QuyTrinhVanHanhLienHoChua\CodeWeb\Cwrs.LogDB\obj\Debug\Cwrs.LogDB.pdb
+E:\OneDrive\CWRS\4.QuyTrinhVanHanhLienHoChua\CodeWeb\Cwrs.LogDB\obj\Debug\Cwrs.LogDB.csprojResolveAssemblyReference.cache

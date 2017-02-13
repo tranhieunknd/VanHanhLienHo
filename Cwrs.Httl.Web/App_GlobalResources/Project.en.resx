@@ -1,0 +1,324 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="chondvql" xml:space="preserve">
+    <value>Choose management unit...</value>
+  </data>
+  <data name="chonhuyen" xml:space="preserve">
+    <value>Choose district...</value>
+  </data>
+  <data name="chonxa" xml:space="preserve">
+    <value>Choose commune...</value>
+  </data>
+  <data name="dlktxh" xml:space="preserve">
+    <value>Socio economic data</value>
+  </data>
+  <data name="dlrds" xml:space="preserve">
+    <value>Support rural development data</value>
+  </data>
+  <data name="dltpnn" xml:space="preserve">
+    <value>Agricultural component data</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Home1</value>
+  </data>
+  <data name="inbaocao" xml:space="preserve">
+    <value>Print report</value>
+  </data>
+  <data name="luu" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="tenhuyen" xml:space="preserve">
+    <value>District name</value>
+  </data>
+  <data name="tenxa" xml:space="preserve">
+    <value>Commune name</value>
+  </data>
+  <data name="ca" xml:space="preserve">
+    <value>Fish</value>
+  </data>
+  <data name="chitiethogiadinhanhhuong" xml:space="preserve">
+    <value>Details of the affected households</value>
+  </data>
+  <data name="danso" xml:space="preserve">
+    <value>Population</value>
+  </data>
+  <data name="dantocthieuso" xml:space="preserve">
+    <value>Ethnic minorities</value>
+  </data>
+  <data name="dientich" xml:space="preserve">
+    <value>Area</value>
+  </data>
+  <data name="dlkinhtexahoi" xml:space="preserve">
+    <value>Data socioeconomic sectors</value>
+  </data>
+  <data name="dlphattriennongthon" xml:space="preserve">
+    <value>Data component support and rural development (RDS)</value>
+  </data>
+  <data name="dlthanhphannongnghiep" xml:space="preserve">
+    <value>Agricultural component data</value>
+  </data>
+  <data name="dtcanhtac" xml:space="preserve">
+    <value>Cultivated area</value>
+  </data>
+  <data name="dttunhien" xml:space="preserve">
+    <value>Natural area</value>
+  </data>
+  <data name="dttuoi" xml:space="preserve">
+    <value>Irrigated area</value>
+  </data>
+  <data name="dttuoihoamau" xml:space="preserve">
+    <value>Irrigated crop area</value>
+  </data>
+  <data name="duan" xml:space="preserve">
+    <value>Project</value>
+  </data>
+  <data name="gdptdonvithuba" xml:space="preserve">
+    <value>Development stage of unit 3</value>
+  </data>
+  <data name="gdptwuawug" xml:space="preserve">
+    <value>Development stage of WUA/WUG</value>
+  </data>
+  <data name="ghichu" xml:space="preserve">
+    <value>Note</value>
+  </data>
+  <data name="khulamnghiep" xml:space="preserve">
+    <value>Permanently acquired forestry</value>
+  </data>
+  <data name="khunhao" xml:space="preserve">
+    <value>Permanently acquired house</value>
+  </data>
+  <data name="khunuoitrongthuysan" xml:space="preserve">
+    <value>Permanently acquired aquaculture</value>
+  </data>
+  <data name="khuvuckhac" xml:space="preserve">
+    <value>Permanently acquired other</value>
+  </data>
+  <data name="khuvucmuavinhvien" xml:space="preserve">
+    <value>Buy permanent area</value>
+  </data>
+  <data name="miaduong" xml:space="preserve">
+    <value>Sugar cane</value>
+  </data>
+  <data name="nam" xml:space="preserve">
+    <value>Male</value>
+  </data>
+  <data name="nangsuat" xml:space="preserve">
+    <value>Productivity</value>
+  </data>
+  <data name="nghiemtrong" xml:space="preserve">
+    <value>Serious</value>
+  </data>
+  <data name="ngoha" xml:space="preserve">
+    <value>Corn summer</value>
+  </data>
+  <data name="ngothudong" xml:space="preserve">
+    <value>Corn autumn winter</value>
+  </data>
+  <data name="ngoxuan" xml:space="preserve">
+    <value>Corn spring</value>
+  </data>
+  <data name="nhacuataisan" xml:space="preserve">
+    <value>Homes and properties affected</value>
+  </data>
+  <data name="nhe" xml:space="preserve">
+    <value>Light</value>
+  </data>
+  <data name="nu" xml:space="preserve">
+    <value>Female</value>
+  </data>
+  <data name="qldlphicongtrinh" xml:space="preserve">
+    <value>Data management pilot projects</value>
+  </data>
+  <data name="rauvudong" xml:space="preserve">
+    <value>Winter vegetables</value>
+  </data>
+  <data name="rauvuha" xml:space="preserve">
+    <value>Summer vegetables</value>
+  </data>
+  <data name="sanluong" xml:space="preserve">
+    <value>Quantity</value>
+  </data>
+  <data name="shgiadinh" xml:space="preserve">
+    <value>Household number</value>
+  </data>
+  <data name="shgiadinhanhhuong" xml:space="preserve">
+    <value>Households affected</value>
+  </data>
+  <data name="shkhac" xml:space="preserve">
+    <value>Other households</value>
+  </data>
+  <data name="shkinhdoanh" xml:space="preserve">
+    <value>Business households</value>
+  </data>
+  <data name="shlamnong" xml:space="preserve">
+    <value>Agriculture household number</value>
+  </data>
+  <data name="shngheo" xml:space="preserve">
+    <value>Poor household number</value>
+  </data>
+  <data name="shtaidinhcu" xml:space="preserve">
+    <value>Resettlement of households</value>
+  </data>
+  <data name="socaytrong" xml:space="preserve">
+    <value>Crop effected number</value>
+  </data>
+  <data name="socongtrinhkhac" xml:space="preserve">
+    <value>Other work effected number</value>
+  </data>
+  <data name="soho" xml:space="preserve">
+    <value>Minority household number</value>
+  </data>
+  <data name="songoimo" xml:space="preserve">
+    <value>Tomb effected number</value>
+  </data>
+  <data name="sonha" xml:space="preserve">
+    <value>House effected number</value>
+  </data>
+  <data name="sothon" xml:space="preserve">
+    <value>Village number</value>
+  </data>
+  <data name="tencongthoatnuoc" xml:space="preserve">
+    <value>Manhole name</value>
+  </data>
+  <data name="tenhoinguoidungnuoc" xml:space="preserve">
+    <value>Water users association's name</value>
+  </data>
+  <data name="tenhomnguoidungnuoc" xml:space="preserve">
+    <value>Water user group name</value>
+  </data>
+  <data name="tenkenhnhanh" xml:space="preserve">
+    <value>Name of branch canals</value>
+  </data>
+  <data name="tldoingheo" xml:space="preserve">
+    <value>Poverty percent</value>
+  </data>
+  <data name="tong" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="vuluaha" xml:space="preserve">
+    <value>Summer rice crop</value>
+  </data>
+  <data name="vuluaxuan" xml:space="preserve">
+    <value>Spring rice crop</value>
+  </data>
+  <data name="xahuongloi" xml:space="preserve">
+    <value>Benefit commune</value>
+  </data>
+</root>

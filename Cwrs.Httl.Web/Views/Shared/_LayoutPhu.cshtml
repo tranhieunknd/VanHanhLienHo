@@ -1,0 +1,44 @@
+﻿<section id="sec_map" class="col-md-8 hidden-sm" style="height: 300px; border: 1px solid red">
+    demo
+</section>
+
+<script>
+    function ViewMap(e) {
+        console.log(e.getAttribute('_isshowmap'));
+        var event = e.getAttribute('_isshowmap') * 1;
+
+        var main = $('#bodydegsin');
+        var map = $('#sec_map');
+        var xm = $(e);
+
+        if (event == 1) {
+            main.removeClass("col-md-4");
+            main.addClass("col-md-12");
+            map.removeClass('hidden-sm');
+            map.addClass("hidden");
+            $('#IDViewMap').addClass("hide-map");
+            $('#IDViewMap').removeClass("show-map");
+            $('#IDViewMap').addClass("fa-chevron-left");
+            $('#IDViewMap').removeClass("fa-chevron-right");
+            e.setAttribute('_isshowmap', "0");
+            xm.animate({ opacity: 1.0 });
+            $('.haleftsmall').removeClass('haleftsmall').addClass('haleftlarge');
+            $('.harightsmall').removeClass('harightsmall').addClass('harightlarge');
+            $('.ntk-largetk').removeClass('ntk-largetk').addClass('ntk-smalltk');
+        } else {
+            main.addClass("col-md-4");
+            main.removeClass("col-md-12");
+            map.addClass('hidden-sm');
+            map.removeClass("hidden");
+            $('#IDViewMap').removeClass("hide-map");
+            $('#IDViewMap').addClass("show-map");
+            $('#IDViewMap').removeClass("fa-chevron-left");
+            $('#IDViewMap').addClass("fa-chevron-right");
+            e.setAttribute('_isshowmap', "1");
+            xm.animate({ opacity: 1.0 });
+            $('.haleftlarge').removeClass('haleftlarge').addClass('haleftsmall');
+            $('.harightlarge').removeClass('harightlarge').addClass('harightsmall');
+            $('.ntk-smalltk').removeClass('ntk-smalltk').addClass('ntk-largetk');
+        }
+    }
+</script>

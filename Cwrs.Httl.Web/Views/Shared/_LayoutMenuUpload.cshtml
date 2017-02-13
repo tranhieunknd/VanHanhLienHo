@@ -1,0 +1,51 @@
+﻿<div class="sidebar app-aside" id="sidebar">
+    <div class="sidebar-container perfect-scrollbar">
+        <nav>
+            <!-- start: MAIN NAVIGATION MENU -->
+            <ul class="main-navigation-menu">
+                <li onclick="menu.clickmenu(this)">
+                    <a data-ajax="true" data-ajax-method="POST"
+                       data-ajax-mode="replace" data-ajax-update="#contentmanin"
+                       href="/Download/Index">
+                        <div class="item-content">
+                            <div class="item-media">
+                                <i class="ti-home"></i>
+                            </div>
+                            <div class="item-inner">
+                                <span class="title"> LỊCH SỬ CẬP NHẬT </span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                @if (Cwrs.Lib.Security.CurrentGroup == "68d5ede3-211b-41ae-9bb2-3ddf02a46699")
+                {
+                    <li class="active open" onclick="menu.clickmenu(this)">
+                        <a data-ajax="true" data-ajax-method="POST"
+                           data-ajax-mode="replace" data-ajax-update="#contentmanin"
+                           href="/FileUpload/Index">
+                            <div class="item-content">
+                                <div class="item-media">
+                                    <i class="ti-pencil-alt"></i>
+                                </div>
+                                <div class="item-inner">
+                                    <span class="title"> CẬP NHẬT DỮ LIỆU </span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                }
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<script>
+    var menu = {
+        clickmenu: function (el) {
+            var tmp = $('nav>ul.main-navigation-menu>li');
+            tmp.removeClass("active");
+            $(el).addClass("active");
+            //console.log(el);
+        }
+    }
+</script>

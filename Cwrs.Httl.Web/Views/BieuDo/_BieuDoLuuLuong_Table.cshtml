@@ -1,0 +1,455 @@
+﻿@using System.Web.Script.Serialization
+@using Cwrs.DataBase.Models;
+@model List<LuuLuongDenHo>
+@{
+    int data_CPCTT = ViewBag.soPA_CPCTT;
+    int data_VCH = ViewBag.soPA_VCH;
+    int data_DHTL = ViewBag.soPA_DHTL;
+    int data_KTTV = ViewBag.soPA_KTTV;
+    int data_QHTL = ViewBag.soPA_QHTL;
+    int data_KHTL = ViewBag.soPA_KHTL;
+}
+@if (data_VCH > 1 || data_CPCTT > 1 || data_DHTL > 1 || data_KTTV > 1 || data_QHTL > 1 || data_KHTL > 1)
+{
+    <div class="col-sm-12" style="float:left">
+        @if (data_VCH > 1)
+        {
+            <div id="cb_VCH" class="col-md-2 min-md-col">
+                <select onchange="JSLuuLuong.ChangeCbb(this, 'select_VCH')" class="js-example-basic-single" style="text-decoration-color:red;">
+                    @for (int i = 0; i < data_VCH; i++)
+                {
+                    if (i == 0)
+                    {
+                <option selected value="@i">VCH - Phuong an @(i + 1 )</option>
+                    }
+                    else
+                    {
+                <option value="@i">VCH - Phuong an @(i + 1 )</option>
+                    }
+                }
+                </select>
+            </div>
+        }
+        @if (data_CPCTT > 1)
+        {
+            <div id="cb_CPCTT" class="col-md-2 min-md-col">
+                <select onchange="JSLuuLuong.ChangeCbb(this, 'select_CPCTT')" class="js-example-basic-single" style="text-decoration-color:red;">
+                    @for (int i = 0; i < data_CPCTT; i++)
+                {
+                    if (i == 0)
+                    {
+                <option selected value="@i">TVTW - Phuong an @(i + 1 )</option>
+                    }
+                    else
+                    {
+                <option value="@i">TVTW - Phuong an @(i + 1 )</option>
+                    }
+
+                }
+                </select>
+            </div>
+        }@if (data_DHTL > 1)
+        {
+            <div id="cb_DHTL" class="col-md-2 min-md-col">
+                <select onchange="JSLuuLuong.ChangeCbb(this, 'select_DHTL')" class="js-example-basic-single" style="text-decoration-color:red;">
+                    @for (int i = 0; i < data_VCH; i++)
+                {
+                    if (i == 0)
+                    {
+                <option selected value="@i">DHTL - Phuong an @(i + 1 )</option>
+                    }
+                    else
+                    {
+                <option value="@i">DHTL - Phuong an @(i + 1)</option>
+                    }
+                }
+                </select>
+            </div>
+        }@if (data_KTTV > 1)
+        {
+            <div id="cb_KTTV" class="col-md-2 min-md-col">
+                <select onchange="JSLuuLuong.ChangeCbb(this, 'select_KTTV')" class="js-example-basic-single" style="text-decoration-color:red;">
+                    @for (int i = 0; i < data_KTTV; i++)
+                {
+                    if (i == 0)
+                    {
+                <option selected value="@i">Khí tượng TV - Phuong an @(i + 1 )</option>}
+                    else
+                    {
+                <option value="@i">Khí tượng TV - Phuong an @(i + 1 )</option>}
+                }
+                    }
+                </select>
+            </div>
+        }@if (data_QHTL > 1)
+        {
+            <div id="cb_QHTL" class="col-md-2 min-md-col">
+                <select onchange="JSLuuLuong.ChangeCbb(this, 'select_QHTL')" class="js-example-basic-single" style="text-decoration-color:red;">
+                    @for (int i = 0; i < data_QHTL; i++)
+                {
+                    if (i == 0)
+                    {
+                <option selected value="@i">QHTL - Phuong an @(i + 1 )</option>
+                    }
+                    else
+                    {
+                <option value="@i">QHTL - Phuong an @(i + 1)</option>
+                    }
+                }
+                </select>
+            </div>
+        }@if (data_KHTL > 1)
+        {
+            <div id="cb_KHTL" class="col-md-2 min-md-col">
+                <select onchange="JSLuuLuong.ChangeCbb(this, 'select_KHTL')" class="js-example-basic-single" style="text-decoration-color:red;">
+                    @for (int i = 0; i < data_KHTL; i++)
+                {
+                    if (i == 0)
+                    {
+                <option selected value="@i">KH Thủy Lợi - Phuong an @(i + 1 )</option>
+                    }
+                    else
+                    {
+                <option value="@i">KH Thủy Lợi - Phuong an @(i + 1)</option>
+                    }
+                }
+                </select>
+            </div>
+        }
+    </div>
+    <br />
+    <br />
+}
+<table class="tableBieuDo" style="width:95%;border:1px solid black">
+    <thead>
+        <tr colspan="8" style="background:#00e8ff;text-align:center">
+            <th style="width: 7%;text-align:center;color:black" rowspan="2"><b>STT</b> </th>
+            <th style="width: 16%;text-align:center;color:black" rowspan="2"><b>Thời gian</b></th>
+            <th style="width: 66%;text-align:center;color:black" colspan="6"><b>Lưu lượng đến hồ (m<sup>3</sup>/s)</b></th>
+        </tr>
+        <tr style="background:#00e8ff;text-align:center">
+            <th style="width: 11%;text-align:center;color:black"><b>Viện KHTL (m<sup>3</sup>/s)</b></th>
+            <th style="width: 11%;text-align:center;color:black"><b>ĐH Thủy lợi (m<sup>3</sup>/s)</b></th>
+            <th style="width: 11%;text-align:center;color:black"><b>Viện cơ học (m<sup>3</sup>/s)</b></th>
+            <th style="width: 11%;text-align:center;color:black"><b>KTTV TW (m<sup>3</sup>/s)</b></th>
+            <th style="width: 11%;text-align:center;color:black"><b>Viện QHTL (m<sup>3</sup>/s)</b></th>
+            <th style="width: 11%;text-align:center;color:black"><b>Viện KTTV (m<sup>3</sup>/s)</b></th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (int i = 0; i < Model.Count(); i++)
+        {
+            <tr colspan="8" style="text-align:center">
+                <th rowspan="@Model[i].rowspan" style="width: 7%;text-align:center;color:black;font-weight:normal">@(i + 1)</th>
+                <th rowspan="@Model[i].rowspan" style="width: 16%;text-align:center;color:black;font-weight:normal">@Model[i].thoi_gian.ToString("dd/MM/yyyy HH:mm")</th>
+                @{
+                    if (Model[i].luuLuong_KHTL.Count > 1)
+                    {
+                        <th style="width: 11%;text-align:center;color:black;font-weight:normal">
+                            PA1: @Model[i].luuLuong_KHTL[0]
+                        </th>
+                    }
+                    else
+                    {
+                        if (Model[i].luuLuong_KHTL.Count == 1)
+                        {
+                            <th rowspan="@Model[i].rowspan" style="width: 11%;text-align:center;color:black;font-weight:normal">
+                                PA1: @Model[i].luuLuong_KHTL[0]
+                            </th>
+                        }
+                        else
+                        {
+                            <th rowspan="@Model[i].rowspan" style="width: 11%;text-align:center;color:black;font-weight:normal"></th>
+                        }
+                    }
+                }
+                @{
+                    if (Model[i].luuLuong_DHTL.Count > 1)
+                    {
+                        <th style="width: 11%;text-align:center;color:black;font-weight:normal">
+                            PA1: @Model[i].luuLuong_DHTL[0]
+                        </th>
+                    }
+                    else
+                    {
+                        if (Model[i].luuLuong_DHTL.Count == 1)
+                        {
+                            <th rowspan="@Model[i].rowspan" style="width: 11%;text-align:center;color:black;font-weight:normal">
+                                PA1: @Model[i].luuLuong_DHTL[0]
+                            </th>
+                        }
+                        else
+                        {
+                            <th rowspan="@Model[i].rowspan" style="width: 11%;text-align:center;color:black;font-weight:normal"></th>
+                        }
+                    }
+                }
+                @{
+                    if (Model[i].luuLuong_VCH.Count > 1)
+                    {
+                        <th style="width: 11%;text-align:center;color:black;font-weight:normal">
+                            PA1: @Model[i].luuLuong_VCH[0]
+                        </th>
+                    }
+                    else
+                    {
+                        if (Model[i].luuLuong_VCH.Count == 1)
+                        {
+                            <th rowspan="@Model[i].rowspan" style="width: 11%;text-align:center;color:black;font-weight:normal">
+                                PA1: @Model[i].luuLuong_VCH[0]
+                            </th>
+                        }
+                        else
+                        {
+                            <th rowspan="@Model[i].rowspan" style="width: 11%;text-align:center;color:black;font-weight:normal"></th>
+                        }
+                    }
+                }
+                @{
+                    if (Model[i].luuLuong_KTTVTW.Count > 1)
+                    {
+                        <th style="width: 11%;text-align:center;color:black;font-weight:normal">
+                            PA1: @Model[i].luuLuong_KTTVTW[0]
+                        </th>
+                    }
+                    else
+                    {
+                        if (Model[i].luuLuong_KTTVTW.Count == 1)
+                        {
+                            <th rowspan="@Model[i].rowspan" style="width: 11%;text-align:center;color:black;font-weight:normal">
+                                PA1: @Model[i].luuLuong_KTTVTW[0]
+                            </th>
+                        }
+                        else
+                        {
+                            <th rowspan="@Model[i].rowspan" style="width: 11%;text-align:center;color:black;font-weight:normal"></th>
+                        }
+                    }
+                }
+                @{
+                    if (Model[i].luuLuong_VQHTL.Count > 1)
+                    {
+                        <th style="width: 11%;text-align:center;color:black;font-weight:normal">
+                            PA1: @Model[i].luuLuong_VQHTL[0]
+                        </th>
+                    }
+                    else
+                    {
+                        if (Model[i].luuLuong_VQHTL.Count == 1)
+                        {
+                            <th rowspan="@Model[i].rowspan" style="width: 11%;text-align:center;color:black;font-weight:normal">
+                                PA1: @Model[i].luuLuong_VQHTL[0]
+                            </th>
+                        }
+                        else
+                        {
+                            <th rowspan="@Model[i].rowspan" style="width: 11%;text-align:center;color:black;font-weight:normal"></th>
+                        }
+                    }
+                }
+                @{
+                    if (Model[i].luuLuong_KTTV.Count > 1)
+                    {
+                        <th style="width: 11%;text-align:center;color:black;font-weight:normal">
+                            PA1: @Model[i].luuLuong_KTTV[0]
+                        </th>
+                    }
+                    else
+                    {
+                        if (Model[i].luuLuong_KTTV.Count == 1)
+                        {
+                            <th rowspan="@Model[i].rowspan" style="width: 11%;text-align:center;color:black;font-weight:normal">
+                                PA1: @Model[i].luuLuong_KTTV[0]
+                            </th>
+                        }
+                        else
+                        {
+                            <th rowspan="@Model[i].rowspan" style="width: 11%;text-align:center;color:black;font-weight:normal"></th>
+                        }
+                    }
+                }
+            </tr>
+                    for (int j = 1; j < Model[i].rowspan; j++)
+                    {
+                        <tr colspan="8" style="text-align:center">
+                            @if (Model[i].luuLuong_KHTL.Count > j)
+                    {
+                                <th style="width: 11%;text-align:center;color:black;font-weight:normal">PA@(j + 1): @Model[i].luuLuong_KHTL[j]</th>
+                            }
+                            @if (Model[i].luuLuong_DHTL.Count > j)
+                    {
+                                <th style="width: 11%;text-align:center;color:black;font-weight:normal">PA@(j + 1): @Model[i].luuLuong_DHTL[j]</th>
+                            }
+                            @if (Model[i].luuLuong_VCH.Count > j)
+                    {
+                                <th style="width: 11%;text-align:center;color:black;font-weight:normal">PA@(j + 1): @Model[i].luuLuong_VCH[j]</th>
+                            }
+                            @if (Model[i].luuLuong_KTTVTW.Count > j)
+                    {
+                                <th style="width: 11%;text-align:center;color:black;font-weight:normal">PA@(j + 1): @Model[i].luuLuong_KTTVTW[j]</th>
+                            }
+                            @if (Model[i].luuLuong_VQHTL.Count > j)
+                    {
+                                <th style="width: 11%;text-align:center;color:black;font-weight:normal">PA@(j + 1): @Model[i].luuLuong_VQHTL[j]</th>
+                            }
+                            @if (Model[i].luuLuong_KTTV.Count > j)
+                    {
+                                <th style="width: 11%;text-align:center;color:black;font-weight:normal">PA@(j + 1): @Model[i].luuLuong_KTTV[j]</th>
+                            }
+                        </tr>
+                        }
+                    }
+    </tbody>
+</table>
+
+<script>
+     $(document).ready(function () {
+        $(".js-example-basic-single").select2();
+    }); </script>
+<script>
+    var data_CPCTT = "@ViewBag.soPA_CPCTT";
+    var data_VCH = "@ViewBag.soPA_VCH";
+    var data_DHTL = "@ViewBag.soPA_DHTL";
+    var data_KTTV = "@ViewBag.soPA_KTTV";
+    var data_QHTL = "@ViewBag.soPA_QHTL";
+    var data_KHTL = "@ViewBag.soPA_KHTL";
+
+    var selectCbb = {
+        select_CPCTT: 0,
+        select_VCH: 0,
+        select_DHTL: 0,
+        select_KTTV: 0,
+        select_QHTL: 0,
+        select_KHTL: 0
+    }
+
+    var JSLuuLuong = {
+        FullData: [],
+        GetDataFull: function () {
+            var inputForm = JSLuuLuong.GetParamFull();
+            var data = {
+                hoCode: inputForm.tenHo,
+                fromDate: inputForm.thoiGianBatDau,
+                hours: inputForm.khoangTG
+            }
+            function afterServer(result) {
+                JSLuuLuong.FullData = result;
+                console.log('CÓ dl');
+                console.log(result);
+
+            }
+
+            /* Goi server lay du lieu full */
+            $.ajax({
+                type: "post",
+                data: data,
+                url: "BieuDo/BieuDoLuuLuongChart_TheoPhuongAn",
+                success: afterServer
+            })
+        },
+        GetDataForChart: function () {
+            var arr = [];
+            for (i = 0; i < JSLuuLuong.FullData.length; i++) {
+                var item = JSLuuLuong.FullData[i];
+                var tmp = {
+                    thoi_gian: item.thoi_gian,
+                }
+                console.log(item);
+                if (item.luuLuong_KHTL.length > 0) {
+                    tmp.luuLuong_KHTL = item.luuLuong_KHTL[selectCbb.select_KHTL];
+                }
+                if (item.luuLuong_DHTL.length > 0) {
+                    tmp.luuLuong_DHTL = item.luuLuong_DHTL[selectCbb.select_DHTL];
+                }
+                if (item.luuLuong_VCH.length > 0) {
+                    tmp.luuLuong_VCH = item.luuLuong_VCH[selectCbb.select_VCH];
+                }
+                if (item.luuLuong_KTTV.length > 0) {
+                    tmp.luuLuong_KTTV = item.luuLuong_KTTV[selectCbb.select_KTTV];
+                }
+                if (item.luuLuong_VQHTL.length > 0) {
+                    tmp.luuLuong_VQHTL = item.luuLuong_VQHTL[selectCbb.select_QHTL];
+                }
+                if (item.luuLuong_KTTVTW.length > 0) {
+                    console.log(selectCbb.select_CPCTT)
+                    tmp.luuLuong_KTTVTW = item.luuLuong_KTTVTW[selectCbb.select_CPCTT];
+                }
+                arr.push(tmp);
+            }
+            return arr;
+        },
+        GetParamFull: function () {
+            return {
+                tenHo: $("#tenHo").val(),
+                thoiGianBatDau: $("#thoiGianBatDau").val(),
+                khoangTG: $("#khoangTG").val()
+            }
+        },
+        ChangeCbb: function (el, cbbName) {
+            console.log(el);
+            console.log(cbbName);
+            console.log(selectCbb);
+            selectCbb[cbbName] = el.value;
+            console.log(selectCbb);
+            JSLuuLuong.BuilChart();
+        },
+        BuilChart: function () {
+            var dataChart = JSLuuLuong.GetDataForChart();
+
+            if (dataChart.length == 0) return;
+            console.log(dataChart);
+            var config = {
+                time: "thoi_gian",
+                legend: "legenddiv",
+                data: []
+            };
+
+            var item = dataChart[0];
+            if (item.luuLuong_KHTL != undefined) {
+                config.data.push({
+                    Code: 1,
+                    Name: "Viện Khoa Học Thủy Lợi",
+                    KeyValue: "luuLuong_KHTL"
+                });
+            }
+            if (item.luuLuong_DHTL != undefined) {
+                config.data.push({
+                    Code: 2,
+                    Name: "Đại Học Thủy Lợi",
+                    KeyValue: "luuLuong_DHTL"
+                });
+            }
+            if (item.luuLuong_VCH != undefined) {
+                config.data.push({
+                    Code: 3,
+                    Name: "Viện Cơ Học",
+                    KeyValue: "luuLuong_VCH"
+                });
+            }
+            if (item.luuLuong_KTTV != undefined) {
+                config.data.push({
+                    Code: 4,
+                    Name: "Khí Tượng Thủy Văn",
+                    KeyValue: "luuLuong_KTTV"
+                });
+            }
+            if (item.luuLuong_VQHTL != undefined) {
+                config.data.push({
+                    Code: 5,
+                    Name: "Viện quy hoạch thủy lợi",
+                    KeyValue: "luuLuong_VQHTL"
+                });
+            }
+            if (item.luuLuong_KTTVTW != undefined) {
+                config.data.push({
+                    Code: 6,
+                    Name: "Viện khí tượng thủy văn trung ương",
+                    KeyValue: "luuLuong_KTTVTW"
+                });
+            }
+
+            console.log(config);
+            BieuDo.RenderChart("chartdiv", dataChart, config);
+        }
+    }
+</script>

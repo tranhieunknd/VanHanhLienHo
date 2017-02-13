@@ -1,0 +1,286 @@
+﻿<!DOCTYPE html>
+<!-- Template Name: Clip-Two - Responsive Admin Template build with Twitter Bootstrap 3.x | Author: ClipTheme -->
+<!--[if IE 8]><html class="ie8" lang="en"><![endif]-->
+<!--[if IE 9]><html class="ie9" lang="en"><![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<!-- start: HEAD -->
+<head>
+    <title>@ViewBag.Title</title>
+    <!-- start: META -->
+    <!--[if IE]><meta http-equiv='X-UA-Compatible' content="IE=edge,IE=9,IE=8,chrome=1" /><![endif]-->
+    <meta charset="utf-8" />
+    @*<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">*@
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+    <!-- end: META -->
+    <!-- start: GOOGLE FONTS -->
+    <link href="~/Content/css.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/style.css" rel="stylesheet" />
+    @*<link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />*@
+    <!-- end: GOOGLE FONTS -->
+    <!-- start: MAIN CSS -->
+    @*<link rel="stylesheet" href="~/Lib/vendor/bootstrap/css/bootstrap.min.css?v=123">*@
+    @Styles.Render("~/Content/css")
+    <link rel="stylesheet" href="~/Lib/vendor/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/Lib/vendor/themify-icons/themify-icons.min.css">
+    <link href="~/Lib/vendor/animate.css/animate.min.css" rel="stylesheet" media="screen">
+    <link href="~/Lib/vendor/perfect-scrollbar/perfect-scrollbar.min.css" rel="stylesheet" media="screen">
+    <link href="~/Lib/vendor/switchery/switchery.min.css" rel="stylesheet" media="screen">
+
+    <link href="~/Lib/vendor/select2/select2.min.css" rel="stylesheet" media="screen">
+    <link href="~/Lib/vendor/toastr/toastr.css" rel="stylesheet" />
+    <link href="~/Content/fakeLoader.css" rel="stylesheet" />
+    <!-- end: MAIN CSS -->
+    <!-- start: CLIP-TWO CSS -->
+    <link rel="stylesheet" href="~/Lib/assets/css/styles.css">
+    <link rel="stylesheet" href="~/Lib/assets/css/plugins.css">
+    <link rel="stylesheet" href="~/Lib/assets/css/themes/theme-1.css" id="skin_color" />
+    <link href="~/Lib/assets/css/style-breadcrumbs.css" rel="stylesheet" />
+    <link href="~/Content/jquery-confirm.css" rel="stylesheet" />
+    <!-- end: CLIP-TWO CSS -->
+    <!-- start: CSS REQUIRED FOR THIS PAGE ONLY -->
+    @Styles.Render("~/Content/kendo/css")
+    <!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
+    @Scripts.Render("~/bundles/jquery")
+    @*<script src="~/Scripts/angularjs/angular.js"></script>
+        <script src="~/Scripts/angularjs/angular-route.js"></script>
+        <script src="~/Scripts/angularjs/routeFile.js"></script>*@
+
+</head>
+<!-- end: HEAD -->
+<body ng-app="myApp">
+    <div id="app">
+        <!-- sidebar -->
+        @Html.Partial("_LayoutMenu")
+        <!-- / sidebar -->
+        <div class="app-content">
+            <!-- start: TOP NAVBAR -->
+            <header class="navbar navbar-default navbar-static-top">
+                <!-- start: NAVBAR HEADER -->
+                <div class="navbar-header">
+                    <a href="#" class="sidebar-mobile-toggler pull-left hidden-md hidden-lg" class="btn btn-navbar sidebar-toggle" data-toggle-class="app-slide-off" data-toggle-target="#app" data-toggle-click-outside="#sidebar">
+                        <i class="ti-align-justify"></i>
+                    </a>
+                    <a class="navbar-brand" href="index.html">
+                        <img src="../Images/logopctt.png" alt="Clip-Two" height="100%" />
+                    </a>
+                    <a href="#" class="sidebar-toggler pull-right visible-md visible-lg" data-toggle-class="app-sidebar-closed" data-toggle-target="#app">
+                        <i class="ti-align-justify"></i>
+                    </a>
+                    <a class="pull-right menu-toggler visible-xs-block" id="menu-toggler" data-toggle="collapse" href=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <i class="ti-view-grid"></i>
+                    </a>
+                </div>
+                <!-- end: NAVBAR HEADER -->
+                <!-- start: NAVBAR COLLAPSE -->
+                <div class="navbar-collapse collapse">
+                    <span class="nav navbar-left">
+                        <img id="logo-title" src="../Images/logopctt.png" alt="Vận Hành Liên Hồ Chứa" style="height: 60px; display: none;">
+                        <span>VẬN HÀNH LIÊN HỒ CHỨA TRÊN LƯU VỰC SÔNG HỒNG</span>
+                    </span>
+
+                    <ul class="nav navbar-right">
+                        <!-- start: MESSAGES DROPDOWN -->
+                        <!-- end: MESSAGES DROPDOWN -->
+                        <!-- start: ACTIVITIES DROPDOWN -->
+                        <!-- end: ACTIVITIES DROPDOWN -->
+                        <!-- start: LANGUAGE SWITCHER -->
+                        <li class="dropdown">
+                            <a href class="dropdown-toggle" data-toggle="dropdown" style="display: inline-block;">
+                                <span class="account-logo"><i class="ti-user"></i></span>
+                                <span class="account-title">@Cwrs.Lib.Security.CurrentUserName</span>
+                            </a>
+                            <ul role="menu" class="dropdown-menu dropdown-light fadeInUpShort">
+                                <li>
+                                    <a href="#" class="menu-toggler" data-toggle="modal" data-target="#myModal" onclick="ThongTinUser()">
+                                        Thiết lập tài khoản
+                                    </a>
+                                </li>
+                                <li>
+                                    @Ajax.ActionLink("Đăng xuất", "Index", "DangNhap", new { x = Cwrs.Lib.Security.CurrentUserId }, new AjaxOptions()
+                               {
+                                   HttpMethod = "post",
+                                   OnSuccess = "LogoffSystem"
+                               })
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- start: LANGUAGE SWITCHER -->
+                        <!-- start: USER OPTIONS DROPDOWN -->
+                        <!-- end: USER OPTIONS DROPDOWN -->
+                    </ul>
+                    <!-- start: MENU TOGGLER FOR MOBILE DEVICES -->
+                    <div class="close-handle visible-xs-block menu-toggler" data-toggle="collapse" href=".navbar-collapse">
+                        <div class="arrow-left"></div>
+                        <div class="arrow-right"></div>
+                    </div>
+                    <!-- end: MENU TOGGLER FOR MOBILE DEVICES -->
+                </div>
+
+            </header>
+            <!-- end: TOP NAVBAR -->
+            <div class="main-content">
+                <div id="page-breadcrumb">
+                    <ul class="page-breadcrumb">
+                        <li id="libreadcrumb1" style="display: none;"><a href="javascript:void(0)" id="abreadcrumb1">libreadcrumb1</a></li>
+                        <li id="libreadcrumb2" style="display: none;"><i id="ibreadcrumb2" class="ti-angle-right ibreadcrumb"></i><a href="javascript:void(0)" id="abreadcrumb2">libreadcrumb2</a></li>
+                        <li id="libreadcrumb3" style="display: none;"><i id="ibreadcrumb3" class="ti-angle-right ibreadcrumb"></i><a href="javascript:void(0)" id="abreadcrumb3">libreadcrumb3</a></li>
+                        <li id="libreadcrumb4" style="display: none;"><i id="ibreadcrumb4" class="ti-angle-right ibreadcrumb"></i><a href="javascript:void(0)" id="abreadcrumb4">libreadcrumb3</a></li>
+                        <li id="libreadcrumb5" style="display: none;"><i id="ibreadcrumb5" class="ti-angle-right ibreadcrumb"></i><a href="javascript:void(0)" id="abreadcrumb5">libreadcrumb3</a></li>
+                    </ul>
+                </div>
+                <div class="wrap-content container" id="container">
+                    @RenderBody()
+                </div>
+            </div>
+            @*hiển thị thông tin user*@
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title" id="myModalLabel" style="text-align: center">THIẾT LẬP THÔNG TIN NGƯỜI DÙNG</h4>
+                        </div>
+                        <div class="panel-body">
+
+                            <form role="form" class="form-horizontal ">
+                                <div class="form-group">
+                                    <label class="col-sm-4 col-xs-12 control-label" style="text-align: left; padding-left: 35px;">
+                                        Tên tài khoản:
+                                    </label>
+                                    <div class="col-sm-8 col-xs-12">
+                                        <input class="form-control" id="username" readonly>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-4 col-xs-12 control-label" style="text-align: left; padding-left: 35px;">
+                                        Email:
+                                    </label>
+                                    <div class="col-sm-8 col-xs-12">
+                                        <input class="form-control" id="email">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-4 col-xs-12 control-label" style="text-align: left; padding-left: 35px;">
+                                        Mật khẩu cũ (*):
+                                    </label>
+                                    <div class="col-sm-8 col-xs-12">
+                                        <input type="password" class="form-control" id="password">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-4 col-xs-12 control-label" style="text-align: left; padding-left: 35px;">
+                                        Mật khẩu mới:
+                                    </label>
+                                    <div class="col-sm-8 col-xs-12">
+                                        <input type="password" class="form-control" id="passwordNew">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-4 col-xs-12 control-label" style="text-align: left; padding-left: 35px;">
+                                        Nhập lại mật khẩu mới:
+                                    </label>
+                                    <div class="col-sm-8 col-xs-12">
+                                        <input type="password" class="form-control" id="confirmPassword">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-4 col-xs-12 control-label" style="text-align: left; padding-left: 35px;">
+                                        Địa chỉ:
+                                    </label>
+                                    <div class="col-sm-8 col-xs-12">
+                                        <input class="form-control" id="dia_chi">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-4 col-xs-12 control-label" style="text-align: left; padding-left: 35px;">
+                                        Điện thoại:
+                                    </label>
+                                    <div class="col-sm-8 col-xs-12">
+                                        <input class="form-control" id="dien_thoai">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-4 col-xs-12 control-label" style="text-align: left; padding-left: 35px;">
+                                        Ghi chú:
+                                    </label>
+                                    <div class="col-sm-8 col-xs-12">
+                                        <input class="form-control" id="ghi_chu">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" onclick="ChangeInFor()">
+                                Lưu
+                            </button>
+                            <button type="button" class="btn btn-primary btn-o" data-dismiss="modal">
+                                Đóng
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- start: FOOTER -->
+        @*<footer>
+                <div class="footer-inner">
+                    <div class="pull-left">
+                        &copy; <span class="current-year"></span><span class="text-bold text-uppercase"> Trung Tâm Công Nghệ Phần Mềm - Viện Khoa Học Thủy Lợi Việt Nam</span>. <span></span>
+                    </div>
+
+                </div>
+            </footer>*@
+        <!-- end: FOOTER -->
+    </div>
+    <!-- start: MAIN JAVASCRIPTS -->
+    @Scripts.Render(new string[] { "~/bundles/jqueryval", "~/bundles/unobtrusive" })
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/kendo")
+    <script src="~/Scripts/htmlib/htm.js"></script>
+
+    <script src="~/Lib/vendor/jquery-cookie/jquery.cookie.js"></script>
+    <script src="~/Lib/vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="~/Lib/vendor/switchery/switchery.min.js"></script>
+    <script src="~/Lib/vendor/select2/select2.min.js"></script>
+    @*<script src="~/Scripts/fakeLoader.js"></script>*@
+    <!-- end: MAIN JAVASCRIPTS -->
+    <!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+    <script src="~/Lib/vendor/jquery.sparkline/jquery.sparkline.min.js"></script>
+    <!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+    <!-- start: CLIP-TWO JAVASCRIPTS -->
+    <script src="~/Lib/vendor/toastr/toastr.js"></script>
+    <script src="~/Scripts/DangNhap/ThongTinUse.js"></script>
+    <script src="~/Lib/assets/js/main.js"></script>
+    <!-- start: JavaScript Event Handlers for this page -->
+    <script src="~/Scripts/jquery-confirm.js"></script>
+    <script src="~/Scripts/QuanLyTaiKhoan/QuanLyTaiKhoan.js"></script>
+
+
+    @RenderSection("scriptsTop", required: false)
+    <script>
+        jQuery(document).ready(function () {
+            Main.init();
+            @RenderSection("scriptsCenter", required: false)
+            htm.LoadFirst("container");
+        });
+
+        function LogoffSystem() {
+            window.location.href = "";
+        }
+    </script>
+    <!-- end: JavaScript Event Handlers for this page -->
+    @RenderSection("scriptsBottom", required: false)
+    <!-- end: CLIP-TWO JAVASCRIPTS -->
+
+</body>
+</html>

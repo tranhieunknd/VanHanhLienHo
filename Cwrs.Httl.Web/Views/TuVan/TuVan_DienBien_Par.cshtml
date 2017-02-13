@@ -1,0 +1,95 @@
+﻿@using Cwrs.DataBase.Models;
+@model BanTinTuVan
+@{
+    string[] vitri = { "Hồ Sơn La", "", "Hồ Hòa Bình", "", "Hồ Tuyên Quang", "", "Yên Bái", "" };
+    string[] donvi = { "H, cm", "Q, m<sup>3</sup>/s" };
+}
+<link href="~/Content/TuVan/style_TuVan.css" rel="stylesheet" />
+<div class="table-responsive col-md-12">
+    <table class="table table-bordered " style="margin-top:50px;">
+        <thead>
+            <tr>
+                <th rowspan="2" class="col-sm-2" style="color:white">Trạm</th>
+                <th rowspan="2" class="col-sm-2" style="color:white">Ðơn vị</th>
+                <th colspan="4" class="col-sm-4" style="color:white">Thực đo</th>
+                <th colspan="4" class="col-sm-4" style="color:white">Dự báo</th>
+            </tr>
+            <tr>
+                <th colspan="2" style="padding:0px">
+                    @Html.TextBoxFor(model => Model.DienBienExcel[1].thoi_gian, @"{0:dd\/MM\/yyyy}", new { @readonly = "readonly" })
+                </th>
+                <th colspan="4" style="padding:0px">
+                    @Html.TextBoxFor(model => Model.DienBienExcel[20].thoi_gian, @"{0:dd\/MM\/yyyy}", new { @readonly = "readonly" })
+                </th>
+                <th colspan="2" style="padding:0px">
+                    @Html.TextBoxFor(model => Model.DienBienExcel[7].thoi_gian, @"{0:dd\/MM\/yyyy}", new { @readonly = "readonly" })
+                </th>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td style="text-align: center;">13h</td>
+                <td>19h</td>
+                <td>1h</td>
+                <td>7h</td>
+                <td>13h</td>
+                <td>19h</td>
+                <td>1h</td>
+                <td>7h</td>
+            </tr>
+        </thead>
+        <tbody>
+            @try
+            {
+                for (int i = 0; i < Model.DienBienExcel.Count; i = i + 8)
+                {
+                    string giatri = "";
+                    @:
+                    <tr>
+                        @if ((i / 8) % 2 == 0)
+                        {
+                            @:
+                            <td rowspan="2">@vitri[i / 8]</td>
+                    }
+                        <td>@Html.Raw(donvi[(i / 8) % 2])</td>
+                        @for (int j = i; j < i + 8; j++)
+                        {
+                            giatri = Model.DienBienExcel[j].gia_tri;
+                            if (giatri == "")
+                            {
+                                @:
+                                <td>
+                                    @Html.TextBoxFor(model => Model.DienBienExcel[j].gia_tri, new
+                             {
+                                 @type = "number",
+                                 @readonly = "readonly",
+                                 Value = ""@*, @onchange = "onchangeevent();"*@})
+                            </td>
+                        }
+                            else
+                            {
+                                @:
+                                <td>@Html.TextBoxFor(model => Model.DienBienExcel[j].gia_tri, new { @type = "number", @readonly = "readonly" })</td>
+                        }
+                        @Html.TextBoxFor(model => Model.DienBienExcel[j].vi_tri_ref, new { style = "display:none" })
+                            @Html.TextBoxFor(model => Model.DienBienExcel[j].loai_du_lieu_ref, new { style = "display:none" })
+                            @Html.TextBoxFor(model => Model.DienBienExcel[j].thoi_gian, new { style = "display:none" })
+                            @Html.TextBoxFor(model => Model.DienBienExcel[j].is_thuc_do, new { style = "display:none" })
+                        }
+                    </tr>
+                    @:
+                }
+            }
+            catch (Exception ex)
+            {
+            }
+        </tbody>
+    </table>
+</div>
+<script>
+
+    if ($('input[type=number]').val = null) {
+        alert("thongtin");
+        $('input[type=number]').val(-1);
+    }
+</script>

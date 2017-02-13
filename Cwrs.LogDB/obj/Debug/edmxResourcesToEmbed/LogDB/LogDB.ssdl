@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LogDBModel.Store" Provider="Npgsql" ProviderManifestToken="9.4.1" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="log_tb">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="system" Type="varchar" MaxLength="200" />
+    <Property Name="file" Type="varchar" MaxLength="200" />
+    <Property Name="function" Type="varchar" MaxLength="200" />
+    <Property Name="messages" Type="varchar" MaxLength="500" />
+    <Property Name="create_by" Type="varchar" MaxLength="100" />
+    <Property Name="create_at" Type="timestamp" />
+    <Property Name="is_error" Type="int4" />
+    <Property Name="type" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityContainer Name="LogDBModelStoreContainer">
+    <EntitySet Name="log_tb" EntityType="Self.log_tb" Schema="public" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,181 @@
+﻿.hide-map {
+    position: absolute;
+    right: 16px;
+    top: 250px;
+    border: 1px solid #ddd;
+    background-color: #ddd;
+    padding: 20px 4px;
+    z-index: 1;
+    border-radius: 3px;
+}
+
+.show-map {
+    position: absolute;
+    right: -20px;
+    top: 250px;
+    border: 1px solid #ddd;
+    background-color: #ddd;
+    padding: 20px 4px;
+    z-index: 1;
+    border-radius: 3px;
+}
+
+/*#ladyloading {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    background-color: #f9edbe;
+    margin: 100px 578px;
+    border: 1px solid #f0c36d;
+    border-radius: 2px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 0 10px;
+    background: none repeat scroll 0 0 #fff1a8;
+    color: #222;
+    padding: 3px 3px 0;
+    display: inline-block;
+    position: fixed;
+}
+
+.accordion1 {
+    background-color: #007AFF;
+    color: #5b5b60;
+    display: block;
+    font-size: 13px;
+    line-height: 20px;
+    padding: 10px;
+    position: relative;
+}
+
+table, td, th {
+    text-align: center;
+}
+
+th {
+    background: #0026ff;
+}
+
+/*.accordion .panel-heading .accordion-toggle {
+    background-color: #E6E8E8;
+    color: #5b5b60;
+    display: block;
+    font-size: 13px;
+    line-height: 20px;
+    padding: 10px;
+    position: relative;
+}*/
+
+.accordion .panel {
+    border: none;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    -moz-box-shadow: 0, 0, 0, transparent;
+    -webkit-box-shadow: 0, 0, 0, transparent;
+    box-shadow: 0, 0, 0, transparent;
+}
+
+.accordion .panel-heading {
+    padding: 0;
+    background-image: none;
+    height: auto;
+    min-height: 0;
+    -moz-box-shadow: 0, 0, 0, transparent;
+    -webkit-box-shadow: 0, 0, 0, transparent;
+    box-shadow: 0, 0, 0, transparent;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+}
+
+    .accordion .panel-heading .accordion-toggle {
+        background-color: #E6E8E8;
+        color: #5b5b60;
+        display: block;
+        font-size: 13px;
+        line-height: 20px;
+        padding: 10px;
+        position: relative;
+    }
+
+        .accordion .panel-heading .accordion-toggle:hover, .accordion .panel-heading .accordion-toggle:focus {
+            text-decoration: none;
+        }
+
+        .accordion .panel-heading .accordion-toggle.collapsed > .icon-arrow:before {
+            content: "\f105" !important;
+        }
+
+        .accordion .panel-heading .accordion-toggle > .icon-arrow {
+            font-family: FontAwesome;
+            font-size: 11px;
+            padding: 0 5px;
+            display: inline-block;
+            font-family: FontAwesome;
+            font-style: normal;
+            font-weight: normal;
+            line-height: 1;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+            .accordion .panel-heading .accordion-toggle > .icon-arrow:before {
+                content: "\f107";
+                color: #007AFF;
+            }
+
+.accordion .panel-body {
+    border: none !important;
+}
+
+.accordion.panel-group .panel + .panel {
+    margin-top: 1px;
+}
+
+.accordion.accordion-white .panel-heading .accordion-toggle {
+    background-color: #ffffff;
+}
+
+    .accordion.accordion-white .panel-heading .accordion-toggle.collapsed {
+        background-color: #ffffff;
+    }
+
+.accordion1.accordion-white.panel-group .panel + .panel {
+    margin-top: 0;
+    border-top: 1px solid #a8a8ac;
+}
+
+.accordion.heading-white .accordion-toggle {
+    background-color: #ffffff;
+    color: #8e8e93;
+}
+
+.accordion.heading-white .panel-group .panel + .panel {
+    margin-top: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.07);
+}
+
+.accordion.no-padding .panel-body {
+    padding: 0;
+}
+
+.accordion.body-light-grey .panel-body {
+    background: #f7f7f8 !important;
+}
+
+.accordion .panel-group {
+    margin-bottom: 0;
+}
+
+    .accordion .panel-group .panel + .panel {
+        margin-top: 0;
+        border-top: 1px solid transparent;
+    }
+
+
+.min-md-col {
+    min-width: 200px;
+}
+
+    .min-md-col .select2 {
+        width: 100% !important;
+    }

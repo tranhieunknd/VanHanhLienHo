@@ -1,0 +1,78 @@
+﻿@using Cwrs.DataBase.Models;
+@model IEnumerable<UserDetail>
+@{
+    Layout = null;
+    int i = 1;
+}
+@if (Model == null)
+{
+    @Html.Partial("_NotAccess", Model)
+}
+else
+{
+    <link href="~/Content/QuanLyTaiKhoan/CssTable.css" rel="stylesheet" />
+    <div>
+        <div class="col-md-12">
+            <h3 style="text-align: center; color: #000000; padding-top: 20px">
+                <b>THÔNG TIN TÀI KHOẢN </b>
+            </h3>
+        </div>
+            <div class="col-md-12" style="text-align: center; padding: 0 4%">
+                <div class="col-md-12" style="text-align: left">
+                    <a class="btn btn-wide btn-o btn-primary" data-ajax="true" style="margin-bottom: 10px;"
+                       data-ajax-method="Get" data-ajax-mode="replace" data-ajax-update="#container"
+                       href="/User/CreateUser" onclick="AddBreadCrumb(3, 'Thêm mới', '')"><i class="glyphicon glyphicon-plus"></i>Thêm mới</a>
+                </div>
+                <div class="col-md-12" style="text-align: center">
+                    <table style="width: 100%">
+                        <tr>
+                            <th style="width: 5%">STT</th>
+                            <th style="width: 10%">Tên tài khoản</th>
+                            <th style="width: 10%">Tên đơn vị</th>
+                            <th style="width: 10%">Số điện thoại</th>
+                            <th style="width: 20%">Địa chỉ</th>
+                            <th style="width: 15%">Email</th>
+                            <th style="width: 20%">Ghi chú</th>
+                            <th style="width: 10%">Tùy chọn</th>
+
+                        </tr>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @(i++)
+                                </td>
+                                <td>
+                                    @item.username
+                                </td>
+                                <td>
+                                    @item.don_vi_name
+                                </td>
+                                <td>
+                                    @item.dien_thoai
+                                </td>
+                                <td>
+                                    @item.dia_chi
+                                </td>
+                                <td>
+                                    @item.email
+                                </td>
+                                <td>
+                                    @item.ghi_chu
+                                </td>
+                                <td>
+                                    <a class="btn btn-primary" data-ajax="true" style="margin: 3px 0px"
+                                       data-ajax-method="Get" data-ajax-mode="replace" data-ajax-update="#container"
+                                       href="/User/UserDetail?UserId=@item.user_code" onclick="AddBreadCrumb(3, 'Sửa thông tin tài khoản', '')"><i class="glyphicon glyphicon-pencil"></i></a>
+                                    <a class="btn btn-red" data-ajax="true"
+                                       data-ajax-method="Get" @*data-ajax-mode="replace" data-ajax-update="#container"*@
+                                       onclick="DeleteUser(@item.user_code)"><i class="glyphicon glyphicon-remove"></i></a>
+                                </td>
+
+                            </tr>
+                        }
+                    </table>
+                </div>
+            </div>
+    </div>
+}

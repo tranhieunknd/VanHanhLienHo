@@ -1,0 +1,606 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    border: none;
+}
+
+html, body {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
+
+body {
+    background: #0066b1;
+    font-family: "lucida grande", "Segoe UI", arial, verdana, "lucida sans unicode", tahoma, sans-serif;
+    font-size: 15px;
+}
+
+input[type="text"], input[type="email"], input[type="password"], button[type="submit"], input[type="submit"] {
+    -webkit-appearance: none;
+}
+
+h2 {
+    margin-bottom: 1em;
+}
+
+.wrapper {
+    position: relative;
+    height: 90%;
+}
+
+.l-left {
+    float: left;
+}
+
+    .l-left a {
+        display: inline-block;
+        outline: none;
+    }
+
+label.l-left {
+    color: #333333;
+    font-size: 92.5%;
+    cursor: pointer;
+}
+
+.l-right {
+    float: right;
+}
+
+.footer {
+    color: #777777;
+    font-size: 72.4%;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.login-links-wrapper {
+    border-bottom: 1px solid #DCDCDD;
+    line-height: 18px;
+    padding-bottom: 5px;
+}
+
+.login-horizontal-centered {
+    position: absolute;
+    top: 50%;
+    margin: 0 auto;
+    /* min-height:500px; */
+    -webkit-transform: translate(-20%, -50%); /* for Safari */
+    -ms-transform: translate(-20%, -50%); /* for IE9 */
+    transform: translate(-20%, -50%);
+    width: 382px;
+    z-index: 1;
+    right: 5%;
+    background: #fff;
+    padding: 10px 0px 20px 0px;
+}
+
+.login-horizontal-centered-footer {
+    margin: 0 auto;
+}
+
+/* Allow word to break onto the next line in info (text) block */
+.login-block .t-block {
+    word-wrap: break-word;
+}
+
+.login-copyright-wrapper {
+    padding: 15px 0;
+    color: #878787;
+    font-family: Verdana, Tahoma, Arial;
+}
+
+a.link-footer:link, a.link-footer:visited {
+    color: #46799F;
+    text-decoration: none;
+    margin: 0 0 0 15px;
+    white-space: nowrap;
+}
+
+a.link-footer:hover {
+    text-decoration: underline;
+}
+
+.wrike-ppm-logo {
+    height: 160px;
+    width: 100%;
+    text-align: center;
+}
+
+
+    .wrike-ppm-logo .vhlhc-title {
+        font-size: 22px;
+        color: #00f;
+        font-weight: bold;
+    }
+
+    .wrike-ppm-logo .vhlhc-logo {
+        width: 100%;
+        height: 120px;
+    }
+
+.login-block {
+    background: #FFFFFF;
+    padding: 10px 30px 0 30px;
+}
+
+    .login-block.readonly {
+        background: #FFFFFF;
+        border: 1px solid #E3E4E7;
+        padding: 15px 30px 15px 30px;
+    }
+
+.validation-tip, .validation-block {
+    width: 100%;
+    line-height: 15px;
+    color: #666666;
+    text-align: center;
+    margin-top: 20px;
+}
+
+    .validation-block .error {
+        line-height: 1.15;
+        display: block;
+        background: #DFFFBF;
+        padding: 10px 8px;
+    }
+
+        .validation-block .error:first-child {
+            margin-bottom: 10px;
+        }
+
+        .validation-block .error + .error {
+        }
+
+        .validation-block .error:last-child {
+        }
+
+.validation-div {
+    width: 10px;
+    height: 40px;
+    background: #DFFFBF;
+    float: left;
+    position: absolute;
+    left: -15px;
+    display: none;
+}
+
+.error + .validation-div {
+    display: block;
+}
+
+.login-input {
+    min-height: 40px;
+    position: relative;
+    margin: 20px 0 0 0;
+}
+
+    .login-input input[type="text"], .login-input input[type="email"], .login-input input[type="password"] {
+        height: 40px;
+        padding: 10.5px 10px;
+        width: 100%;
+        box-sizing: border-box;
+        font-size: 15px;
+        background: #FBFBFB;
+        border: 1px solid #CCCCCC;
+        float: left;
+        color: #666666;
+        outline: none;
+    }
+
+input::-ms-reveal {
+    display: none;
+}
+
+input::-ms-clear {
+    display: none;
+}
+
+.login-input input[type="text"]:focus, .login-input input[type="email"]:focus, .login-input input[type="password"]:focus, .login-input input[type="text"].focus, .login-input input[type="email"]:focus, .login-input input[type="password"].focus {
+    background: #FFFFFF;
+    border: 1px solid #41AEE9;
+    box-shadow: 0 0 4px 0 #507CAB;
+    -moz-box-shadow: 0 0 4px 0 #507CAB;
+    -webkit-box-shadow: 0 0 4px 0 #507CAB;
+    filter: progid:DXImageTransform.Microsoft.shadow(direction = 0, color = #507CAB, strength = 0);
+}
+
+.login-input input::-webkit-input-placeholder {
+    color: #666666;
+}
+
+.login-input input:-moz-placeholder {
+    color: #666666;
+}
+
+.login-input input:-ms-input-placeholder {
+    color: #666666;
+    font-size: 13px!important;
+    font-family: inherit;
+}
+
+.login-input input:focus::-webkit-input-placeholder {
+    color: #BBBBBB;
+}
+
+.login-input input:focus:-moz-placeholder {
+    color: #BBBBBB;
+}
+
+.login-input input:focus:-ms-input-placeholder {
+    color: #BBBBBB;
+    font-size: 13px!important;
+    font-family: inherit;
+}
+
+.login-input > .l-left {
+    padding: 10px 0 0 0;
+}
+
+label.placeholder {
+    color: #666666;
+    font-size: 100%;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    cursor: text;
+}
+
+.link-content:link, .link-content:visited {
+    color: #507CAB;
+    text-decoration: none;
+}
+
+.link-content:hover {
+    text-decoration: underline;
+}
+
+.input-content {
+    color: #507CAB;
+    text-decoration: none;
+    border: none;
+    font-size: 100%;
+    cursor: pointer;
+}
+
+    .input-content:hover {
+        text-decoration: underline;
+    }
+
+.arrow-blue {
+    position: relative;
+    line-height: 1.2em;
+    padding-left: 18px;
+}
+
+    .arrow-blue:before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        background: url("images/login-sprite.png") no-repeat -35px 0;
+        width: 10px;
+        height: 17px;
+        margin-top: -8px;
+    }
+
+.link-pass {
+    position: absolute;
+    float: right;
+    top: 0;
+    line-height: 38px;
+    font-size: 15px;
+    right: 0;
+    padding: 0 10px 0 0;
+}
+
+button {
+    width: 0;
+    overflow: visible;
+}
+
+.button-light-blue {
+    padding: 0 10px;
+    height: 40px;
+    min-width: 120px;
+    background: #0072c6;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #FFFFFF;
+    font-size: 100%;
+}
+
+*:first-child + html .button-light-blue {
+    padding: 0;
+}
+
+    .button-light-blue:hover {
+        background: #0072c6;
+    }
+
+    .button-light-blue:active, .button-light-blue:visited {
+        border: none;
+    }
+
+    .button-light-blue > img.active {
+        display: block;
+        padding: 2px 12px 0 12px;
+    }
+
+    .button-light-blue > img.loading {
+        display: none;
+        padding: 2px 1px 0;
+    }
+
+    .button-light-blue.loading > img.active {
+        display: none;
+    }
+
+    .button-light-blue.loading > img.loading {
+        display: block;
+    }
+
+    *:first-child + html .button-light-blue > img {
+        padding: 2px 22px 0 22px;
+    }
+
+.ssoForm .checkbox {
+    background: transparent;
+    width: 16px;
+    height: 16px;
+    overflow: hidden;
+}
+
+    .ssoForm .checkbox input[type="checkbox"] {
+        position: relative;
+        top: 2px;
+    }
+
+    .ssoForm .checkbox.rich-checkbox {
+        background: url("images/checkbox-sprite.png") no-repeat 0 0 transparent;
+        margin: 1px 5px 0 0;
+    }
+
+        .ssoForm .checkbox.rich-checkbox:hover {
+            background-position: 0 -20px;
+        }
+
+        .ssoForm .checkbox.rich-checkbox.checkbox-checked {
+            background-position: -20px 0;
+        }
+
+            .ssoForm .checkbox.rich-checkbox.checkbox-checked:hover {
+                background-position: -20px -20px;
+            }
+
+        .ssoForm .checkbox.rich-checkbox input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+            filter: alpha(opacity = 0);
+            -khtml-opacity: 0;
+            -moz-opacity: 0;
+            opacity: 0;
+            outline-style: none;
+            cursor: pointer;
+        }
+
+.alternative-login {
+    position: relative;
+    margin-top: 30px;
+    font-size: 0;
+    white-space: nowrap;
+}
+
+    .alternative-login:before {
+        content: '';
+        width: 119%;
+        height: 1px;
+        position: absolute;
+        left: -31px;
+        top: 0;
+        background-color: #cccccc;
+    }
+
+    .alternative-login > p {
+        font-size: 13px;
+        line-height: 18px;
+        color: #333333;
+        margin-bottom: 10px;
+        white-space: normal;
+    }
+
+.alternative-login-block {
+    /*display: block;*/
+    border-radius: 5px;
+    background-color: #f3f3f4;
+    text-align: center;
+    padding: 11px 0;
+    font-size: 13px;
+    color: #507CAB;
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    width: 150px;
+    vertical-align: top;
+}
+
+    .alternative-login-block:hover span {
+        text-decoration: underline;
+    }
+
+    .alternative-login-block > span {
+        margin-left: 9px;
+        display: inline-block;
+        vertical-align: middle;
+        margin-top: -2px;
+    }
+
+/*.alternative-login-block > span {
+    margin-left: 12px;
+}*/
+
+.g-block {
+    margin-right: 20px;
+}
+
+    .g-block:before, .office-block:before {
+        content: '';
+        position: absolute;
+        top: 9px;
+        left: 12px;
+    }
+
+    .g-block:before {
+        width: 16px;
+        height: 17px;
+        background: url("images/login-sprite.png") no-repeat 0 0;
+        /*    position: static;
+        display: inline-block;
+        vertical-align: middle;*/
+    }
+
+.office-block:before {
+    width: 14px;
+    height: 17px;
+    background: url("images/login-sprite.png") no-repeat -18px 1px;
+}
+
+.signup-block {
+    font-size: 15px;
+    color: #507CAB;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.s-block {
+    text-align: center;
+    color: #777777;
+    font-size: 85.5%;
+    margin: 15px 0;
+}
+
+.t-block {
+    color: #333333;
+    font-size: 15px;
+    line-height: 21px;
+    padding-top: 20px;
+}
+
+@media screen and (max-width: 360px) {
+    .login-horizontal-centered {
+        width: 356px;
+        margin-left: -178px;
+        -webkit-transform: translate(0, -50%); /* for Safari */
+        -ms-transform: translate(0, -50%); /* for IE9 */
+        transform: translate(0, -50%);
+    }
+
+    .login-block {
+        padding: 32px 20px 24px 20px;
+    }
+
+    .g-block {
+        margin-right: 14px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .login-horizontal-centered {
+        width: 320px;
+        margin-left: -160px;
+    }
+
+    .login-block {
+        padding: 32px 20px 24px 20px;
+    }
+
+    .alternative-login-block {
+        width: 132px;
+    }
+}
+
+.ssoForm .leftPane {
+    position: absolute;
+    top: 0;
+    right: 270px;
+    width: 200px;
+    display: none;
+}
+
+table {
+    border: 0px;
+    border-collapse: collapse;
+}
+
+    table td {
+        padding: 0px;
+    }
+
+.b-table {
+    width: 100%;
+    vertical-align: middle;
+}
+
+.get-app {
+    margin: 60px auto 20px;
+    position: relative;
+    width: 100%;
+}
+
+    .get-app .tip {
+        position: absolute;
+        top: -35px;
+        left: 140px;
+        background-color: #666666;
+        color: white;
+        padding: 9px;
+        opacity: 0;
+    }
+
+        .get-app .tip:after {
+            content: '';
+            position: absolute;
+            bottom: -7px;
+            left: 50%;
+            margin-left: -7px;
+            width: 1px;
+            height: 1px;
+            border-width: 7px 7px 0px 7px;
+            border-color: #666666 transparent;
+            border-style: solid;
+        }
+
+    .get-app .icon {
+        background-image: url("images/get_app_icons.png");
+        background-size: 154px;
+        background-position: 0 10px;
+        background-repeat: no-repeat;
+        width: 52px;
+        height: 68px;
+        margin: 0 auto;
+        display: block;
+    }
+
+        .get-app .icon:hover {
+            background-position: -52px 10px;
+        }
+
+            .get-app .icon:hover ~ .tip {
+                opacity: 1;
+            }
+
+        .get-app .icon:active {
+            background-position: -104px 10px;
+        }
+
+iframe {
+    height: 0;
+    width: 0;
+}

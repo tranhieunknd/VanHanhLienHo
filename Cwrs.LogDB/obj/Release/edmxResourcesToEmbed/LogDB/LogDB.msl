@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LogDBModelStoreContainer" CdmEntityContainer="LogDBEntities">
+    <EntitySetMapping Name="log_tb">
+      <EntityTypeMapping TypeName="LogDBModel.log_tb">
+        <MappingFragment StoreEntitySet="log_tb">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="system" ColumnName="system" />
+          <ScalarProperty Name="file" ColumnName="file" />
+          <ScalarProperty Name="function" ColumnName="function" />
+          <ScalarProperty Name="messages" ColumnName="messages" />
+          <ScalarProperty Name="create_by" ColumnName="create_by" />
+          <ScalarProperty Name="create_at" ColumnName="create_at" />
+          <ScalarProperty Name="is_error" ColumnName="is_error" />
+          <ScalarProperty Name="type" ColumnName="type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

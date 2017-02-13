@@ -1,0 +1,35 @@
+﻿@using Cwrs.DataBase.Models
+@model  KichBanXa
+
+@{
+    if (IsAjax)
+    {
+        Layout = null;
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_LayoutClipTwo.cshtml";
+    }
+}
+
+<script src="~/Scripts/moment.js"></script>
+<script src="~/Scripts/amcharts/amcharts.js"></script>
+<script src="~/Scripts/amcharts/serial.js"></script>
+<script src="~/Scripts/amcharts/light.js"></script>
+<script src="~/Scripts/BieuDo/bieudo.js"></script>
+
+<section class="col-xs-12">
+    <section class="col-xs-6" style="padding-left: 0">@Html.Partial("_ThietLap", Model)</section>
+    <section class="col-xs-6">@Html.Partial("_BieuDo")</section>
+</section>
+
+<script>
+    $(document).ready(function () {
+        console.log("vao roi nhes");
+       AddBreadCrumb(1, 'Tính toán mực nước hồ', '');
+       home.DanhDauMenu('TinhToanMucNuoc', 0);
+    });
+    //$(document).ready(function () {
+
+    //});
+</script>

@@ -1,0 +1,125 @@
+﻿@using Cwrs.DataBase.Models;
+@model List<LichSuCapNhat>
+
+<style>
+    table, th, td {
+        border: 1px solid #0094ff;
+        border-collapse: collapse;
+        padding: 10px;
+    }
+
+    th {
+        text-align: center;
+        color: #ffffff;
+        background: #0000ff;
+    }
+
+    a {
+        color: #0094ff;
+    }
+
+        a:hover {
+            color: #b6ff00;
+        }
+
+    td {
+        text-align: center;
+    }
+
+    .FixMinWidth {
+        min-width: 65px;
+    }
+
+
+    #data_table {
+        overflow: auto;
+    }
+
+    .tableFloatingHeaderOriginal {
+        background: #FFF;
+    }
+</style>
+@if (Model == null)
+{
+
+    <h2 style="margin-left: 10px; font-family: Arial"> @ViewBag.ThongBao</h2>
+}
+else
+{
+    DateTime? tg = null;
+    int dem = 0;
+    int stt = 0;
+
+    <div style="margin: 10px auto 10px 15px">
+        <a class="btn btn-small btn-primary" data-ajax="true" data-ajax-method="GET"
+           data-ajax-mode="replace" data-ajax-update="#container"
+           href="TuVan/Index" style="color: #FFFFFF" onclick="AddBreadCrumb(1, 'Nhập dữ liệu excel', '');">
+            <i class="glyphicon glyphicon-import"></i> Nhập excel
+        </a>
+        <a class="btn btn-primary" id="btnTaiFileMau" href="~/Files/somefiles/MauNhapLieu.v3_DL.xls"> Tải file mẫu nhập liệu </a>
+    </div>
+
+
+    <div class="col-sm-12" style="padding-top: 10px">
+        <table>
+            <tr>
+                <th style="width: 10%">
+                    STT
+                </th>
+                <th style="width: 15%">
+                    Bản tin tư vấn
+                </th>
+                <th style="width: 50%">
+                    Phương án vận hành kiến nghị
+                </th>
+                <th style="width: 15%">
+                    Thời điểm cập nhật
+                </th>
+                <th style="width: 10%">
+                    Tùy chọn
+                </th>
+            </tr>
+            @foreach (LichSuCapNhat item in Model)
+            {
+                if (item.rowThoiGian != 0)
+                {
+                    <tr>
+                        <td colspan="5">
+                            <p style="float: left; font-weight: bold; margin: 0"> @item.thoi_gian.ToString("dd-MM-yyyy")</p>
+                        </td>
+                    </tr>
+                    stt = 1;
+                }
+                <tr>
+                    @if (item.rowTuVan != 0)
+                    {
+                        <td rowspan="@item.rowTuVan">@stt</td>
+                        <td rowspan="@item.rowTuVan">Bản tin @stt</td>
+                        stt++;
+                    }
+                    <td>@item.kien_nghi</td>
+                    @if (item.rowTuVan != 0)
+                    {
+                        <td rowspan="@item.rowTuVan">@item.created_at</td>
+                        <td rowspan="@item.rowTuVan">
+                            <a class="btn btn-small btn-dark-green glyphicon glyphicon-list-alt" data-ajax="true"
+                               data-ajax-method="Get" data-ajax-mode="replace" data-ajax-update="#container"
+                               href="/TuVan/GetInfoTuVan?tuVanGuid=@item.guid"></a>
+                            <a href="@item.link" class="btn btn-small btn btn-default glyphicon"><i class="glyphicon glyphicon-download-alt"></i></a>
+                        </td>
+                    }
+                </tr>
+            }
+
+
+        </table>
+    </div>
+}
+
+
+@*<td rowspan="@Model[i].rowThoiGian">
+        <a class="btn btn-small btn-dark-green glyphicon glyphicon-list-alt" data-ajax="true"
+           data-ajax-method="Get" data-ajax-mode="replace" data-ajax-update="#container"
+           href="/TuVan/GetInfoTuVan?tuVanGuid=@Model[i].guid"></a>
+        <a href="@Model[i].link" class="btn btn-small btn btn-default glyphicon"><i class="glyphicon glyphicon-download-alt"></i></a>
+    </td>*@

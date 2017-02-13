@@ -1,0 +1,88 @@
+﻿table, td, th {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.table > thead:first-child > tr:first-child > th, .table.table-bordered > thead > tr > th {
+    background: #3395FF;
+    color: #ffffff !important;
+}
+input[type=number] {
+    text-align: center;
+    border: none;
+    padding: 0px;
+    height: 100%;
+    width: 100%;
+    -moz-appearance: textfield;
+}
+
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+    }
+/*.table > tbody > tr > td {
+    padding: 0px;
+}*/
+
+input[type="text"] {
+   background-color: #3395FF;
+    padding: 0px;
+    color: white;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    border: none;
+}
+
+.class_HienTrang {
+    text-align: left;
+}
+
+.accordion .panel-heading .accordion-toggle1 {
+    background-color: #1083FF;
+    color: #5b5b60;
+    display: block;
+    font-size: 13px;
+    line-height: 20px;
+    padding: 10px;
+    position: relative;
+}
+
+.accordion .panel-heading .accordion-toggle1:hover, .accordion .panel-heading .accordion-toggle1:focus {
+    text-decoration: none;
+}
+
+.accordion .panel-heading .accordion-toggle1.collapsed > .icon-arrow:before {
+    content: "\f105";
+}
+
+.accordion .panel-heading .accordion-toggle1 > .icon-arrow {
+    font-family: FontAwesome;
+    font-size: 11px;
+    padding: 0 5px;
+    display: inline-block;
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+    .accordion .panel-heading .accordion-toggle1 > .icon-arrow:before {
+        content: "\f107";
+        color:black;
+    }
+
+.accordion.accordion-white .panel-heading .accordion-toggle1 {
+    background-color: #ffffff;
+}
+
+    .accordion.accordion-white .panel-heading .accordion-toggle1.collapsed {
+        background-color: #ffffff;
+    }
+
+.accordion.heading-white .accordion-toggle1 {
+    background-color: #ffffff;
+    color: #8e8e93;
+}

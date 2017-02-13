@@ -1,0 +1,67 @@
+﻿@*@{
+        ViewBag.Title = "Index";
+        Layout = "~/Views/Shared/_LayoutClipTwoUpload.cshtml";
+    }
+
+    @{Html.RenderAction("IndexPar", "FileUpload");}*@
+@{
+    string acHome = ViewBag.ActionHome as string;
+    string ctHome = ViewBag.ControllerHome as string;
+    string laHome = ViewBag.LayoutHome as string;
+    string dauMenu = ViewBag.DanhDauMenu as string;
+    string addBread = ViewBag.AddBreadCrumb as string;
+    string isLogin = ViewBag.IsLogin as string;
+    // ViewBag.Title = "LichSuCapNhatTongCuc";
+    //if (IsAjax)
+    //{
+    //    Layout = null;
+    //}
+    //else
+    //{
+    //    Layout = laHome;
+    //}
+
+    if (isLogin == "0")
+    {
+        Html.RenderAction(acHome, ctHome);
+    }
+    else
+    {
+        if (IsAjax)
+        {
+            Layout = null;
+            Html.RenderAction(acHome, ctHome);
+        }
+        else
+        {
+            Layout = laHome;
+            <script>
+            window.onload = function() {
+                var arr = document.location.href.split('#');
+                if ((arr.length == 2 && arr[1] == '') || arr.length < 2) {
+
+                    @*$("#container").load('@Html.Raw(@"/" + ctHome + @"/" + acHome)');*@
+                    $.ajax({
+                        type: "GET",
+                        url: '@Html.Raw('/' + ctHome + '/' + acHome)',
+                        data: {},
+                        success: function(data, text) {
+                            $("#container").html(data);
+                        },
+                        error: function(request, status, error) {
+                            console.log(request);
+                        }
+                    });
+                    AddBreadCrumb(1, '@addBread', '');
+                    home.DanhDauMenu('@dauMenu', 0);
+                } else {
+                    htm.LoadFirst('container');
+                }
+            };
+            </script>
+        }
+    }
+}
+
+
+@*@{ Html.RenderAction(acHome, ctHome);}*@

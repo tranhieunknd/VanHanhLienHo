@@ -1,0 +1,92 @@
+﻿
+@using Cwrs.DataBase.Models
+@model BanTinTuVan
+
+<div class="panel-group accordion" id="accordion">
+    <div class="panel panel-white">
+        <div class="panel-heading">
+            <h5 class="panel-title">
+                <a class="accordion-toggle collapsed " data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                    <i class="icon-arrow"></i><b style="color:black"> I. Dự kiến diễn biến thủy văn vùng thượng lưu</b>
+                </a>
+            </h5>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse in">
+            <div class="panel-body">
+                <div class="formfield col-sm-12">
+                    <h4 style="color:#007AFF">Nhận xét tình hình trong 24h qua:</h4>
+                    @Html.TextArea("NhanXetTinhHinh1", null, new { @class = "ckeditor col-sm-12", @width = "75%", @cols = "12", rows = "8" })
+                </div>
+                <div class=" formfield col-sm-12" style="margin-top:30px;">
+                    <h4 style="color:#007AFF">Dự kiến trong 24h tới:</h4>
+                    @Html.TextArea("DuKien1", null, new { @class = "ckeditor col-sm-12", @cols = "12", rows = "8" })
+                </div>
+                @{Html.RenderPartial("TuVan_DienBien_Par", Model.DienBienExcel); }
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-white">
+        <div class="panel-heading">
+            <h5 class="panel-title">
+                <a class="accordion1 " data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                    <i class="icon-arrow"></i> <b style="color:black">II. Hiện trạng công trình</b>
+                </a>
+            </h5>               @*//.accordion .panel-heading .accordion-toggle*@
+        </div>
+        <div id="collapseTwo" class="panel-collapse collapse">
+            <div class="panel-body">
+                @{Html.RenderPartial("TuVan_HienTrang_Par", Model.HienTrangExcel);}
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-white">
+        <div class="panel-heading">
+            <h5 class="panel-title">
+                <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                    <i class="icon-arrow"></i><b style="color:black"> III. Phương án điều hành liên hồ chứa</b>
+                </a>
+            </h5>
+        </div>
+        <div id="collapseThree" class="panel-collapse collapse">
+            <div class="panel-body">
+                @try
+                {
+                    for (int i = 0; i < Model.PhuongAnExcel.Count; i++)
+                    {
+                        ViewBag.IndexPhuongAn = i;
+                        @Html.Partial("TuVan_PhuongAn_Par", Model.PhuongAnExcel[i])
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                }
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-white">
+        <div class="panel-heading">
+            <h5 class="panel-title">
+                <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+                    <i class="icon-arrow"></i><b style="color:black"> IV. Phân tích kết quả tính toán và kiến nghị phương án điều hành</b>
+                </a>
+            </h5>
+        </div>
+        <div id="collapseFour" class="panel-collapse collapse">
+            <div class="panel-body">
+                @try
+                {
+                    for (int i = 0; i < Model.PhuongAnExcel.Count; i++)
+                    {
+                        ViewBag.IndexPhuongAn = i;
+                        @Html.Partial("TuVan_PhanTichKQ_Par", Model.PhuongAnExcel[i])
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                }
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,122 @@
+﻿@using Cwrs.DataBase.Models
+@model BanTinTuVan
+@if (Model != null)
+{
+    <link href="~/Content/TuVan/style_TuVan.css" rel="stylesheet"/>
+            
+    <div class="col-sm-12">
+        @Html.HiddenFor(model => Model.ThoiGian)
+        @Html.HiddenFor(model => model.Link)
+        <fieldset style="padding: 0px">
+            <div class="panel-group accordion" id="accordion">
+                <div class="panel panel-white">
+                    <div class="panel-heading">
+                        <h5 class="panel-title">
+                            <a class="accordion-toggle  accordion-toggle1 collapsed " data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                <i class="icon-arrow"></i><b style="color: white"> I. Dự kiến diễn biến thủy văn vùng thượng lưu:</b>
+                            </a>
+                        </h5>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <div class="formfield col-sm-12">
+                                <p><h5><b>Nhận xét tình hình trong 24h qua:</b></h5>
+                                </p>
+                                @Html.TextAreaFor(model => Model.NhanXetTinhHinh, new {@class = "ckeditor col-sm-12", @cols = "12", rows = "6", @readonly = "readonly"})
+                                @*@Html.HiddenFor(model => Model.DienBienExcel[1].thoi_gian)*@
+                            </div>
+                            <div class=" formfield col-sm-12" style="margin-top: 30px;">
+                                <p><h5><b>Dự kiến trong 24h tới:</b></h5>
+                                </p>
+                                @Html.TextAreaFor(model => Model.DuKien, new {@class = "ckeditor col-sm-12", @cols = "12", rows = "6", @readonly = "readonly"})
+                            </div>
+                            @if (Model != null)
+                            {
+                                //Html.RenderPartial("TuVan_DienBien_Par", Model.DienBienExcel);
+                                Html.RenderPartial("TuVan_DienBien_Par", Model);
+
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-white">
+                    <div class="panel-heading">
+                        <h5 class="panel-title">
+                            <a class="accordion-toggle  accordion-toggle1 collapsed " data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                                <i class="icon-arrow"></i> <b style="color: white">II. Hiện trạng công trình</b>
+                            </a>
+                        </h5>
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            @if (Model != null)
+                            {
+                                //Html.RenderPartial("TuVan_HienTrang_Par", Model.HienTrangExcel);
+                                Html.RenderPartial("TuVan_HienTrang_Par", Model);
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-white">
+                    <div class="panel-heading">
+                        <h5 class="panel-title">
+                            <a class="accordion-toggle  accordion-toggle1 collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                                <i class="icon-arrow"></i><b style="color: white"> III. Phương án điều hành liên hồ chứa</b>
+                            </a>
+                        </h5>
+                    </div>
+                    <div id="collapseThree" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            @try
+                            {
+                                if (Model != null)
+                                {
+                                    for (int i = 0; i < Model.PhuongAnExcel.Count; i++)
+                                    {
+                                        ViewBag.IndexPhuongAn = i;
+                                    @*@Html.Partial("TuVan_PhuongAn_Par", Model.PhuongAnExcel[i])*@
+                                        @Html.Partial("TuVan_PhuongAn_Par", Model)
+                                        ;
+                                    }
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-white">
+                    <div class="panel-heading">
+                        <h5 class="panel-title">
+                            <a class="accordion-toggle accordion-toggle1 collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+                                <i class="icon-arrow"></i><b style="color: white"> IV. Phân tích kết quả tính toán và kiến nghị phương án điều hành</b>
+                            </a>
+                        </h5>
+                    </div>
+                    <div id="collapseFour" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            @try
+                            {
+                                if (Model != null)
+                                {
+                                    for (int i = 0; i < Model.PhuongAnExcel.Count; i++)
+                                    {
+                                        ViewBag.IndexPhuongAn = i;
+                                        @Html.Partial("TuVan_PhanTichKQ_Par", Model)
+                                        ;
+                                    }
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+}

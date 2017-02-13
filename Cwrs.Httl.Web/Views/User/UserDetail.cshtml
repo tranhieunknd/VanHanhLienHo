@@ -1,0 +1,83 @@
+﻿@using Cwrs.DataBase.Models;
+@model UserDetail
+@{
+    ViewBag.Title = "UserDetail";
+    Layout = null;
+    Model.confirmPW = Model.password;
+}
+
+@using (Ajax.BeginForm("CapNhatThongTinUser", "User", new AjaxOptions { OnSuccess = "ThongBaoSua", OnFailure = "ThongBaoThatBai" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="container-fluid container-fullw">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            <div style="padding: 10px auto">
+                <center>
+                    <p style="font-family: Arial; font-size: 20px; color: #000000; padding-top: 10px">SỬA THÔNG TIN TÀI KHOẢN</p>
+                </center>
+            </div>
+            <div class="form-group" style="display: none">
+                <label for="exampleInputEmail1">
+                    Mã tài khoản
+                </label>
+                @Html.TextBoxFor(m => m.user_code, new {@class = "form-control"})
+                @Html.TextBoxFor(m => m.don_vi_ref, new {@class = "form-control"})
+                @Html.TextBoxFor(m => m.user_guid, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">
+                    Tên đơn vị
+                </label>
+                @Html.TextBoxFor(m => m.don_vi_name, new { @class = "form-control", @readonly = "readonly" })
+            </div>
+            <div class="form-group">
+                Mật khẩu:
+                @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control", type = "password" } })
+                @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                Xác nhận mật khẩu:
+                @Html.EditorFor(model => model.confirmPW, new { htmlAttributes = new { @class = "form-control", type = "password" } })
+                @Html.ValidationMessageFor(model => model.confirmPW, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                Tên tài khoản:
+                @Html.EditorFor(model => model.username, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.username, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                Số điện thoại:
+                @Html.EditorFor(model => model.dien_thoai, new { htmlAttributes = new { @class = "form-control", type = "number" } })
+                @Html.ValidationMessageFor(model => model.dien_thoai, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                Địa chỉ:
+                @Html.EditorFor(model => model.dia_chi, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.dia_chi, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                Email:
+                @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                Ghi chú:
+                @Html.TextAreaFor(model => model.ghi_chu, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ghi_chu, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group" style="margin-top: 5px">
+                <button type="submit" class="btn btn-red" id="SaveBottom">
+                    <i class="glyphicon glyphicon-floppy-disk"></i>
+                    <span> Lưu</span>
+                </button>
+                <a class="btn btn-primary" data-ajax="true"
+                   data-ajax-method="Get" data-ajax-mode="replace" data-ajax-update="#container"
+                   href="/User/SelectAllUser" onclick="RemoveBreadCrumb(3);"><i class="glyphicon glyphicon-arrow-left"></i> Quay lại</a>
+            </div>
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+}
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

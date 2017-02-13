@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c95277938bef4634932d4ae3df5030fe" Name="Diagram1">
+        <EntityTypeShape EntityType="VanHanhLienHoModel.danh_muc_tb" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="VanHanhLienHoModel.dien_bien_tb" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="VanHanhLienHoModel.don_vi_tb" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="VanHanhLienHoModel.hien_trang_tb" Width="1.5" PointX="4.75" PointY="4.75" />
+        <EntityTypeShape EntityType="VanHanhLienHoModel.loai_danh_muc_tb" Width="1.5" PointX="0.75" PointY="5.75" />
+        <EntityTypeShape EntityType="VanHanhLienHoModel.loai_du_lieu_tb" Width="1.5" PointX="6.75" PointY="0.75" />
+        <EntityTypeShape EntityType="VanHanhLienHoModel.phuong_an_detail_tb" Width="1.5" PointX="6.75" PointY="4.75" />
+        <EntityTypeShape EntityType="VanHanhLienHoModel.phuong_an_tb" Width="1.5" PointX="8.75" PointY="0.75" />
+        <EntityTypeShape EntityType="VanHanhLienHoModel.thiet_lap_kich_ban_detail_tb" Width="1.5" PointX="8.75" PointY="4.75" />
+        <EntityTypeShape EntityType="VanHanhLienHoModel.thiet_lap_kich_ban_tb" Width="1.5" PointX="0.75" PointY="9.75" />
+        <EntityTypeShape EntityType="VanHanhLienHoModel.tu_van_tb" Width="1.5" PointX="2.75" PointY="9.75" />
+        <EntityTypeShape EntityType="VanHanhLienHoModel.upload_file_tb" Width="1.5" PointX="4.75" PointY="9.75" />
+        <EntityTypeShape EntityType="VanHanhLienHoModel.user_tb" Width="1.5" PointX="6.75" PointY="9.75" />
+        <EntityTypeShape EntityType="VanHanhLienHoModel.vi_tri_tb" Width="1.5" PointX="8.75" PointY="9.75" />
+        <EntityTypeShape EntityType="VanHanhLienHoModel.tong_hop_tb" Width="1.5" PointX="11.375" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

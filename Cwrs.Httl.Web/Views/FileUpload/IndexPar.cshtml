@@ -1,0 +1,19 @@
+﻿@section scripts{
+    @Styles.Render("~/Content/jQuery-File-Upload")
+    @Scripts.Render("~/bundles/jQuery-File-Upload")
+}
+<div style="margin-top:20px;margin-left:20px">@Html.Partial("_Files")</div>
+<script>
+    $(document).ready(function () {
+        var $form = null;
+        $(function () {
+
+            $form = $('#fileupload').fileupload({
+                dataType: 'json'
+            });
+
+        });
+        $('#fileupload').addClass('fileupload-processing');
+    });
+</script>
+

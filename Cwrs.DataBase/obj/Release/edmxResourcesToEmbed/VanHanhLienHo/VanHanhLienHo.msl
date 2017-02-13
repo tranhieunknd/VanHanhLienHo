@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="VanHanhLienHoModelStoreContainer" CdmEntityContainer="VanHanhLienHoEntities1">
+    <EntitySetMapping Name="danh_muc_tb">
+      <EntityTypeMapping TypeName="VanHanhLienHoModel.danh_muc_tb">
+        <MappingFragment StoreEntitySet="danh_muc_tb">
+          <ScalarProperty Name="danh_muc_code" ColumnName="danh_muc_code" />
+          <ScalarProperty Name="danh_muc_name" ColumnName="danh_muc_name" />
+          <ScalarProperty Name="mo_ta" ColumnName="mo_ta" />
+          <ScalarProperty Name="created_by" ColumnName="created_by" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="last_modified_by" ColumnName="last_modified_by" />
+          <ScalarProperty Name="last_modified_at" ColumnName="last_modified_at" />
+          <ScalarProperty Name="deleted_status" ColumnName="deleted_status" />
+          <ScalarProperty Name="row_id" ColumnName="row_id" />
+          <ScalarProperty Name="loai_danh_muc_ref" ColumnName="loai_danh_muc_ref" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dien_bien_tb">
+      <EntityTypeMapping TypeName="VanHanhLienHoModel.dien_bien_tb">
+        <MappingFragment StoreEntitySet="dien_bien_tb">
+          <ScalarProperty Name="dien_bien_code" ColumnName="dien_bien_code" />
+          <ScalarProperty Name="vi_tri_ref" ColumnName="vi_tri_ref" />
+          <ScalarProperty Name="tu_van_ref" ColumnName="tu_van_ref" />
+          <ScalarProperty Name="loai_du_lieu_ref" ColumnName="loai_du_lieu_ref" />
+          <ScalarProperty Name="gia_tri" ColumnName="gia_tri" />
+          <ScalarProperty Name="thoi_gian" ColumnName="thoi_gian" />
+          <ScalarProperty Name="is_thuc_do" ColumnName="is_thuc_do" />
+          <ScalarProperty Name="created_by" ColumnName="created_by" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="last_modified_by" ColumnName="last_modified_by" />
+          <ScalarProperty Name="last_modified_at" ColumnName="last_modified_at" />
+          <ScalarProperty Name="deleted_status" ColumnName="deleted_status" />
+          <ScalarProperty Name="row_id" ColumnName="row_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="don_vi_tb">
+      <EntityTypeMapping TypeName="VanHanhLienHoModel.don_vi_tb">
+        <MappingFragment StoreEntitySet="don_vi_tb">
+          <ScalarProperty Name="don_vi_code" ColumnName="don_vi_code" />
+          <ScalarProperty Name="ki_hieu" ColumnName="ki_hieu" />
+          <ScalarProperty Name="mo_ta" ColumnName="mo_ta" />
+          <ScalarProperty Name="created_by" ColumnName="created_by" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="last_modified_by" ColumnName="last_modified_by" />
+          <ScalarProperty Name="last_modified_at" ColumnName="last_modified_at" />
+          <ScalarProperty Name="deleted_status" ColumnName="deleted_status" />
+          <ScalarProperty Name="row_id" ColumnName="row_id" />
+          <ScalarProperty Name="don_vi_name" ColumnName="don_vi_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hien_trang_tb">
+      <EntityTypeMapping TypeName="VanHanhLienHoModel.hien_trang_tb">
+        <MappingFragment StoreEntitySet="hien_trang_tb">
+          <ScalarProperty Name="hien_trang_code" ColumnName="hien_trang_code" />
+          <ScalarProperty Name="vi_tri_ref" ColumnName="vi_tri_ref" />
+          <ScalarProperty Name="tu_van_ref" ColumnName="tu_van_ref" />
+          <ScalarProperty Name="loai_du_lieu_ref" ColumnName="loai_du_lieu_ref" />
+          <ScalarProperty Name="gia_tri" ColumnName="gia_tri" />
+          <ScalarProperty Name="mo_ta" ColumnName="mo_ta" />
+          <ScalarProperty Name="created_by" ColumnName="created_by" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="last_modified_by" ColumnName="last_modified_by" />
+          <ScalarProperty Name="last_modified_at" ColumnName="last_modified_at" />
+          <ScalarProperty Name="deleted_status" ColumnName="deleted_status" />
+          <ScalarProperty Name="row_id" ColumnName="row_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="loai_danh_muc_tb">
+      <EntityTypeMapping TypeName="VanHanhLienHoModel.loai_danh_muc_tb">
+        <MappingFragment StoreEntitySet="loai_danh_muc_tb">
+          <ScalarProperty Name="loai_danh_muc_code" ColumnName="loai_danh_muc_code" />
+          <ScalarProperty Name="loai_danh_muc_name" ColumnName="loai_danh_muc_name" />
+          <ScalarProperty Name="mo_ta" ColumnName="mo_ta" />
+          <ScalarProperty Name="created_by" ColumnName="created_by" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="last_modified_by" ColumnName="last_modified_by" />
+          <ScalarProperty Name="last_modified_at" ColumnName="last_modified_at" />
+          <ScalarProperty Name="deleted_status" ColumnName="deleted_status" />
+          <ScalarProperty Name="row_id" ColumnName="row_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="loai_du_lieu_tb">
+      <EntityTypeMapping TypeName="VanHanhLienHoModel.loai_du_lieu_tb">
+        <MappingFragment StoreEntitySet="loai_du_lieu_tb">
+          <ScalarProperty Name="loai_du_lieu_code" ColumnName="loai_du_lieu_code" />
+          <ScalarProperty Name="loai_du_lieu_name" ColumnName="loai_du_lieu_name" />
+          <ScalarProperty Name="mo_ta" ColumnName="mo_ta" />
+          <ScalarProperty Name="created_by" ColumnName="created_by" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="last_modified_by" ColumnName="last_modified_by" />
+          <ScalarProperty Name="last_modified_at" ColumnName="last_modified_at" />
+          <ScalarProperty Name="deleted_status" ColumnName="deleted_status" />
+          <ScalarProperty Name="row_id" ColumnName="row_id" />
+          <ScalarProperty Name="don_vi" ColumnName="don_vi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="phuong_an_detail_tb">
+      <EntityTypeMapping TypeName="VanHanhLienHoModel.phuong_an_detail_tb">
+        <MappingFragment StoreEntitySet="phuong_an_detail_tb">
+          <ScalarProperty Name="phuong_an_detail_code" ColumnName="phuong_an_detail_code" />
+          <ScalarProperty Name="vi_tri_ref" ColumnName="vi_tri_ref" />
+          <ScalarProperty Name="phuong_an_ref" ColumnName="phuong_an_ref" />
+          <ScalarProperty Name="loai_du_lieu_ref" ColumnName="loai_du_lieu_ref" />
+          <ScalarProperty Name="gia_tri" ColumnName="gia_tri" />
+          <ScalarProperty Name="thoi_gian" ColumnName="thoi_gian" />
+          <ScalarProperty Name="created_by" ColumnName="created_by" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="last_modified_by" ColumnName="last_modified_by" />
+          <ScalarProperty Name="last_modified_at" ColumnName="last_modified_at" />
+          <ScalarProperty Name="deleted_status" ColumnName="deleted_status" />
+          <ScalarProperty Name="row_id" ColumnName="row_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="phuong_an_tb">
+      <EntityTypeMapping TypeName="VanHanhLienHoModel.phuong_an_tb">
+        <MappingFragment StoreEntitySet="phuong_an_tb">
+          <ScalarProperty Name="phuong_an_code" ColumnName="phuong_an_code" />
+          <ScalarProperty Name="tu_van_ref" ColumnName="tu_van_ref" />
+          <ScalarProperty Name="phan_tich" ColumnName="phan_tich" />
+          <ScalarProperty Name="kien_nghi" ColumnName="kien_nghi" />
+          <ScalarProperty Name="created_by" ColumnName="created_by" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="last_modified_by" ColumnName="last_modified_by" />
+          <ScalarProperty Name="last_modified_at" ColumnName="last_modified_at" />
+          <ScalarProperty Name="deleted_status" ColumnName="deleted_status" />
+          <ScalarProperty Name="row_id" ColumnName="row_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tu_van_tb">
+      <EntityTypeMapping TypeName="VanHanhLienHoModel.tu_van_tb">
+        <MappingFragment StoreEntitySet="tu_van_tb">
+          <ScalarProperty Name="link" ColumnName="link" />
+          <ScalarProperty Name="tu_van_code" ColumnName="tu_van_code" />
+          <ScalarProperty Name="don_vi_ref" ColumnName="don_vi_ref" />
+          <ScalarProperty Name="user_ref" ColumnName="user_ref" />
+          <ScalarProperty Name="thoi_gian" ColumnName="thoi_gian" />
+          <ScalarProperty Name="nhan_xet_24h" ColumnName="nhan_xet_24h" />
+          <ScalarProperty Name="du_bao_24h" ColumnName="du_bao_24h" />
+          <ScalarProperty Name="phan_tich" ColumnName="phan_tich" />
+          <ScalarProperty Name="kien_nghi" ColumnName="kien_nghi" />
+          <ScalarProperty Name="created_by" ColumnName="created_by" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="last_modified_by" ColumnName="last_modified_by" />
+          <ScalarProperty Name="last_modified_at" ColumnName="last_modified_at" />
+          <ScalarProperty Name="deleted_status" ColumnName="deleted_status" />
+          <ScalarProperty Name="row_id" ColumnName="row_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="upload_file_tb">
+      <EntityTypeMapping TypeName="VanHanhLienHoModel.upload_file_tb">
+        <MappingFragment StoreEntitySet="upload_file_tb">
+          <ScalarProperty Name="upload_file_code" ColumnName="upload_file_code" />
+          <ScalarProperty Name="upload_file_name" ColumnName="upload_file_name" />
+          <ScalarProperty Name="mo_ta" ColumnName="mo_ta" />
+          <ScalarProperty Name="created_by" ColumnName="created_by" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="last_modified_by" ColumnName="last_modified_by" />
+          <ScalarProperty Name="last_modified_at" ColumnName="last_modified_at" />
+          <ScalarProperty Name="deleted_status" ColumnName="deleted_status" />
+          <ScalarProperty Name="row_id" ColumnName="row_id" />
+          <ScalarProperty Name="link" ColumnName="link" />
+          <ScalarProperty Name="user_ref" ColumnName="user_ref" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="user_tb">
+      <EntityTypeMapping TypeName="VanHanhLienHoModel.user_tb">
+        <MappingFragment StoreEntitySet="user_tb">
+          <ScalarProperty Name="user_guid" ColumnName="user_guid" />
+          <ScalarProperty Name="user_code" ColumnName="user_code" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="mo_ta" ColumnName="mo_ta" />
+          <ScalarProperty Name="created_by" ColumnName="created_by" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="last_modified_by" ColumnName="last_modified_by" />
+          <ScalarProperty Name="last_modified_at" ColumnName="last_modified_at" />
+          <ScalarProperty Name="deleted_status" ColumnName="deleted_status" />
+          <ScalarProperty Name="row_id" ColumnName="row_id" />
+          <ScalarProperty Name="account_status" ColumnName="account_status" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="dia_chi" ColumnName="dia_chi" />
+          <ScalarProperty Name="dien_thoai" ColumnName="dien_thoai" />
+          <ScalarProperty Name="ghi_chu" ColumnName="ghi_chu" />
+          <ScalarProperty Name="don_vi_ref" ColumnName="don_vi_ref" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vi_tri_tb">
+      <EntityTypeMapping TypeName="VanHanhLienHoModel.vi_tri_tb">
+        <MappingFragment StoreEntitySet="vi_tri_tb">
+          <ScalarProperty Name="vi_tri_code" ColumnName="vi_tri_code" />
+          <ScalarProperty Name="mo_ta" ColumnName="mo_ta" />
+          <ScalarProperty Name="created_by" ColumnName="created_by" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="last_modified_by" ColumnName="last_modified_by" />
+          <ScalarProperty Name="last_modified_at" ColumnName="last_modified_at" />
+          <ScalarProperty Name="deleted_status" ColumnName="deleted_status" />
+          <ScalarProperty Name="row_id" ColumnName="row_id" />
+          <ScalarProperty Name="vi_tri_name" ColumnName="vi_tri_name" />
+          <ScalarProperty Name="vi_tri_type" ColumnName="vi_tri_type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

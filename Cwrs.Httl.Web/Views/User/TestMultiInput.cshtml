@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "TestMultiInput";
+    Layout = "~/Views/Shared/_LayoutClipTwo.cshtml";
+}
+<script>
+    function demoThoi() {
+        var dataD = htm.GetDataByAttr('datatest');
+        console.log(dataD);
+    }
+</script>
+<h2>TestMultiInput</h2>
+
+<input id="meta.data1" htm-data="datatest" />
+<input id="meta.data2" htm-data="datatest" />
+<input id="data.atr.data3" htm-data="datatest" />
+<input id="data.atr.data4" htm-data="datatest" />
+<input id="data.data5" htm-data="datatest" />
+<input id="arr.data[1].input1" htm-data="datatest" />
+<input id="arr.data[1].input2" htm-data="datatest" />
+<input id="arr.data[0]" htm-data="datatest" />
+<input id="arr.data[2]" htm-data="datatest" />
+<input id="arr.data[3]" htm-data="datatest" />
+<input id="arr.data[4]" htm-data="datatest" />
+<input id="data12" htm-data="datatest" />
+<input id="data13" htm-data="datatest" />
+@*<input id="data14" htm-data="datatest" />
+    <input id="data15" htm-data="datatest" />
+    <input id="data16" htm-data="datatest" />
+    <input id="data17" htm-data="datatest" />
+    <input id="data18" htm-data="datatest" />
+    <input id="data19" htm-data="datatest" />
+    <input id="data20" htm-data="datatest" />
+    <input id="data21" htm-data="datatest" />*@
+<br>
+
+<button onclick="demoThoi()">demo</button>

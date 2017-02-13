@@ -1,0 +1,177 @@
+﻿@model IEnumerable<UserDetail>
+@using PagedList.Mvc;
+@using Cwrs.DataBase.VanHanhLienHo;
+@using Cwrs.DataBase;
+@using Cwrs.DataBase.Models;
+
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutClipTwo.cshtml";
+}
+<script src="@Url.Content("~/Scripts/kendo/2016.2.607/kendo.all.min.js")"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $.ajax({
+            url: "User/call",
+            data: {
+                userid: 1
+            }
+        }).done(function (dt) {
+            console.dir(dt);
+            for (var i = 0; i < dt.length; i++) {
+
+            }
+        });
+    })
+
+    //// create a custom binder that always sets the value from the widget
+    //kendo.data.binders.widget.nullableValue = kendo.data.Binder.extend({
+    //    init: function (widget, bindings, options) {
+    //        kendo.data.Binder.fn.init.call(this, widget.element[0], bindings, options);
+    //        this.widget = widget;
+    //        this._change = $.proxy(this.change, this);
+    //        this.widget.bind("change", this._change);
+    //    },
+    //    refresh: function () {
+    //        var value = this.bindings.nullableValue.get();
+    //        this.widget.value(value);
+    //    },
+    //    change: function () {
+    //        var value = this.widget.value();
+    //        if (value === "") {
+    //            value = null;
+    //        }
+
+    //        this.bindings.nullableValue.set(value);
+    //    },
+    //    destroy: function () {
+    //        this.widget.unbind("change", this._change);
+    //    }
+    //});
+
+</script>
+
+@(Html.Kendo().Grid<UserDetail>()
+        .Name("grvUser")
+        .Columns(col =>
+        {
+            col.Bound(c => c.username).Title("Tên tài khoản").HtmlAttributes(new { @class = "col-sm-3 col-md-2" });
+            col.Bound(c => c.email).Title("Email").HtmlAttributes(new { @class = " hidden-sm col-md-2" });
+            //col.ForeignKey(p => p.account_status_ref, (System.Collections.IEnumerable)ViewData["AccountStatus"], "Value", "Name").EditorTemplateName("AccountStatusDropDownList").Title("Trạng thái").HtmlAttributes(new { @class = "col-sm-3 col-md-2" });
+            //col.ForeignKey(p => p.don_vi_ref, (System.Collections.IEnumerable)ViewData["DonVi"], "Value", "Name").EditorTemplateName("DonViDropDownList").Title("Đơn vị").HtmlAttributes(new { @class = "col-sm-3  col-md-2" });
+            col.Command(command => { command.Edit().UpdateText("Cập nhật").CancelText("Hủy").Text("Sửa"); }).HtmlAttributes(new { @class = "col-sm-3 col-md-2" });
+        })
+        .HtmlAttributes(new { style = "height:400;" })
+        .ToolBar(toolbar => { toolbar.Create().Text("Thêm mới tài khoản"); })
+        .Pageable()
+        .Sortable()
+        .DataSource(datasource => datasource.Ajax()
+            .Model(model => model.Id(p => p.user_code))
+            .Read(read => read.Action("GetlistUser", "User"))
+            .Create(update => update.Action("AddUser", "User"))
+            .Update(update => update.Action("UpdateUser", "User"))
+            .PageSize(10)
+    )
+)
+<div class="hidden-xs"></div>
+@*<h2>Index</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.username)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.password)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mo_ta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.created_by)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.created_at)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.last_modified_by)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.last_modified_at)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.deleted_status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.row_id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.account_status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.email)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.user_code)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.password)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mo_ta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.created_by)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.created_at)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.last_modified_by)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.last_modified_at)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.deleted_status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.row_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.account_status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.user_code }) |
+                @Html.ActionLink("Details", "Details", new { id = item.user_code }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.user_code })
+            </td>
+        </tr>
+    }
+
+    </table>
+
+    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) trong @Model.PageCount
+
+    @Html.PagedListPager(Model, page => Url.Action("Index",
+        new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))*@

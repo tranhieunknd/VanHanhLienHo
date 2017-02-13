@@ -1,0 +1,98 @@
+﻿@using Cwrs.DataBase.Models
+@model BanTinTuVan
+@{
+    string[] hour = { "13", "19", "1", "7", "13", "19", "1", "7" };
+    string[] stt = { "1", "2", "3", "4", "5", "6", "7", "8" };
+    int index = (int)ViewBag.IndexPhuongAn;
+}
+<div class="col-sm-12" style="padding-bottom:20px">
+    <div class="panel panel-white collapses" id="panel1">
+        <div class="panel-heading">
+            <h4 class="panel-title text-primary">Phương án: @(index + 1)</h4>
+            <div class="panel-tools">
+                <a data-original-title="Collapse" data-toggle="tooltip" data-placement="top" class="btn btn-transparent btn-sm panel-collapse" href="#"><i class="ti-minus collapse-off"></i><i class="ti-plus collapse-on"></i></a>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th rowspan="2">TT</th>
+                            <th rowspan="2" style="min-width: 90px">Ngày</th>
+                            <th rowspan="2">Giờ</th>
+                            <th colspan="4">Hồ Sơn La</th>
+                            <th colspan="4">Hồ Hòa Bình</th>
+                            <th colspan="4">Hồ Tuyên Quang</th>
+                            <th colspan="3">Hạ lưu</th>
+                        </tr>
+                        <tr>
+                            <th>Số cửa xả đáy</th>
+                            <th>Số cửa xả mặt</th>
+                            <th>Lưu lượng về hồ (m<sup>3</sup>/s)</th>
+                            <th>Mực nước hồ (cm)</th>
+                            <th>Số cửa xả đáy</th>
+                            <th>Số cửa xả mặt</th>
+                            <th style="min-width: 65px">Lưu lượng về hồ (m<sup>3</sup>/s)</th>
+                            <th>Mực nước hồ (cm)</th>
+                            <th>Số cửa xả đáy</th>
+                            <th>Số cửa xả mặt</th>
+                            <th style="min-width: 65px">Lưu lượng về hồ (m<sup>3</sup>/s)</th>
+                            <th>Mực nước hồ (cm)</th>
+                            <th>Hà Nội (cm)</th>
+                            <th>Phả Lại (cm)</th>
+                            <th>Tx.Tuyên Quang (cm)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @try
+                        {
+                            for (int j = 0; j < Model.PhuongAnExcel[index].PhuongAn_Detail.Count; j += 15)
+                            {
+                                int du = j % 15;
+                                string giatri = "";
+                                @:
+                                <tr>
+                                    <td>@stt[j / 15]</td>
+                                    @if ((j / 15) % 2 == 0 && (j / 15) % 3 == 0)
+                                    {
+                                        <td rowspan="2" style="width:80px">@Html.TextBoxFor(model => Model.PhuongAnExcel[index].PhuongAn_Detail[j].thoi_gian, @"{0:dd\/MM\/yyyy}", new { @readonly = "readonly", @style = "background: white;color: black;" })</td>
+                                    }
+                                    @if ((j / 15) % 2 == 0 && (j / 15) % 3 == 2)
+                                    {
+                                        <td rowspan="4" style="width:80px">@Html.TextBoxFor(model => Model.PhuongAnExcel[index].PhuongAn_Detail[j].thoi_gian, @"{0:dd\/MM\/yyyy}", new { @readonly = "readonly", @style = "background: white;color: black;" })</td>
+                                    }
+
+                                    <td>@hour[j / 15]</td>
+                                    @for (int i = j; i < j + 15; i++)
+                                    {
+                                        giatri = Model.PhuongAnExcel[index].PhuongAn_Detail[i].gia_tri;
+                                        if (giatri == "")
+                                        {
+
+                                            <td>@Html.TextBoxFor(model => Model.PhuongAnExcel[index].PhuongAn_Detail[i].gia_tri, new { @type = "number", @readonly = "readonly", @style = "width:60px" })</td>
+                                        }
+                                        else
+                                        {
+
+                                            <td>@Html.TextBoxFor(model => Model.PhuongAnExcel[index].PhuongAn_Detail[i].gia_tri, new { @type = "number", @readonly = "readonly", @style = "width= 40px" })</td>
+                                        }
+                                        @Html.TextBoxFor(model => Model.PhuongAnExcel[index].PhuongAn_Detail[i].vi_tri_ref, new { style = "display:none" })
+                                        @*@Html.HiddenFor(model => Model.PhuongAnExcel[index].PhuongAn_Detail[i].thoi_gian)*@
+                                        @Html.TextBoxFor(model => Model.PhuongAnExcel[index].PhuongAn_Detail[i].thoi_gian, new { style = "display:none" })
+                                        @Html.TextBoxFor(model => Model.PhuongAnExcel[index].PhuongAn_Detail[i].loai_du_lieu_ref, new { style = "display:none" })
+                                    }
+
+                                </tr>
+                                @:
+                        }
+                        }
+                        catch (Exception ex)
+                        {
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

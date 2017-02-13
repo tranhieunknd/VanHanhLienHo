@@ -1,0 +1,30 @@
+﻿@model PagedList.IPagedList<upload_file_tb>
+@using Cwrs.DataBase.VanHanhLienHo
+@using PagedList.Mvc
+
+<center>
+<table style="width:95%;border:1px solid black;margin-left: -22px;">
+    <thead>
+        <tr>
+            <th class="center col-xs-6" style="background:#0026ff;color:white">Tên Tệp </th>
+            <th class="center col-xs-2" style="background:#0026ff;color:white">Tên Tài Khoản</thclass="center">
+            <th class="center col-xs-2" style="background:#0026ff;color:white">Ngày Cập Nhật</th>
+            <th class="center col-xs-2" style="background:#0026ff;color:white">Tải Về</th>
+        </tr>
+    </thead>
+    @foreach (var i in Model)
+            {
+        <tr>
+            <td class="center col-xs-6">@i.upload_file_name </td>
+            <td class="center col-xs-2">@i.user_ref</td>
+            <td class="center col-xs-2">@i.created_at</td>
+            <td class="center col-xs-2" id="th1" >@Html.ActionLink("Tải xuống", "DownloadPetPicture", "Download", new { link = i.link }, null ) </td>
+            @*<td class="center col-xs-2" id="th1" > <a href='http://localhost:1235/@i.link'><b>Tải Về</b><i class="ti-download"></i></a></td>*@
+        </tr>
+    }
+</table>
+</center>
+<center>
+    @Html.PagedListPager(Model, page => Url.Action(("Page_Ajax"), new { page }),
+    PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new AjaxOptions() { HttpMethod = "GET", UpdateTargetId = "movie_grid" }))
+</center>

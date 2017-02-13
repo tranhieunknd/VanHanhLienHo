@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Index";
+    if (IsPost)
+    {
+        Layout = null;
+    }
+    else
+    {
+        Layout = "~/views/shared/_LayoutClipTwoUpload.cshtml";
+    }
+}
+
+@*@Styles.Render("~/Content/css")*@
+@section scripts{
+
+    @Styles.Render("~/Content/jQuery-File-Upload")
+    @Scripts.Render("~/bundles/jQuery-File-Upload")
+}
+@*@Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jqueryui")*@
+<!-- blueimp File Upload & Gallery styles -->
+<div style="margin-top:20px;margin-left:20px">@Html.Partial("_Files")</div>
+<script>
+    $(document).ready(function () {
+        var $form = null;
+        $(function () {
+
+            $form = $('#fileupload').fileupload({
+                dataType: 'json'
+            });
+
+        });
+        $('#fileupload').addClass('fileupload-processing');
+    });
+</script>
+

@@ -1,0 +1,70 @@
+﻿@using Cwrs.DataBase.Models;
+@model UserDetail
+@{
+    ViewBag.Title = "UserDetail";
+    Layout = null;
+}
+<div class="col-sm-3"></div>
+<div class="col-sm-6">
+    <div style="padding: 10px auto">
+        <center>
+            <p style="font-family: Arial; font-size: 20px; color: #000000; padding-top: 10px">SỬA THÔNG TIN TÀI KHOẢN</p>
+        </center>
+    </div>
+
+    <form role="form">
+        <div class="form-group" style="display: none">
+            <label for="exampleInputEmail1">
+                Mã tài khoản
+            </label>
+            @Html.TextBoxFor(m => m.user_code, new { @class = "form-control" })
+            @Html.TextBoxFor(m => m.don_vi_ref, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">
+                Tên tài khoản
+            </label>
+            @Html.TextBoxFor(m => m.username, new {@class = "form-control"})
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">
+                Tên đơn vị
+            </label>
+            @Html.TextBoxFor(m => m.don_vi_name, new {@class = "form-control",@readonly = "readonly" })
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">
+                Số điên thoại
+            </label>
+            @Html.TextBoxFor(m => m.dien_thoai, new {@class = "form-control"})
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">
+                Địa chỉ
+            </label>
+            @Html.TextBoxFor(m => m.dia_chi, new {@class = "form-control"})
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">
+                Email
+            </label>
+            @Html.TextBoxFor(m => m.email, new {@class = "form-control"})
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">
+                Ghi chú
+            </label>
+            @Html.TextAreaFor(m => m.ghi_chu, new {@class = "form-control"})
+        </div>
+        <div class="form-group" style="margin-top: 5px">
+            <a class="btn btn-red" data-ajax="true"
+               data-ajax-method="Get" data-ajax-mode="replace" data-ajax-update="#container" onclick="ChangeInForUser()"><i class="glyphicon glyphicon-floppy-disk"></i>Lưu</a>
+
+            <a class="btn btn-primary" data-ajax="true"
+               data-ajax-method="Get" data-ajax-mode="replace" data-ajax-update="#container"
+               href="/User/SelectAllUser" onclick="RemoveBreadCrumb(3);"><i class="glyphicon glyphicon-arrow-left"></i>Quay lại</a>
+        </div>
+
+    </form>
+</div>
+<div class="col-sm-3"></div>

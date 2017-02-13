@@ -1,0 +1,67 @@
+﻿@using Cwrs.DataBase.VanHanhLienHo;
+@using Cwrs.DataBase.Models;
+@model BanTinTuVan
+@{
+    string[] vitri = { "Hồ Sơn La", "Hồ Hòa Bình", "Hồ Tuyên Quang", "Hồ Thác Bà" };
+    string[] thongsoquantrac = { "Mực nước (m<sup>3</sup>)", "Lưu lượng đến hồ (m<sup>3</sup>/s)", "Số cửa xả đáy đang mở", "Số cửa xả tràn mặt đang mở" };
+}
+<link href="~/Content/TuVan/style_TuVan.css" rel="stylesheet" />
+<div class="table-responsive">
+    <table class="table table-bordered ">
+        <thead>
+            <tr>
+                <th class="col-sm-2">STT</th>
+                <th class="col-sm-7">THÔNG SỐ QUAN TRẮC</th>
+                <th class="col-sm-3">GIÁ TRỊ QUAN TRẮC</th>
+            </tr>
+        </thead>
+        <tbody class="class_HienTrang">
+            @try
+            {
+                string giatri = "";
+                int tam = 0;
+                for (int i = 0; i < Model.HienTrangExcel.Count; i = i + 4)
+                {
+                    @:<tr>
+                        @*@:<td rowspan="5">@(i / 4 + 1)</td>*@ @*STT*@
+                    @:<td colspan="3"><b>@vitri[tam]</b></td>
+                        @*@:<td></td>*@
+                        @:</tr>
+                        for (int j = i; j < i + 4; j++)
+                        {
+                            if (j == 14) { break; }
+                            @:<tr>
+                            if (i == j)
+                            {
+                                @:<td rowspan="4">@(i / 4 + 1)</td>
+                            }
+                                if (j == 13)
+                                {
+                                    @:<td>@thongsoquantrac[3]</td>
+                                }
+                                else
+                                {
+                                    @:<td>@Html.Raw(thongsoquantrac[j % 4])</td>
+                                }
+                                giatri = Model.HienTrangExcel[j].gia_tri;
+                                if (giatri == "")
+                                {
+                                    @:<td>@Html.TextBoxFor(model => Model.HienTrangExcel[j].gia_tri, new { @type = "number", @readonly = "readonly" })</td>
+                                }
+                                else
+                                {
+                                    @:<td>@Html.TextBoxFor(model => Model.HienTrangExcel[j].gia_tri, new { @type = "number", @readonly = "readonly" })</td>
+                                }
+                                @Html.TextBoxFor(model => Model.HienTrangExcel[j].loai_du_lieu_ref, new { style = "display:none", @readonly = "readonly" })
+                                @Html.TextBoxFor(model => Model.HienTrangExcel[j].vi_tri_ref, new { style = "display:none",  @readonly="readonly" })
+                            //luu gia tri cua j de tinh index cua bien vitri
+                            @:</tr>
+                        }
+                        tam = tam + 1;
+                }
+            }
+            catch (Exception ex)
+            { }
+        </tbody>
+    </table>
+</div>

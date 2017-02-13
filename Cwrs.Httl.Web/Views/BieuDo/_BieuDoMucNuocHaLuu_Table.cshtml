@@ -1,0 +1,26 @@
+﻿@using Cwrs.DataBase.Models; @model IList<MucNuocHaLuu>
+@{
+    Layout = null;
+}
+<table class="tableBieuDo" style="width:95%;border:1px solid black">
+    <thead>
+        <tr colspan="7" style="background:#00e8ff;text-align:center">
+            <th style="width: 7%;text-align:center;color:black"><b>STT</b> </th>             <th style="width: 16%;text-align:center;color:black"><b>Thời gian</b></th>             <th style="width: 16%;text-align:center;color:black"><b>Mực nước Hà Nội (m)</b></th>
+            <th style="width: 16%;text-align:center;color:black"><b>Mực nước Phả Lại (m)</b></th>
+            <th style="width: 16%;text-align:center;color:black"><b>Mực nước Tx.Tuyên Quang (m)</b></th>
+        </tr> 
+    </thead>
+    <tbody>
+        @for (int i = 0; i < Model.Count; i++)
+        {
+            <tr colspan="7" style="text-align:center">
+                <th style="width: 7%;text-align:center;color:black;font-weight:normal">@(i + 1)</th>
+                <th style="width: 16%;text-align:center;color:black;font-weight:normal">@Model[i].thoi_gian.Value.ToString("dd/MM/yyyy HH:mm")</th>
+                <th style="width: 11%;text-align:center;color:black;font-weight:normal">@Model[i].mucnuoc_HaNoi</th>
+                <th style="width: 11%;text-align:center;color:black;font-weight:normal">@Model[i].mucnuoc_PhaLai</th>
+                <th style="width: 11%;text-align:center;color:black;font-weight:normal">@Model[i].mucnuoc_TuyenQuang</th>
+
+            </tr>
+        }
+    </tbody>
+</table>

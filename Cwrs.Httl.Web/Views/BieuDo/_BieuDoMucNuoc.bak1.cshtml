@@ -1,0 +1,79 @@
+﻿@using System.Web.Script.Serialization
+@using Cwrs.DataBase.Models;
+@model List<MucNuoc>
+@{
+    ViewBag.Title = "Biểu đồ mực nước đến hồ";
+    Layout = null;
+}
+<link href="~/Content/BieuDo/BieuDo.css?v=201611071026" rel="stylesheet" />
+
+
+    <div class="form-horizontal  col-sm-12" style="margin: 10px auto">
+        <div class="col-sm-4 col-xs-6">
+            <b>Chọn Hồ:</b>
+            <select id="tenHo_mn" name="tenHo_mn" class="js-example-basic-single" style="text-decoration-color:red;height:2%;width:76%">
+                <option selected value="1">Hồ Sơn La</option>
+                <option value="2">Hồ Tuyên Quang</option>
+                <option value="3">Hồ Hòa Bình</option>
+
+            </select>
+        </div>
+        <div class="col-sm-4 col-xs-6">
+            <b">Thời gian phát dự báo:</b>
+                @(Html.Kendo().DatePicker()
+                    .Name("thoiGianBatDau_mn")
+                    .Value(DateTime.Now)
+                    .HtmlAttributes(new { style = "width:150px" }))
+
+
+        </div>
+        <div class="col-sm-3 col-xs-6" style="padding-top: 3px; width: 22%">
+            <b >Thời gian dự báo:</b>
+            <select id="khoangTG_mn" name="khoangTG" class="js-example-basic-single" style="text-decoration-color:red;">
+                <option selected value="24">24h</option>
+                <option value="36">36h</option>
+                <option value="48">48h</option>
+            </select>
+        </div>
+        <div class="col-sm-1 col-xs-6">
+            <button type="button" style="height:30px;float:left" onclick="BieuDo.MucNuoc(); LayGio()" class="btn btn-primary">Xem</button>
+        </div>
+    </div>
+
+
+
+
+    <center><h2><span><b> BIỂU ĐỒ DIỄN BIẾN MỰC NƯỚC ĐẾN <b id="gio_mn"></b> GIỜ TỚI</b> </span></h2></center>
+
+<div>
+    <center>
+        <div id="chartdiv_mn" style="width: 95%; margin-left: 3%; height: 300px; border: 1px solid black"></div>
+    </center>
+    <div id="legenddiv" style="margin: 5px 0 20px 0; position: relative;"></div>
+    @*<div id="message" class="alert alert-warning" role="alert" style="text-align: center; display: none;">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                <strong>Thông báo!</strong> Chưa có dữ liệu
+            </div>*@
+</div>         <center>
+        <div id="tableMucNuoc"></div>
+    </center>
+    <script src="Lib/vendor/moment/moment.js"></script>
+    @*<script src="~/Scripts/moment.js"></script>*@
+    <script src="~/Scripts/amcharts/amcharts.js"></script>
+    <script src="~/Scripts/amcharts/serial.js"></script>
+    <script src="~/Scripts/amcharts/light.js"></script>
+    <script src="~/Scripts/BieuDo/bieudo.js"></script>
+
+    <script>
+        document.getElementById('gio_mn').innerHTML = document.getElementById('khoangTG_mn').value;
+        function LayGio() {
+            document.getElementById('gio_mn').innerHTML = document.getElementById('khoangTG_mn').value;
+        }
+        $(document).ready(function () {
+            $(".js-example-basic-single").select2();
+            LayGio();
+            BieuDo.MucNuoc();
+        })
+    </script>
+
+

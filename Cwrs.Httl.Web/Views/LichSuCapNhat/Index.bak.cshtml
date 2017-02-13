@@ -1,0 +1,238 @@
+﻿@using Cwrs.DataBase.Models;
+@model List<LichSuCapNhat>
+@{
+    ViewBag.Title = "Index";
+    if (IsAjax)
+    {
+        Layout = null;
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_LayoutClipTwo.cshtml";
+    }
+}
+<style>
+    table, th, td {
+        border: 1px solid #0094ff;
+        border-collapse: collapse;
+        padding: 10px;
+    }
+
+    th {
+        text-align: center;
+        color: #ffffff;
+        background: #0000ff;
+    }
+    a {
+        color: #0094ff;
+    }
+        a:hover {
+            color: #b6ff00;
+        }
+    td {
+        text-align: center;
+    }
+
+    .FixMinWidth {
+        min-width: 65px;
+    }
+
+
+    #data_table {
+        overflow: auto;
+    }
+
+    .tableFloatingHeaderOriginal {
+        background: #FFF;
+    }
+</style>
+@if (Model == null)
+{
+
+    <h2 style="margin-left: 10px; font-family: Arial"> @ViewBag.ThongBao</h2>
+}
+else
+{
+    DateTime? tg = null;
+    int dem = 0;
+    int stt = 0;
+    int tuVanRef = Model[0].tu_van_ref;
+    List<int> x = new List<int>();
+
+    <div style="margin: 10px">
+        <a class="btn btn-danger" style="" href="~/TuVan/Index">Nhập dữ liệu từ file excel</a>
+        @*<button class="btn btn-success" type="button" style="margin-left: 60px">
+            <a style="color: white" href="~/TuVan/Index">Nhập dữ liệu từ file excel</a>
+        </button>*@
+        <button class="btn btn-primary" type="button" style="margin-left: 30px">
+            In
+        </button>
+    </div>
+    <div class="col-sm-12">
+        @for (int i = 0; i < Model.Count; i++) //tìm ra số rowspan cho cột phương án vận hành
+        {
+            if (tuVanRef == Model[i].tu_van_ref)
+            {
+                if (i == Model.Count - 1)
+                {
+                    dem = dem + 1;
+                    x.Add(1);
+                    x.Add(dem);
+                }
+                else
+                {
+                    dem = dem + 1;
+                    x.Add(1);
+                }
+            }
+            else
+            {
+                x.Add(dem);
+                dem = 1;
+                tuVanRef = Model[i].tu_van_ref;
+            }
+        }
+    </div>
+    <div class="col-sm-12">
+        <table>
+            <tr>
+                <th style="width: 10%">
+                    STT
+                </th>
+                <th style="width: 15%">
+                    Bản tin tư vấn
+                </th>
+                <th style="width: 50%">
+                    Phương án vận hành kiến nghị
+                </th>
+                <th style="width: 15%">
+                    Thời điểm cập nhật
+                </th>
+                <th style="width: 10%">
+                    Tùy chọn
+                </th>
+            </tr>
+            @for (int i = Model.Count; i > 0; i--)
+            {
+                if (tg != Model[i - 1].thoi_gian)
+                {
+                    stt = 0;
+                    if (x[i-1] != 1)                          //kiểm tra xem cần rowspan hay không
+                    {
+                        stt = stt + 1;
+                        <tr>
+                            <td colspan="5">
+                                <p style="float: left; font-weight: bold; margin: 0"> @Model[i - 1].thoi_gian.ToString("dd-MM-yyyy")</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td rowspan="@x[i]">
+                                @stt
+                            </td>
+                            <td rowspan="@x[i]">
+                                <p style="font-weight: bold; margin: 0"> Bản tin @stt</p>
+                            </td>
+                            <td>
+                                @Model[i - 1].kien_nghi
+                            </td>
+                            <td rowspan="@x[i]">
+                                @Model[i - 1].created_at.ToString("HH:mm dd-MM-yyyy")
+                            </td>
+                            <td rowspan="@x[i]">
+                                <a href="#"><i class="glyphicon glyphicon-list-alt"></i></a>
+                                <a href="#"><i class="glyphicon glyphicon-download-alt"></i></a>
+                            </td>
+                        </tr>
+                        tg = Model[i - 1].thoi_gian;
+                        tuVanRef = Model[i - 1].tu_van_ref;
+                    }
+                    else
+                    {
+                        stt = stt + 1;
+                        <tr>
+                            <td colspan="5">
+                                <p style="float: left; font-weight: bold; margin: 0"> @Model[i - 1].thoi_gian.ToString("dd-MM-yyyy")</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @stt
+                            </td>
+                            <td>
+                                <p style="font-weight: bold; margin: 0"> Bản tin @stt</p>
+                            </td>
+                            <td>
+                                @Model[i - 1].kien_nghi
+                            </td>
+                            <td>@Model[i - 1].created_at.ToString("HH:mm dd-MM-yyyy")</td>
+                            <td>
+                                <a href="#"><i class="glyphicon glyphicon-list-alt"></i></a>
+                                <a href="#"><i class="glyphicon glyphicon-download-alt"></i></a>
+                            </td>
+                        </tr>
+                        tg = Model[i - 1].thoi_gian;
+                        tuVanRef = Model[i - 1].tu_van_ref;
+                    }
+                }
+                else
+                {
+                    if (tuVanRef == Model[i - 1].tu_van_ref)
+                    {
+                        <tr>
+                            <td>
+                                @Model[i - 1].kien_nghi
+                            </td>
+                        </tr>
+                        tg = Model[i - 1].thoi_gian;
+                    }
+                    else
+                    {
+                        if (x[i] != 1) // kiểm tra xem có phải rowspan hay không
+                        {
+                            stt = stt + 1;
+                            <tr>
+                                <td rowspan="@x[i]">
+                                    @stt
+                                </td>
+                                <td rowspan="@x[i]">
+                                    <p style="font-weight: bold; margin: 0">Bản tin @stt</p>
+                                </td>
+                                <td>
+                                    @Model[i].kien_nghi
+                                </td>
+                                <td rowspan="@x[i]">
+                                    @Model[i].created_at.ToString("HH:mm dd-MM-yyyy")
+                                </td>
+                                <td rowspan="@x[i]">
+                                    <a href="#"><i class="glyphicon glyphicon-list-alt"></i></a>
+                                    <a href="#"><i class="glyphicon glyphicon-download-alt"></i></a>
+                                </td>
+                            </tr>
+                            tuVanRef = Model[i - 1].tu_van_ref;
+                        }
+                        else
+                        {
+                            stt = stt + 1;
+                            <tr>
+                                <td>
+                                    @stt
+                                </td>
+                                <td>
+                                    <p style="font-weight: bold; margin: 0">Bản tin @stt </p>
+                                </td>
+                                <td>
+                                    @Model[i - 1].kien_nghi
+                                </td>
+                                <td>@Model[i - 1].created_at.ToString("HH:mm dd-MM-yyyy")</td>
+                                <td>
+                                    <a href="#"><i class="glyphicon glyphicon-list-alt"></i></a>
+                                    <a href="#"><i class="glyphicon glyphicon-download-alt"></i></a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                }
+            }
+        </table>
+    </div>
+}

@@ -1,0 +1,4 @@
+E:\OneDrive\CWRS\4.QuyTrinhVanHanhLienHoChua\CodeWeb\Cwrs.Lib\obj\x86\Debug\Cwrs.Lib.csprojResolveAssemblyReference.cache
+E:\OneDrive\CWRS\4.QuyTrinhVanHanhLienHoChua\CodeWeb\Cwrs.Lib\obj\x86\Debug\Cwrs.Lib.Resources.Global.resources
+E:\OneDrive\CWRS\4.QuyTrinhVanHanhLienHoChua\CodeWeb\Cwrs.Lib\obj\x86\Debug\Cwrs.Lib.Resources.Global.fr.resources
+E:\OneDrive\CWRS\4.QuyTrinhVanHanhLienHoChua\CodeWeb\Cwrs.Lib\obj\x86\Debug\Cwrs.Lib.csproj.GenerateResource.Cache

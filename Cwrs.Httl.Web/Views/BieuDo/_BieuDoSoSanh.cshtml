@@ -1,0 +1,57 @@
+﻿@using Cwrs.DataBase.Models; @{
+    ViewBag.Title = "Biểu đồ so sanh giá trị thực đo và giá trị tính toán mực nước";
+    if (Request.IsAjaxRequest())
+    {
+        Layout = null;
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_LayoutClipTwo.cshtml";
+    }
+}
+
+<link href="~/Content/BieuDo/BieuDo.css?v=201611071047" rel="stylesheet" />
+<div class="form-horizontal  col-sm-12" style="margin: 10px auto;padding-top: 3px;">
+    <div class="col-sm-4 col-xs-6" style="">
+        <b>Thời gian bắt đầu:</b>
+        @(Html.Kendo().DatePicker().Name("fromDate").Value(DateTime.Now.AddDays(-2)).HtmlAttributes(new { style = "150px" }))
+    </div>
+    <div class="col-sm-4 col-xs-6" style="margin-left:-1%">
+        <b>Thời gian kết thúc:</b>
+        @(Html.Kendo().DatePicker().Name("toDate").Value(DateTime.Now).HtmlAttributes(new { style = "150px" }))
+    </div>
+    <div class="col-sm-3 col-xs-6" style="padding-top: 3px;margin-left:-1%">
+        <b>Chọn Hồ:</b>
+        <select id="viTriCode" class="js-example-basic-single" style="text-decoration-color: red;">
+            <option selected value="1">Hồ Sơn La</option>
+            <option value="2">Hồ Hòa Bình</option>
+            <option value="3">Hồ Tuyên Quang</option>
+        </select>
+    </div>
+    <div class="col-sm-1 col-xs-6" style="margin-left: -1%;">
+        <button style="float: left" type="button" class="btn btn-primary" onclick="BieuDo.SoSanh()">Xem</button>
+    </div>
+</div>
+
+<center><h2><b><br /><br /> SO SÁNH GIÁ TRỊ THỰC ĐO VÀ GIÁ TRỊ TÍNH TOÁN MỰC NƯỚC HỒ</b> </h2></center>
+<div>
+    <div id="chartdiv" style="width: 95%;margin-left: 3%; height: 300px"></div>
+    <div id="legenddiv" style="width: 95%;margin-left: 3%;position: relative;"></div>
+</div>
+<center>
+    <div style="margin-left:0.5%" id="tableSoSanh">
+    </div>
+</center>
+<script src="~/Scripts/moment.js"></script>
+<script src="~/Scripts/amcharts/amcharts.js"></script>
+<script src="~/Scripts/amcharts/serial.js"></script>
+<script src="~/Scripts/amcharts/light.js"></script>
+<script src="~/Scripts/BieuDo/bieudo.js"></script>
+<script>
+    //if ($("#chartdiv").text() == '') {
+    //    $("#chartdiv").empty();
+    //    $("#chartdiv").html("<br /><br /><center><h1 style='color:lightgray;'><b> Biểu Đồ <br /> Không Có Dữ Liệu</b></h1></center>");
+    //}     $(document).ready(function () {
+        $(".js-example-basic-single").select2();
+        BieuDo.SoSanh();
+    }); </script>

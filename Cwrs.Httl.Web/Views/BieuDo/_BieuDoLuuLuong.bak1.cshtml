@@ -1,0 +1,74 @@
+﻿@using System.Web.Script.Serialization
+@using Cwrs.DataBase.Models;
+@model List<LuuLuongDenHo>
+@{
+    ViewBag.Title = "Biểu đồ lưu lượng đến hồ";
+    Layout = null;
+}
+<link href="~/Content/BieuDo/BieuDo.css?v=201611071025" rel="stylesheet" />
+
+
+<div class="form-horizontal">
+    <div class="col-sm-12" style="width: 100%; max-height:10%; padding-left: 30px; margin: 10px auto 15px auto;">
+        <div style="width:25%;float:left">
+            <b style="min-height:24%">Chọn Hồ:</b>
+            <select id="tenHo" name="tenHo" class="js-example-basic-single" style="text-decoration-color:red;height:2%;width:76%">
+                <option selected value="1">Hồ Sơn La</option>
+                <option value="2">Hồ Tuyên Quang</option>
+                <option value="3">Hồ Hòa Bình</option>
+            </select>
+        </div>
+        <div style="width:24%;float:left;margin-left:2.6%">
+            <b style="min-width:60%;float:left;margin-top: 2%;">Thời gian phát dự báo:</b>
+            <div style="width:40%;float:left" class="k-content" id="">
+                @(Html.Kendo().DatePicker()
+                            .Name("thoiGianBatDau")
+                            .Value(DateTime.Now)
+                            .HtmlAttributes(new { style = "width:150px" }))
+
+            </div>
+        </div>
+        <div style="width:19%;float:left; margin-left:8.5%">
+            <b style="min-width:60%;float:left;margin-top:1.8%">Thời gian dự báo:</b>
+            <select id="khoangTG" name="khoangTG" class="js-example-basic-single" style="text-decoration-color:red;min-width:30%;float:left">
+                <option selected value="24">24h</option>
+                <option value="36">36h</option>
+                <option value="48">48h</option>
+            </select>
+        </div>
+        <div style="width:8%;float:left">
+            <button type="button" style="height:30px" onclick="BieuDo.LuuLuong(); LayGio()" class="btn btn-primary">Xem</button>
+        </div>
+    </div>
+</div>
+<div class="col-sm-12 col-xs-12">
+
+    <center><h2><span><b> BIỂU ĐỒ DIỄN BIẾN LƯU LƯỢNG ĐẾN HỒ <b id="gio"></b> GIỜ TỚI</b> </span></h2></center>
+    <div>
+        <div id="chartdiv" style="width: 95%;margin-left: 3%; height: 300px; border: 1px solid black"></div>
+        <div id="legenddiv" style="margin: 5px 0 20px 0;position: relative;"></div>
+    </div>                 <center>
+        <div id="tableLuuLuongDenHo">
+        </div>
+    </center>
+    <div class="table-responsive" id="movie_grid"></div>
+    </div>
+    <script>
+        document.getElementById('gio').innerHTML = document.getElementById('khoangTG').value;
+        function LayGio() {
+            document.getElementById('gio').innerHTML = document.getElementById('khoangTG').value;
+        }
+    </script>
+    @section scriptsTop{
+
+    }
+    <script src="~/Scripts/moment.js"></script>
+    <script src="~/Scripts/amcharts/amcharts.js"></script>
+    <script src="~/Scripts/amcharts/serial.js"></script>
+    <script src="~/Scripts/amcharts/light.js"></script>
+    <script src="~/Scripts/BieuDo/bieudo.js"></script>
+
+    <script>
+         $(document).ready(function () {
+            $(".js-example-basic-single").select2();             BieuDo.LuuLuong(); LayGio();
+        }); </script>

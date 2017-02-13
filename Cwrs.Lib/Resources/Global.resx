@@ -1,0 +1,375 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="BangThoiGianThuc_QuanTracHoChua" xml:space="preserve">
+    <value>Quan trắc hồ chứa</value>
+  </data>
+  <data name="BangThoiGianThuc_Title" xml:space="preserve">
+    <value>Thông tin quan trắc tổng hợp dữ liệu thời gian thực</value>
+  </data>
+  <data name="Common_BaoDong" xml:space="preserve">
+    <value>BĐ</value>
+  </data>
+  <data name="Common_ChiTiet" xml:space="preserve">
+    <value>Chi tiết</value>
+  </data>
+  <data name="Common_InBaoCao" xml:space="preserve">
+    <value>In báo cáo</value>
+  </data>
+  <data name="Common_MucNuoc" xml:space="preserve">
+    <value>MN(m)</value>
+  </data>
+  <data name="Common_NhapTuKhoa" xml:space="preserve">
+    <value>Nhập từ khóa</value>
+  </data>
+  <data name="Common_QDen" xml:space="preserve">
+    <value>Q đến&lt;/br&gt;(m&lt;sup&gt;3&lt;/sup&gt;/s)</value>
+  </data>
+  <data name="Common_QXa" xml:space="preserve">
+    <value>Q xả&lt;/br&gt;(m&lt;sup&gt;3&lt;/sup&gt;/s)</value>
+  </data>
+  <data name="Common_Report" xml:space="preserve">
+    <value>Báo cáo</value>
+  </data>
+  <data name="Common_SoSanh" xml:space="preserve">
+    <value>So sánh</value>
+  </data>
+  <data name="Common_STT" xml:space="preserve">
+    <value>STT</value>
+  </data>
+  <data name="Common_TenHo" xml:space="preserve">
+    <value>Tên hồ</value>
+  </data>
+  <data name="Common_ThoiGian" xml:space="preserve">
+    <value>Thời gian</value>
+  </data>
+  <data name="Common_TimKiem" xml:space="preserve">
+    <value>Tìm kiếm</value>
+  </data>
+  <data name="Home_DangKy" xml:space="preserve">
+    <value>Đăng ký</value>
+  </data>
+  <data name="Home_DangNhap" xml:space="preserve">
+    <value>Đăng nhập</value>
+  </data>
+  <data name="Home_HeThongThongTin" xml:space="preserve">
+    <value>HỆ THỐNG THÔNG TIN</value>
+  </data>
+  <data name="Home_HeThongThongTinQuanLyCongTrinhThuyLoiVietNam" xml:space="preserve">
+    <value>HỆ THỐNG THÔNG TIN QUẢN LÝ CÔNG TRÌNH THỦY LỢI VIỆT NAM</value>
+  </data>
+  <data name="Home_NhapTenHoCanTim" xml:space="preserve">
+    <value>Nhập tên hồ cần tìm...</value>
+  </data>
+  <data name="Home_PhongChongLutBaoTrungUong" xml:space="preserve">
+    <value>TRUNG ƯƠNG VỀ PHÒNG, CHỐNG THIÊN TAI</value>
+  </data>
+  <data name="Home_QuanLyCongTrinhThuyLoiVietNam" xml:space="preserve">
+    <value>QUẢN LÝ CÔNG TRÌNH THỦY LỢI VIỆT NAM</value>
+  </data>
+  <data name="Home_TheoHeThongThuyNong" xml:space="preserve">
+    <value>Theo Httn</value>
+  </data>
+  <data name="Home_TheoLuuVuc" xml:space="preserve">
+    <value>Theo Lưu vực</value>
+  </data>
+  <data name="Home_TheoTinh" xml:space="preserve">
+    <value>Theo Tỉnh</value>
+  </data>
+  <data name="Home_VanPhongThuongTrucBanChiHuy" xml:space="preserve">
+    <value>VĂN PHÒNG THƯỜNG TRỰC BAN CHỈ ĐẠO</value>
+  </data>
+  <data name="Home_VanPhongThuongTrucBanChiHuyPhongChongLutBaoTrungUong" xml:space="preserve">
+    <value>VĂN PHÒNG THƯỜNG TRỰC BAN CHỈ ĐẠO TRUNG ƯƠNG VỀ PHÒNG, CHỐNG THIÊN TAI</value>
+  </data>
+  <data name="Menu_BaoCao" xml:space="preserve">
+    <value>Báo cáo</value>
+  </data>
+  <data name="Menu_BaoCao_BaoCaoChung" xml:space="preserve">
+    <value>Báo cáo chung</value>
+  </data>
+  <data name="Menu_BaoCao_BaoCaoMuaGio" xml:space="preserve">
+    <value>Báo cáo mưa giờ</value>
+  </data>
+  <data name="Menu_BaoCao_BaoCaoMuaNgay" xml:space="preserve">
+    <value>Báo cáo mưa ngày</value>
+  </data>
+  <data name="Menu_BaoCao_BaoCaoMuaTran" xml:space="preserve">
+    <value>Báo cáo mưa trận</value>
+  </data>
+  <data name="Menu_DanhMuc" xml:space="preserve">
+    <value>Danh mục</value>
+  </data>
+  <data name="Menu_HoChua" xml:space="preserve">
+    <value>Hồ chứa</value>
+  </data>
+  <data name="Menu_HoChua_CongTrinhDap" xml:space="preserve">
+    <value>Công trình đập</value>
+  </data>
+  <data name="Menu_HoChua_CongTrinhLu" xml:space="preserve">
+    <value>Công trình xả lũ</value>
+  </data>
+  <data name="Menu_HoChua_ThongTinChung" xml:space="preserve">
+    <value>Thông tin chung</value>
+  </data>
+  <data name="Menu_HoSoCongTrinh" xml:space="preserve">
+    <value>Hồ sơ công trình</value>
+  </data>
+  <data name="Menu_NhapLieu" xml:space="preserve">
+    <value>Nhập liệu</value>
+  </data>
+  <data name="Menu_NhapLieu_DuLieuDoThuCong" xml:space="preserve">
+    <value>Dữ liệu đo thủ công</value>
+  </data>
+  <data name="Menu_NhapLieu_QuanLyTinNhanSMS" xml:space="preserve">
+    <value>Quản lý tin nhắn SMS</value>
+  </data>
+  <data name="Menu_NhapLieu_ThongTinTinhHinhSanXuat" xml:space="preserve">
+    <value>Thông tin tình hình sản xuất</value>
+  </data>
+  <data name="Menu_QuanTri" xml:space="preserve">
+    <value>Quản trị</value>
+  </data>
+  <data name="Menu_QuanTri_NguoiDung" xml:space="preserve">
+    <value>Người dùng</value>
+  </data>
+  <data name="Menu_QuanTri_NhomNguoiDung" xml:space="preserve">
+    <value>Nhóm người dùng</value>
+  </data>
+  <data name="Menu_ThongTinDuBao" xml:space="preserve">
+    <value>Thông tin dự báo</value>
+  </data>
+  <data name="Menu_ThongTinQuanTracTongHop" xml:space="preserve">
+    <value>Thông tin quan trắc tổng hợp</value>
+  </data>
+  <data name="Menu_TroGiupSuDung" xml:space="preserve">
+    <value>Trợ giúp sử dụng</value>
+  </data>
+  <data name="Menu_TroGiupSuDung_ChuGiaiBanDo" xml:space="preserve">
+    <value>Chú giải bản đồ</value>
+  </data>
+  <data name="Menu_TroGiupSuDung_XemCamera" xml:space="preserve">
+    <value>Xem Camera</value>
+  </data>
+  <data name="_LakeGeneral_SoLieuQuanTracTucThoi" xml:space="preserve">
+    <value>Số liệu quan trắc tức thời</value>
+  </data>
+  <data name="BangThoiGianThuc_QuanTracChatLuongNuoc" xml:space="preserve">
+    <value>Quan trắc chất lượng nước</value>
+  </data>
+  <data name="BangThoiGianThuc_QuanTracLuongMua" xml:space="preserve">
+    <value>Quan trắc lượng mưa</value>
+  </data>
+  <data name="BangThoiGianThuc_QuanTracMucNuoc" xml:space="preserve">
+    <value>Quan trắc mực nước sông</value>
+  </data>
+  <data name="Common_CanhBao" xml:space="preserve">
+    <value>Cảnh&lt;/br&gt;báo</value>
+  </data>
+  <data name="Common_DoMan" xml:space="preserve">
+    <value>Độ mặn&lt;/br&gt;(‰)</value>
+  </data>
+  <data name="Common_DoManSoSanh" xml:space="preserve">
+    <value>So với 0.8 ‰&lt;/br&gt;(Mức tới hạn cây lúa)</value>
+  </data>
+  <data name="Common_TatCa" xml:space="preserve">
+    <value>Tất cả</value>
+  </data>
+  <data name="Common_TenTram" xml:space="preserve">
+    <value>Tên trạm</value>
+  </data>
+  <data name="Common_XuThe" xml:space="preserve">
+    <value>Xu&lt;/br&gt;thế</value>
+  </data>
+  <data name="CustomAsmLake_SoLieuQuanTracHo" xml:space="preserve">
+    <value>Số liệu quan trắc hồ</value>
+  </data>
+  <data name="Home_TheoSong" xml:space="preserve">
+    <value>Theo sông</value>
+  </data>
+  <data name="CustomAsmLake_Ho_DoMoCong" xml:space="preserve">
+    <value>Độ mở cống</value>
+  </data>
+  <data name="CustomAsmLake_Ho_DoMoCuaTranSo" xml:space="preserve">
+    <value>Độ mở cửa tràn số</value>
+  </data>
+  <data name="CustomAsmLake_Ho_DungTichHo" xml:space="preserve">
+    <value>Dung tích hồ</value>
+  </data>
+  <data name="CustomAsmLake_Ho_GhiChuMua7h" xml:space="preserve">
+    <value>Ghi chú: Lượng mưa được tính từ 7h sáng đến thời điểm hiện tại</value>
+  </data>
+  <data name="CustomAsmLake_Ho_LuuLuong" xml:space="preserve">
+    <value>Lưu lượng</value>
+  </data>
+  <data name="CustomAsmLake_Ho_LuuLuongDenHo" xml:space="preserve">
+    <value>Lưu lượng đến hồ</value>
+  </data>
+  <data name="CustomAsmLake_Ho_LuuLuongXaSo" xml:space="preserve">
+    <value>Lưu lượng xả số</value>
+  </data>
+  <data name="CustomAsmLake_Ho_MucNuocHo" xml:space="preserve">
+    <value>Mực nước hồ</value>
+  </data>
+  <data name="CustomAsmLake_Ho_MucNuocKenh" xml:space="preserve">
+    <value>Mực nước kênh</value>
+  </data>
+  <data name="CustomAsmLake_Ho_SoLieuQuanTracCongLayNuoc" xml:space="preserve">
+    <value>Số liệu quan trắc cống lấy nước</value>
+  </data>
+  <data name="CustomAsmLake_Ho_SoLieuQuanTracMua" xml:space="preserve">
+    <value>Số liệu quan trắc mưa</value>
+  </data>
+  <data name="CustomAsmLake_Ho_SoLieuQuanTracTran" xml:space="preserve">
+    <value>Số liệu quan trắc Tràn</value>
+  </data>
+  <data name="CustomAsmLake_Ho_TongLuuLuongXa" xml:space="preserve">
+    <value>Tổng lưu lượng xả</value>
+  </data>
+  <data name="CustomAsmLake_Ho_TramDauMoi" xml:space="preserve">
+    <value>Trạm đầu mối</value>
+  </data>
+  <data name="CustomAsmLake_Ho_TramDoMuaSo" xml:space="preserve">
+    <value>Trạm đo mưa số</value>
+  </data>
+  <data name="VucMau_TramDoMuaDauMoi" xml:space="preserve">
+    <value>Trạm mưa Vực Mấu</value>
+  </data>
+  <data name="VucMau_TramDoMuaSo1" xml:space="preserve">
+    <value>Trạm mưa Quỳnh Châu</value>
+  </data>
+  <data name="VucMau_TramDoMuaSo2" xml:space="preserve">
+    <value>Trạm mưa Nghĩa Hội</value>
+  </data>
+  <data name="VucMau_TramDoMuaSo3" xml:space="preserve">
+    <value>Trạm mưa Tân Thắng</value>
+  </data>
+  <data name="Menu_AnhHuongBoiNgapLut" xml:space="preserve">
+    <value>Đối phó với Bão và nước dâng</value>
+  </data>
+  <data name="Menu_BaoCao_TongHopDuLieuCongTrinh" xml:space="preserve">
+    <value>Báo cáo dữ liệu tổng hợp</value>
+  </data>
+  <data name="Menu_TinhHinhTieu" xml:space="preserve">
+    <value>Tình hình tiêu</value>
+  </data>
+  <data name="Menu_TinhHinhTuoi" xml:space="preserve">
+    <value>Tình hình tưới</value>
+  </data>
+</root>

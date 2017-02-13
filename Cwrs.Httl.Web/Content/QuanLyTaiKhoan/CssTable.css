@@ -1,0 +1,15 @@
+﻿ table, th, td {
+        border: 1px solid #0094ff;
+        border-collapse: collapse;
+        padding: 5px;
+        color: #000000;
+    }
+
+    th {
+        text-align: center;
+        background: #EEEEEE;
+    }
+
+    td {
+        text-align: center;
+    }

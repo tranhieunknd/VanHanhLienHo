@@ -1,0 +1,120 @@
+﻿@using Cwrs.DataBase.Models;  @{
+    ViewBag.Title = "Biểu đồ mực nước hạ lưu";
+    if (Request.IsAjaxRequest())
+    {
+        Layout = null;
+    }
+    int dem = ViewBag.soPA;
+}
+<link href="~/Content/BieuDo/BieuDo.css?v=201611071026" rel="stylesheet" />
+<script src="~/Scripts/moment.js"></script>
+<script src="~/Scripts/amcharts/amcharts.js"></script>
+<script src="~/Scripts/amcharts/serial.js"></script>
+<script src="~/Scripts/amcharts/light.js"></script>
+<script src="~/Scripts/BieuDo/bieudo.js"></script>
+<div class="form-horizontal">
+    <div class="col-sm-12" style="width: 100%;height:10%; padding-left: 10px; margin: 10px auto 15px auto;">
+        <div class="div-don-vi">
+            <b style="min-width:24%">Đơn vị:</b>
+            <select id="MNHL_donViCode" name="MNHL_donViCode" class="js-example-basic-single" style="text-decoration-color:red;height:2%;width:76%">
+                <option selected value="1">Trung tâm Khí tượng Thủy văn Trung Ương</option>
+                <option value="2">Viện Quy hoạch Thủy Lợi</option>
+                <option value="3">Viện Khoa học Thủy Lợi</option>
+                <option value="4">Đại học Thủy Lợi</option>
+                <option value="5">Viện Khí tượng Thủy văn</option>
+                <option value="6">Viện Cơ học</option>
+            </select>
+        </div>
+        <div class="div-thoi-gian">
+            <b style="min-width:60%;float:left;margin-top: 2%;">Thời gian phát dự báo:</b>
+            <div style="width:40%;float:left" class="k-content" id="">
+                @(Html.Kendo().DatePicker()
+                            .Name("MNHL_fromDate")
+                            .Value(DateTime.Now)
+                            .HtmlAttributes(new { style = "width:150px" }))
+
+            </div>
+        </div>
+        <div class="div-du-bao">
+            <b style="min-width:60%;float:left;margin-top:2.7%">Thời gian dự báo:</b>
+            <select id="MNHL_hours" name="MNHL_hours" onchange="phuongan()" class="js-example-basic-single" style="text-decoration-color:red;min-width:30%;float:left">
+                <option value="24">24h</option>
+                <option value="36">36h</option>
+                <option value="48">48h</option>
+            </select>
+        </div>
+        <div class="div-phuong-an">
+            <b style="min-width:49%;float:left;margin-top:2.7%">Phương án:</b>
+            <div>
+                <select id="MNHL_Cbphuongan" class="js-example-basic-single" style="text-decoration-color:red;width:51%;float:left">
+                    @{
+                        for (int i = 1; i <= dem; i++)
+                        {
+                            <option value=@i>Phương Án @i</option>
+                        }
+                    }
+                </select>
+            </div>
+        </div>
+        <div id="MNHL_btn" class="div-btn-xem">
+            <button type="button" @*style="height:30px"*@ onclick="BieuDo.MucNuocHaLuu(); myfunction(); LayGio()" class="btn btn-primary">Xem</button>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="col-sm-12 col-xs-12">
+    <center><h2><span><b> BIỂU ĐỒ DIỄN BIẾN MỰC NƯỚC ĐẾN <b id="gio_mnhl"></b> GIỜ TỚI</b> </span></h2></center>
+
+    <center id="chartdiv_mnhl" style="width: 95% ;height: 300px; border: 1px solid black"></center>
+    <div id="legenddiv" style="margin: 5px 0 20px 0;position: relative;"></div>
+
+    <center>
+        <div id="tableMucNuocHaLuu"></div>
+    </center>
+</div> <div class="table-responsive" id="movie_grid"></div>
+<script>
+    document.getElementById('gio_mnhl').innerHTML = document.getElementById('MNHL_hours').value;
+    function LayGio() {
+        document.getElementById('gio_mnhl').innerHTML = document.getElementById('MNHL_hours').value;
+    }
+    //function phuongan() {
+    var _seleclist = $('#MNHL_Cbphuongan');
+
+    if (_seleclist.value == null) {
+        _seleclist.innerHTML = "<option  value =1>Phương án 1</option>";
+        //var option = document.createElement("option");         //option.value = 1;         //option.text = "Phương án 1";         //_seleclist.add(option);
+ 
+    }     function myfunction() {
+
+        var data = {
+            ten_Dv: $("#MNHL_donViCode").val(),
+            thoiGianBD: $("#MNHL_fromDate").val()
+        };
+        console.log(data);
+
+
+         $.ajax({
+            type: "post",
+            data: data,
+            url: "BieuDo/Change_PA",
+            success: function (dt) {
+                console.log(dt);
+                console.log('vao changr cbb');
+                var _seleclist = $('#MNHL_Cbphuongan');
+
+                var str = "";
+
+                for (var i = 1 ; i <= dt; i++) {
+                    str += "<option  value =" + i + ">Phương án " + i + "</option>";
+                }
+                console.log(str)
+                _seleclist.html(str);
+            }
+        });
+    }     $(document).ready(function () {
+        $(".js-example-basic-single").select2();
+        BieuDo.MucNuocHaLuu(); LayGio();
+    });
+</script>

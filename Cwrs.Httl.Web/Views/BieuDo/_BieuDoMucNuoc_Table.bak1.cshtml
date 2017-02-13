@@ -1,0 +1,183 @@
+﻿@using System.Web.Script.Serialization
+@using Cwrs.DataBase.Models;
+@model List<MucNuoc>
+<table  class="tableBieuDo" style="width:95%;border:1px solid black">
+    <thead>
+        <tr colspan="9" style="background:#00e8ff;text-align:center">
+            <th style="width: 7%;text-align:center;color:black"><b>STT</b> </th>
+            <th style="width: 16%;text-align:center;color:black"><b>Thời gian</b></th>
+            <th style="width: 11%;text-align:center;color:black"><b>Mực nước quy trình <br/>(m)</b></th>
+            <th style="width: 11%;text-align:center;color:black"><b>Viện KHTL <br />(m)</b></th>
+            <th style="width: 11%;text-align:center;color:black"><b>ĐH Thủy lợi <br />(m)</b></th>
+            <th style="width: 11%;text-align:center;color:black"><b>Viện cơ học <br />(m)</b></th>
+            <th style="width: 11%;text-align:center;color:black"><b>KTTV TW <br />(m)</b></th>
+            <th style="width: 11%;text-align:center;color:black"><b>Viện QHTL <br />(m)</b></th>
+            <th style="width: 11%;text-align:center;color:black"><b>Viện KTTV <br />(m)</b></th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (int i = 0; i < Model.Count(); i++)
+        {
+            <tr colspan="9" style="text-align:center">
+                <th rowspan="@Model[i].rowspan" style="width: 7%;text-align:center;color:black;font-weight:normal">@(i + 1)</th>
+                <th rowspan="@Model[i].rowspan" style="width: 16%;text-align:center;color:black;font-weight:normal">@Model[i].thoi_gian.ToString("dd/MM/yyyy HH:mm")</th>
+                <th rowspan="@Model[i].rowspan" style="width: 11%;text-align:center;color:black;font-weight:normal">@Model[i].MucNuocQuyTrinh</th>
+                @{
+                    if (Model[i].mucNuoc_KHTL.Count > 1)
+                    {
+                        <th style="width: 11%;text-align:center;color:black;font-weight:normal">
+                            PA1: @Model[i].mucNuoc_KHTL[0]
+                        </th>
+                    }
+                    else
+                    {
+                        if (Model[i].mucNuoc_KHTL.Count == 1)
+                        {
+                            <th rowspan="@Model[i].rowspan" style="width: 11%;text-align:center;color:black;font-weight:normal">
+                                PA1: @Model[i].mucNuoc_KHTL[0]
+                            </th>
+                        }
+                        else
+                        {
+                            <th rowspan="@Model[i].rowspan" style="width: 11%;text-align:center;color:black;font-weight:normal"></th>
+                        }
+                    }
+                }
+                @{
+                    if (Model[i].mucNuoc_DHTL.Count > 1)
+                    {
+                        <th style="width: 11%;text-align:center;color:black;font-weight:normal">
+                            PA1: @Model[i].mucNuoc_DHTL[0]
+                        </th>
+                    }
+                    else
+                    {
+                        if (Model[i].mucNuoc_DHTL.Count == 1)
+                        {
+                            <th rowspan="@Model[i].rowspan" style="width: 11%;text-align:center;color:black;font-weight:normal">
+                                PA1: @Model[i].mucNuoc_DHTL[0]
+                            </th>
+                        }
+                        else
+                        {
+                            <th rowspan="@Model[i].rowspan" style="width: 11%;text-align:center;color:black;font-weight:normal"></th>
+                        }
+                    }
+                }
+                @{
+                    if (Model[i].mucNuoc_VCH.Count > 1)
+                    {
+                        <th style="width: 11%;text-align:center;color:black;font-weight:normal">
+                            PA1: @Model[i].mucNuoc_VCH[0]
+                        </th>
+                    }
+                    else
+                    {
+                        if (Model[i].mucNuoc_VCH.Count == 1)
+                        {
+                            <th rowspan="@Model[i].rowspan" style="width: 11%;text-align:center;color:black;font-weight:normal">
+                                PA1: @Model[i].mucNuoc_VCH[0]
+                            </th>
+                        }
+                        else
+                        {
+                            <th rowspan="@Model[i].rowspan" style="width: 11%;text-align:center;color:black;font-weight:normal"></th>
+                        }
+                    }
+                }
+                @{
+                    if (Model[i].mucNuoc_KTTVTW.Count > 1)
+                    {
+                        <th style="width: 11%;text-align:center;color:black;font-weight:normal">
+                            PA1: @Model[i].mucNuoc_KTTVTW[0]
+                        </th>
+                    }
+                    else
+                    {
+                        if (Model[i].mucNuoc_KTTVTW.Count == 1)
+                        {
+                            <th rowspan="@Model[i].rowspan" style="width: 11%;text-align:center;color:black;font-weight:normal">
+                                PA1: @Model[i].mucNuoc_KTTVTW[0]
+                            </th>
+                        }
+                        else
+                        {
+                            <th rowspan="@Model[i].rowspan" style="width: 11%;text-align:center;color:black;font-weight:normal"></th>
+                        }
+                    }
+                }
+                @{
+                    if (Model[i].mucNuoc_VQHTL.Count > 1)
+                    {
+                        <th style="width: 11%;text-align:center;color:black;font-weight:normal">
+                            PA1: @Model[i].mucNuoc_VQHTL[0]
+                        </th>
+                    }
+                    else
+                    {
+                        if (Model[i].mucNuoc_VQHTL.Count == 1)
+                        {
+                            <th rowspan="@Model[i].rowspan" style="width: 11%;text-align:center;color:black;font-weight:normal">
+                                PA1: @Model[i].mucNuoc_VQHTL[0]
+                            </th>
+                        }
+                        else
+                        {
+                            <th rowspan="@Model[i].rowspan" style="width: 11%;text-align:center;color:black;font-weight:normal"></th>
+                        }
+                    }
+                }
+                @{
+                    if (Model[i].mucNuoc_KTTV.Count > 1)
+                    {
+                        <th style="width: 11%;text-align:center;color:black;font-weight:normal">
+                            PA1: @Model[i].mucNuoc_KTTV[0]
+                        </th>
+                    }
+                    else
+                    {
+                        if (Model[i].mucNuoc_KTTV.Count == 1)
+                        {
+                            <th rowspan="@Model[i].rowspan" style="width: 11%;text-align:center;color:black;font-weight:normal">
+                                PA1: @Model[i].mucNuoc_KTTV[0]
+                            </th>
+                        }
+                        else
+                        {
+                            <th rowspan="@Model[i].rowspan" style="width: 11%;text-align:center;color:black;font-weight:normal"></th>
+                        }
+                    }
+                }
+            </tr>
+                    for (int j = 1; j < Model[i].rowspan; j++)
+                    {
+                        <tr colspan="8" style="text-align:center">
+                            @if (Model[i].mucNuoc_KHTL.Count > j)
+                    {
+                                <th style="width: 11%;text-align:center;color:black;font-weight:normal">PA@(j + 1): @Model[i].mucNuoc_KHTL[j]</th>
+                            }
+                            @if (Model[i].mucNuoc_DHTL.Count > j)
+                    {
+                                <th style="width: 11%;text-align:center;color:black;font-weight:normal">PA@(j + 1): @Model[i].mucNuoc_DHTL[j]</th>
+                            }
+                            @if (Model[i].mucNuoc_VCH.Count > j)
+                    {
+                                <th style="width: 11%;text-align:center;color:black;font-weight:normal">PA@(j + 1): @Model[i].mucNuoc_VCH[j]</th>
+                            }
+                            @if (Model[i].mucNuoc_KTTVTW.Count > j)
+                    {
+                                <th style="width: 11%;text-align:center;color:black;font-weight:normal">PA@(j + 1): @Model[i].mucNuoc_KTTVTW[j]</th>
+                            }
+                            @if (Model[i].mucNuoc_VQHTL.Count > j)
+                    {
+                                <th style="width: 11%;text-align:center;color:black;font-weight:normal">PA@(j + 1): @Model[i].mucNuoc_VQHTL[j]</th>
+                            }
+                            @if (Model[i].mucNuoc_KTTV.Count > j)
+                    {
+                                <th style="width: 11%;text-align:center;color:black;font-weight:normal">PA@(j + 1): @Model[i].mucNuoc_KTTV[j]</th>
+                            }
+                        </tr>
+                        }
+                    }
+    </tbody>
+</table>

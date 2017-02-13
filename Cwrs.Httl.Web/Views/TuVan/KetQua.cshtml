@@ -1,0 +1,99 @@
+﻿@{
+    ViewBag.Title = "KetQua";
+    Layout = "~/Views/Shared/_LayoutClipTwo.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        button {
+            width: 100px;
+        }
+
+        #table-wrapper {
+            position: relative;
+        }
+
+        #table-scroll {
+            height: 150px;
+            overflow: auto;
+            margin-top: 20px;
+        }
+
+        #table-wrapper table {
+            width: 100%;
+        }
+
+            #table-wrapper table * {
+                background: yellow;
+                color: black;
+            }
+
+            #table-wrapper table thead th .text {
+                position: absolute;
+                top: -20px;
+                z-index: 2;
+                height: 20px;
+                width: 35%;
+                border: 1px solid red;
+            }
+
+        #products-table {
+            width: 200px;
+            height: 400px;
+            overflow: auto;
+        }
+
+        tbody {
+            width: 200px;
+            height: 400px;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="col-sm-12">
+        <div class="col-sm-12" style="margin-top:15px;">
+            <button type="button" class="btn btn-primary">Thêm mới</button>
+            <button type="button" class="btn btn-primary">Sửa</button>
+            <button type="button" class="btn btn-primary">Xóa</button>
+            <button type="button" class="btn btn-primary">Xem tất cả</button>
+            <button type="button" class="btn btn-primary">In</button>
+        </div>
+        <div class="col-sm-12">
+            <table style="border:2px solid" cellpadding:4px>
+                <tr>
+                    <th colspan=2>Production</th>
+                </tr>
+                <tr>
+                    <td>Raha Mutisya</td>
+                    <td>1493</td>
+                </tr>
+                <tr>
+                    <td>Shalom Buraka</td>
+                    <td>3829</td>
+                </tr>
+                <tr>
+                    <td>Brandy Davis</td>
+                    <td>0283</td>
+                </tr>
+                <tr>
+                    <th colspan=2>Sales</th>
+                </tr>
+                <tr>
+                    <td>Claire Horne</td>
+                    <td>4827</td>
+                </tr>
+                <tr>
+                    <td>Bruce Eckel</td>
+                    <td>7246</td>
+                </tr>
+                <tr>
+                    <td>Danny Zeman</td>
+                    <td>5689</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
